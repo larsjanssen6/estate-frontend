@@ -31,5 +31,5 @@ function requireAuth (to, from, next) {
 }
 
 function loggedIn() {
-    return localStorage.token !== null;
+    return localStorage.token !== undefined;
 }
