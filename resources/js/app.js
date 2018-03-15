@@ -3,6 +3,7 @@ import Login from './components/Login.vue'
 import Home from './components/Home.vue'
 
 window.Vue = require('vue');
+
 Vue.use(VueRouter);
 
 // Check the user's auth status when the app starts
@@ -33,3 +34,4 @@ function requireAuth (to, from, next) {
 function loggedIn() {
     return localStorage.token !== undefined;
 }
+
