@@ -4,33 +4,17 @@
             <thead>
             <tr>
                 <th class="py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">Naam</th>
-                <th class="py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">Supported?</th>
+                <th class="py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">Achternaam</th>
+                <th class="py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">Woonplaats</th>
+                <th class="py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">Lid sinds</th>
             </tr>
             </thead>
             <tbody>
-            <tr class="hover:bg-blue-lightest">
-                <td class="py-4 px-6 border-b border-grey-light">Conversations</td>
-                <td class="py-4 px-6 border-b border-grey-light text-center">❌</td>
-            </tr>
-            <tr class="hover:bg-blue-lightest">
-                <td class="py-4 px-6 border-b border-grey-light">Question-Buttons</td>
-                <td class="py-4 px-6 border-b border-grey-light text-center">❌</td>
-            </tr>
-            <tr class="hover:bg-blue-lightest">
-                <td class="py-4 px-6 border-b border-grey-light">Image Attachment</td>
-                <td class="py-4 px-6 border-b border-grey-light text-center">✅ </td>
-            </tr>
-            <tr class="hover:bg-blue-lightest">
-                <td class="py-4 px-6 border-b border-grey-light">Video Attachment</td>
-                <td class="py-4 px-6 border-b border-grey-light text-center">❌</td>
-            </tr>
-            <tr class="hover:bg-blue-lightest">
-                <td class="py-4 px-6 border-b border-grey-light">Audio Attachment</td>
-                <td class="py-4 px-6 border-b border-grey-light text-center">❌</td>
-            </tr>
-            <tr class="hover:bg-blue-lightest">
-                <td class="py-4 px-6 border-b border-grey-light">Location Attachment</td>
-                <td class="py-4 px-6 border-b border-grey-light text-center">❌</td>
+            <tr class="hover:bg-blue-lightest" v-for="user in users">
+                <td class="py-4 px-6 border-b border-grey-light">{{ user.first_name }}</td>
+                <td class="py-4 px-6 border-b border-grey-light">{{ user.surname }}</td>
+                <td class="py-4 px-6 border-b border-grey-light">{{ user.city }}</td>
+                <td class="py-4 px-6 border-b border-grey-light">{{ user.date_joined }}</td>
             </tr>
             </tbody>
         </table>
@@ -38,7 +22,19 @@
 </template>
 
 <script>
-    export default {
+    import axios from '../axios';
 
+    export default {
+        data() {
+            return {
+                users: []
+            }
+        },
+
+        created() {
+            axios.get('users').then(({data}) => {
+                this.users = data;
+            });
+        }
     }
 </script>

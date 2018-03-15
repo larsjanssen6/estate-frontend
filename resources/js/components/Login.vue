@@ -32,7 +32,7 @@
 </template>
 
 <script>
-    import Axios from 'axios';
+    import axios from '../axios';
 
     export default {
         data() {
@@ -48,7 +48,7 @@
 
         methods: {
             login() {
-                Axios.post('http://localhost:8080/token/generate-token', this.creds).then(({data}) => {
+                axios.post('token/generate-token', this.creds).then(({data}) => {
                     localStorage.setItem('token', data.token);
                     this.$router.push('/home');
                 }).catch((error) => {
