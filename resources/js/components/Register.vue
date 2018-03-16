@@ -16,7 +16,7 @@
                 <input type="text"
                        class="input w-full"
                        name="last_name"
-                       v-model="form.last_name"
+                       v-model="form.surname"
                        required
                        autofocus>
             </div>
@@ -104,8 +104,8 @@
             register() {
                 this.isLoading = true;
                 axios.post('signup', this.form).then(({data}) => {
-                    console.log(data);
                     this.isLoading = false;
+                    location.reload();
                 }).catch((error) => {
                     this.isLoading = false;
                 });
