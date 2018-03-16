@@ -1,10 +1,12 @@
 import VueRouter from 'vue-router';
 import Login from './components/Login.vue'
 import Home from './components/Home.vue'
+import VModal from 'vue-js-modal'
 
 window.Vue = require('vue');
 
 Vue.use(VueRouter);
+Vue.use(VModal);
 
 // Check the user's auth status when the app starts
 // auth.checkAuth()

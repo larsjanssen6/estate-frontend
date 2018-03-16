@@ -1,0 +1,11 @@
+.input {
+  @apply appearance-none;
+  @apply block;
+  @apply bg-grey-lighter;
+  @apply text-grey-darker;
+  @apply border;
+  @apply border-grey-lighter;
+  @apply rounded;
+  @apply py-3;
+  @apply px-4;
+}

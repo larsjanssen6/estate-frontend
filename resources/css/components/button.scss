@@ -1,0 +1,34 @@
+.btn-outlined {
+  @apply bg-transparent;
+  @apply text-teal;
+  @apply font-semibold;
+  @apply py-2;
+  @apply px-4;
+  @apply border;
+  @apply border-teal;
+  @apply rounded;
+
+  &:hover {
+    @apply border-transparent;
+    @apply text-white;
+    @apply bg-teal;
+  }
+}
+
+.btn-normal {
+  @apply bg-teal;
+  @apply text-white;
+  @apply font-semibold;
+  @apply py-2;
+  @apply px-4;
+  @apply border;
+  @apply border-teal;
+  @apply rounded;
+  @apply text-center;
+
+  &:hover {
+    @apply bg-white;
+    @apply text-teal;
+    @apply border-teal;
+  }
+}
