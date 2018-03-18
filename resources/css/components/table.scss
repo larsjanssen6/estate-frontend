@@ -1,0 +1,19 @@
+.th {
+  @apply py-4;
+  @apply px-6;
+  @apply bg-grey-lighter;
+  @apply font-sans;
+  @apply font-medium;
+  @apply uppercase;
+  @apply text-sm;
+  @apply text-grey;
+  @apply border-b;
+  @apply border-grey-light;
+}
+
+.tr {
+  @apply py-4;
+  @apply px-6;
+  @apply border-b;
+  @apply border-grey-light;
+}

@@ -5,21 +5,21 @@
         <table class="text-left m-4 w-full bg-white" style="border-collapse:collapse">
             <thead>
             <tr>
-                <th class="py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">Naam</th>
-                <th class="py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">Achternaam</th>
-                <th class="py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">Woonplaats</th>
-                <th class="py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">Lid sinds</th>
-                <th class="py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light">Opties</th>
+                <th class="th">Naam</th>
+                <th class="th">Achternaam</th>
+                <th class="th">Woonplaats</th>
+                <th class="th">Lid sinds</th>
+                <th class="th">Opties</th>
             </tr>
             </thead>
             <tbody>
                 <tr class="hover:bg-blue-lightest" v-for="user in users">
-                    <td class="py-4 px-6 border-b border-grey-light">{{ user.first_name }}</td>
-                    <td class="py-4 px-6 border-b border-grey-light">{{ user.surname }}</td>
-                    <td class="py-4 px-6 border-b border-grey-light">{{ user.city }}</td>
-                    <td class="py-4 px-6 border-b border-grey-light">{{ user.date_joined }}</td>
-                    <td class="py-4 px-6 border-b border-grey-light">
-                        <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="button" @click="showUser(user)">
+                    <td class="tr">{{ user.first_name }}</td>
+                    <td class="tr">{{ user.surname }}</td>
+                    <td class="tr">{{ user.city }}</td>
+                    <td class="tr">{{ user.date_joined }}</td>
+                    <td class="tr">
+                        <button class="btn-normal" type="button" @click="showUser(user)">
                             Bekijken
                         </button>
                     </td>
