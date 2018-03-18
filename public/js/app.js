@@ -3935,7 +3935,7 @@ var render = function() {
       _c(
         "table",
         {
-          staticClass: "text-left m-4 w-full",
+          staticClass: "text-left m-4 w-full bg-white",
           staticStyle: { "border-collapse": "collapse" }
         },
         [
