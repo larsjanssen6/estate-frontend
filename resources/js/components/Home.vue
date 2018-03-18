@@ -13,22 +13,22 @@
             </tr>
             </thead>
             <tbody>
-            <tr class="hover:bg-blue-lightest" v-for="user in users">
-                <td class="py-4 px-6 border-b border-grey-light">{{ user.first_name }}</td>
-                <td class="py-4 px-6 border-b border-grey-light">{{ user.surname }}</td>
-                <td class="py-4 px-6 border-b border-grey-light">{{ user.city }}</td>
-                <td class="py-4 px-6 border-b border-grey-light">{{ user.date_joined }}</td>
-                <td class="py-4 px-6 border-b border-grey-light">
-                    <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="button" @click="openUser(user.id); $modal.show('userdetails')">
-                        Bekijken
-                    </button>
-                </td>
-            </tr>
+                <tr class="hover:bg-blue-lightest" v-for="user in users">
+                    <td class="py-4 px-6 border-b border-grey-light">{{ user.first_name }}</td>
+                    <td class="py-4 px-6 border-b border-grey-light">{{ user.surname }}</td>
+                    <td class="py-4 px-6 border-b border-grey-light">{{ user.city }}</td>
+                    <td class="py-4 px-6 border-b border-grey-light">{{ user.date_joined }}</td>
+                    <td class="py-4 px-6 border-b border-grey-light">
+                        <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="button" @click="showUser(user)">
+                            Bekijken
+                        </button>
+                    </td>
+                </tr>
             </tbody>
         </table>
 
-        <register></register>
         <userdetails></userdetails>
+        <register></register>
     </div>
 </template>
 
@@ -54,9 +54,10 @@
                 this.users = data;
             });
         },
-        methods:{
-            openUser(id) {
-                localStorage.setItem('user',id);
+
+        methods: {
+            showUser(user) {
+                Bus.$emit('show-user', user);
             }
         }
     }

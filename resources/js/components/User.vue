@@ -1,5 +1,5 @@
 <template>
-    <modal name="userdetails" height="auto" :scrollable="true" @before-open="load">
+    <modal name="userdetails" height="auto" :scrollable="true">
         <div class="p-8">
             <h1>{{user.first_name}} {{user.surname}}
             </h1>
@@ -47,20 +47,19 @@
 </template>
 
 <script>
-    import axios from '../axios';
     export default {
+        mounted() {
+            Bus.$on('show-user', (user) => {
+                this.user = user;
+                this.$modal.show('userdetails');
+            });
+        },
+
         data() {
             return {
-                user: Object
+                user: {},
+                show: false
             }
-        },
-        methods:
-            {
-                load(){
-                    this.user = axios.get('users/' + localStorage.getItem('user')).then(({data}) => {
-                        this.user = data;
-                });
-                }
-            }
+        }
     }
 </script>
