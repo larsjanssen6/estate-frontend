@@ -1703,9 +1703,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
     },
 
+
     methods: {
-        openUser: function openUser(id) {
-            localStorage.setItem('user', id);
+        showUser: function showUser(user) {
+            Bus.$emit('show-user', user);
         }
     }
 });
@@ -1918,7 +1919,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__axios__ = __webpack_require__("./resources/js/axios.js");
 //
 //
 //
@@ -1967,25 +1967,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {
+        var _this = this;
+
+        Bus.$on('show-user', function (user) {
+            _this.user = user;
+            _this.$modal.show('userdetails');
+        });
+    },
     data: function data() {
         return {
-            user: Object
+            user: {},
+            show: false
         };
-    },
-
-    methods: {
-        load: function load() {
-            var _this = this;
-
-            this.user = __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].get('users/' + localStorage.getItem('user')).then(function (_ref) {
-                var data = _ref.data;
-
-                _this.user = data;
-            });
-        }
     }
 });
 
@@ -4011,10 +4007,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "modal",
-    {
-      attrs: { name: "userdetails", height: "auto", scrollable: true },
-      on: { "before-open": _vm.load }
-    },
+    { attrs: { name: "userdetails", height: "auto", scrollable: true } },
     [
       _c("div", { staticClass: "p-8" }, [
         _c("h1", [
@@ -4178,14 +4171,13 @@ var render = function() {
                         attrs: { type: "button" },
                         on: {
                           click: function($event) {
-                            _vm.openUser(user.id)
-                            _vm.$modal.show("userdetails")
+                            _vm.showUser(user)
                           }
                         }
                       },
                       [
                         _vm._v(
-                          "\n                    Bekijken\n                "
+                          "\n                        Bekijken\n                    "
                         )
                       ]
                     )
@@ -4197,9 +4189,9 @@ var render = function() {
         ]
       ),
       _vm._v(" "),
-      _c("register"),
+      _c("userdetails"),
       _vm._v(" "),
-      _c("userdetails")
+      _c("register")
     ],
     1
   )
@@ -18881,6 +18873,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_4_vuex__["a" /* default */]);
 // Check the user's auth status when the app starts
 // auth.checkAuth()
 
+window.Bus = new Vue();
 
 var routes = [{ path: '/', component: __WEBPACK_IMPORTED_MODULE_1__components_Login_vue___default.a, name: 'login' }, { path: '/home', component: __WEBPACK_IMPORTED_MODULE_2__components_Home_vue___default.a, name: 'home', beforeEnter: requireAuth }];
 
