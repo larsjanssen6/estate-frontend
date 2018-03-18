@@ -13,6 +13,7 @@ Vue.use(Vuex);
 // Check the user's auth status when the app starts
 // auth.checkAuth()
 
+window.Bus = new Vue();
 
 const routes = [
     { path: '/', component: Login, name: 'login' },
