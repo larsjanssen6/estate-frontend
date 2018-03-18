@@ -4135,54 +4135,37 @@ var render = function() {
             "tbody",
             _vm._l(_vm.users, function(user) {
               return _c("tr", { staticClass: "hover:bg-blue-lightest" }, [
-                _c(
-                  "td",
-                  { staticClass: "py-4 px-6 border-b border-grey-light" },
-                  [_vm._v(_vm._s(user.first_name))]
-                ),
+                _c("td", { staticClass: "tr" }, [
+                  _vm._v(_vm._s(user.first_name))
+                ]),
                 _vm._v(" "),
-                _c(
-                  "td",
-                  { staticClass: "py-4 px-6 border-b border-grey-light" },
-                  [_vm._v(_vm._s(user.surname))]
-                ),
+                _c("td", { staticClass: "tr" }, [_vm._v(_vm._s(user.surname))]),
                 _vm._v(" "),
-                _c(
-                  "td",
-                  { staticClass: "py-4 px-6 border-b border-grey-light" },
-                  [_vm._v(_vm._s(user.city))]
-                ),
+                _c("td", { staticClass: "tr" }, [_vm._v(_vm._s(user.city))]),
                 _vm._v(" "),
-                _c(
-                  "td",
-                  { staticClass: "py-4 px-6 border-b border-grey-light" },
-                  [_vm._v(_vm._s(user.date_joined))]
-                ),
+                _c("td", { staticClass: "tr" }, [
+                  _vm._v(_vm._s(user.date_joined))
+                ]),
                 _vm._v(" "),
-                _c(
-                  "td",
-                  { staticClass: "py-4 px-6 border-b border-grey-light" },
-                  [
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            _vm.showUser(user)
-                          }
+                _c("td", { staticClass: "tr" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn-normal",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.showUser(user)
                         }
-                      },
-                      [
-                        _vm._v(
-                          "\n                        Bekijken\n                    "
-                        )
-                      ]
-                    )
-                  ]
-                )
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        Bekijken\n                    "
+                      )
+                    ]
+                  )
+                ])
               ])
             })
           )
@@ -4203,50 +4186,15 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("thead", [
       _c("tr", [
-        _c(
-          "th",
-          {
-            staticClass:
-              "py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light"
-          },
-          [_vm._v("Naam")]
-        ),
+        _c("th", { staticClass: "th" }, [_vm._v("Naam")]),
         _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light"
-          },
-          [_vm._v("Achternaam")]
-        ),
+        _c("th", { staticClass: "th" }, [_vm._v("Achternaam")]),
         _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light"
-          },
-          [_vm._v("Woonplaats")]
-        ),
+        _c("th", { staticClass: "th" }, [_vm._v("Woonplaats")]),
         _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light"
-          },
-          [_vm._v("Lid sinds")]
-        ),
+        _c("th", { staticClass: "th" }, [_vm._v("Lid sinds")]),
         _vm._v(" "),
-        _c(
-          "th",
-          {
-            staticClass:
-              "py-4 px-6 bg-grey-lighter font-sans font-medium uppercase text-sm text-grey border-b border-grey-light"
-          },
-          [_vm._v("Opties")]
-        )
+        _c("th", { staticClass: "th" }, [_vm._v("Opties")])
       ])
     ])
   }
