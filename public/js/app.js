@@ -3560,7 +3560,25 @@ var render = function() {
     _c("div", { staticClass: "w-full max-w-xs" }, [
       _c(
         "form",
-        { staticClass: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" },
+        {
+          staticClass: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4",
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.login($event)
+            },
+            keydown: function($event) {
+              if (
+                !("button" in $event) &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              $event.preventDefault()
+              return _vm.login($event)
+            }
+          }
+        },
         [
           _c("div", { staticClass: "mb-4" }, [
             _c(
@@ -3642,32 +3660,7 @@ var render = function() {
               : _vm._e()
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "flex items-center justify-between" }, [
-            _c(
-              "button",
-              {
-                staticClass:
-                  "bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded",
-                attrs: { type: "button" },
-                on: { click: _vm.login }
-              },
-              [_vm._v("\n                    Login\n                ")]
-            ),
-            _vm._v(" "),
-            _c(
-              "a",
-              {
-                staticClass:
-                  "inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker",
-                attrs: { href: "#" }
-              },
-              [
-                _vm._v(
-                  "\n                    Wachtwoord vergeten?\n                "
-                )
-              ]
-            )
-          ])
+          _vm._m(0)
         ]
       ),
       _vm._v(" "),
@@ -3677,7 +3670,34 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex items-center justify-between" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded",
+          attrs: { type: "submit" }
+        },
+        [_vm._v("\n                    Login\n                ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass:
+            "inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker",
+          attrs: { href: "#" }
+        },
+        [_vm._v("\n                    Wachtwoord vergeten?\n                ")]
+      )
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
