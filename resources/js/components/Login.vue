@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-center mt-16">
         <div class="w-full max-w-xs">
-            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" @submit.prevent="login" @keydown.enter.prevent="login">
                 <div class="mb-4">
                     <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
                         Gebruikersnaam
@@ -16,7 +16,7 @@
                     <p class="text-red text-xs italic" v-if="wrong">Login gegevens zijn onjuist.</p>
                 </div>
                 <div class="flex items-center justify-between">
-                    <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="button" @click="login">
+                    <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded" type="submit">
                         Login
                     </button>
                     <a class="inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker" href="#">
