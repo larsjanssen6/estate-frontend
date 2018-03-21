@@ -1883,6 +1883,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -3794,24 +3804,57 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.form.profession,
-                  expression: "form.profession"
+                  value: _vm.form.profesion,
+                  expression: "form.profesion"
                 }
               ],
               staticClass: "input w-full",
               attrs: {
                 type: "text",
-                name: "profession",
+                name: "profesion",
                 required: "",
                 autofocus: ""
               },
-              domProps: { value: _vm.form.profession },
+              domProps: { value: _vm.form.profesion },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.form, "profession", $event.target.value)
+                  _vm.$set(_vm.form, "profesion", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-6" }, [
+            _c("label", { staticClass: "label mb-2" }, [
+              _vm._v("Geboortedatum")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.birthdate,
+                  expression: "form.birthdate"
+                }
+              ],
+              staticClass: "input w-full",
+              attrs: {
+                type: "date",
+                name: "birthdate",
+                required: "",
+                autofocus: ""
+              },
+              domProps: { value: _vm.form.birthdate },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "birthdate", $event.target.value)
                 }
               }
             })

@@ -75,8 +75,18 @@
                 <label class="label mb-2">Vakgebied</label>
                 <input type="text"
                        class="input w-full"
-                       name="profession"
-                       v-model="form.profession"
+                       name="profesion"
+                       v-model="form.profesion"
+                       required
+                       autofocus>
+            </div>
+			
+			<div class="mb-6">
+                <label class="label mb-2">Geboortedatum</label>
+                <input type="date"
+                       class="input w-full"
+                       name="birthdate"
+                       v-model="form.birthdate"
                        required
                        autofocus>
             </div>
