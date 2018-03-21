@@ -101,7 +101,8 @@
 
 <script>
     import axios from '../axios';
-
+	import moment from 'moment';
+	
     export default {
         data() {
             return {
@@ -109,6 +110,11 @@
                 isLoading: false
             }
         },
+		
+		created() {
+			alert('test');
+			this.form.birthdate = moment().format('ddmmjjjj');
+		},
 
         methods: {
             register() {

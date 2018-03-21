@@ -4870,10 +4870,6 @@ input {
   line-height: 1;
 }
 
-form.p-8 {
-  overflow-y: scroll !important;
-}
-
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;
