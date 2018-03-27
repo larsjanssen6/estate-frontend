@@ -35,7 +35,7 @@
 <script>
     import axios from '../axios';
     import register from './Register';
-    import userdetails from './User';
+    import userdetails from './user/User';
 
     export default {
         components: {
