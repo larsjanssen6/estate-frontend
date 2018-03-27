@@ -38,11 +38,8 @@
 <script>
     import axios from '../axios';
     import register from './Register';
-    import userdetails from './User';
-	import Vue from 'vue';
-	import VueSweetalert2 from 'vue-sweetalert2';
-	Vue.use(VueSweetalert2);
-	
+    import userdetails from './user/User';
+
     export default {
         components: {
             register,
@@ -71,11 +68,7 @@
                 }).catch((error) => {
                     this.wrong = true;
                 });
-			},
-			showAlert(){
-            // Use sweetalret2
-            this.$swal('Hello Vue world!!!');
-        }
+			}
         }
     }
 </script>
