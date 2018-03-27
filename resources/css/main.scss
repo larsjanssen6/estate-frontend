@@ -62,3 +62,9 @@
 @import '/components/label';
 @import '/components/loader';
 @import '/components/table';
+
+body {
+  input {
+    line-height: 1.0;
+  }
+}
