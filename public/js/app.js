@@ -1677,6 +1677,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -1707,6 +1710,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         showUser: function showUser(user) {
             Bus.$emit('show-user', user);
+        },
+        deleteUser: function deleteUser(user) {
+            var _this2 = this;
+
+            __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('users/deleteuser/' + user.id).then(function (_ref2) {
+                var data = _ref2.data;
+
+                location.reload();
+            }).catch(function (error) {
+                _this2.wrong = true;
+            });
         }
     }
 });
@@ -1793,6 +1807,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__axios__ = __webpack_require__("./resources/js/axios.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__("./node_modules/moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
+var _created$data$created;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1893,7 +1923,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = ({
+
+/* harmony default export */ __webpack_exports__["default"] = (_created$data$created = {
     created: function created() {
         this.form.birthdate = String(Moment.now());
     },
@@ -1902,25 +1933,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             form: {},
             isLoading: false
         };
-    },
-
-
-    methods: {
-        register: function register() {
-            var _this = this;
-
-            this.isLoading = true;
-            __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('signup', this.form).then(function (_ref) {
-                var data = _ref.data;
-
-                _this.isLoading = false;
-                location.reload();
-            }).catch(function (error) {
-                _this.isLoading = false;
-            });
-        }
     }
-});
+}, _defineProperty(_created$data$created, 'created', function created() {
+    alert('test');
+    this.form.birthdate = __WEBPACK_IMPORTED_MODULE_1_moment___default()().format('ddmmjjjj');
+}), _defineProperty(_created$data$created, 'methods', {
+    register: function register() {
+        var _this = this;
+
+        this.isLoading = true;
+        __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('signup', this.form).then(function (_ref) {
+            var data = _ref.data;
+
+            _this.isLoading = false;
+            location.reload();
+        }).catch(function (error) {
+            _this.isLoading = false;
+        });
+    }
+}), _created$data$created);
 
 /***/ }),
 
@@ -28487,24 +28518,57 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.form.profession,
-                  expression: "form.profession"
+                  value: _vm.form.profesion,
+                  expression: "form.profesion"
                 }
               ],
               staticClass: "input w-full",
               attrs: {
                 type: "text",
-                name: "profession",
+                name: "profesion",
                 required: "",
                 autofocus: ""
               },
-              domProps: { value: _vm.form.profession },
+              domProps: { value: _vm.form.profesion },
               on: {
                 input: function($event) {
                   if ($event.target.composing) {
                     return
                   }
-                  _vm.$set(_vm.form, "profession", $event.target.value)
+                  _vm.$set(_vm.form, "profesion", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-6" }, [
+            _c("label", { staticClass: "label mb-2" }, [
+              _vm._v("Geboortedatum")
+            ]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.birthdate,
+                  expression: "form.birthdate"
+                }
+              ],
+              staticClass: "input w-full",
+              attrs: {
+                type: "date",
+                name: "birthdate",
+                required: "",
+                autofocus: ""
+              },
+              domProps: { value: _vm.form.birthdate },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "birthdate", $event.target.value)
                 }
               }
             })
@@ -28912,9 +28976,23 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                        Bekijken\n                    "
+                        "\n                            Bekijken\n                        "
                       )
                     ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn-delete",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.deleteUser(user)
+                        }
+                      }
+                    },
+                    [_vm._v("\n\t\t\t\t\t\t\tVerwijderen\n\t\t\t\t\t\t")]
                   )
                 ])
               ])

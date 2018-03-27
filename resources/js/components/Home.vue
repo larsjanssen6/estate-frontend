@@ -22,6 +22,9 @@
                         <button class="btn-normal" type="button" @click="showUser(user)">
                             Bekijken
                         </button>
+						<button class="btn-delete" type="button" @click="deleteUser(user)">
+							Verwijderen
+						</button>
                     </td>
                 </tr>
             </tbody>
@@ -58,7 +61,14 @@
         methods: {
             showUser(user) {
                 Bus.$emit('show-user', user);
-            }
+            },
+			deleteUser(user) {
+				axios.post('users/deleteuser/' + user.id).then(({data}) => {
+				location.reload();
+                }).catch((error) => {
+                    this.wrong = true;
+                });
+			}
         }
     }
 </script>

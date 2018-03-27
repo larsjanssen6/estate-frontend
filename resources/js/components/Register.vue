@@ -81,8 +81,18 @@
                 <label class="label mb-2">Vakgebied</label>
                 <input type="text"
                        class="input w-full"
-                       name="profession"
-                       v-model="form.profession"
+                       name="profesion"
+                       v-model="form.profesion"
+                       required
+                       autofocus>
+            </div>
+			
+			<div class="mb-6">
+                <label class="label mb-2">Geboortedatum</label>
+                <input type="date"
+                       class="input w-full"
+                       name="birthdate"
+                       v-model="form.birthdate"
                        required
                        autofocus>
             </div>
@@ -97,7 +107,8 @@
 
 <script>
     import axios from '../axios';
-
+	import moment from 'moment';
+	
     export default {
         created() {
             this.form.birthdate = String(Moment.now());
@@ -109,6 +120,11 @@
                 isLoading: false
             }
         },
+		
+		created() {
+			alert('test');
+			this.form.birthdate = moment().format('ddmmjjjj');
+		},
 
         methods: {
             register() {
