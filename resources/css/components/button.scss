@@ -31,4 +31,23 @@
     @apply text-teal;
     @apply border-teal;
   }
+
+}
+.btn-delete {
+  @apply bg-red;
+  @apply text-white;
+  @apply font-semibold;
+  @apply py-2;
+  @apply px-4;
+  @apply border;
+  @apply border-teal;
+  @apply rounded;
+  @apply text-center;
+
+  &:hover {
+    @apply bg-white;
+    @apply text-teal;
+    @apply border-teal;
+  }
+
 }

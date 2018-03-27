@@ -57,7 +57,7 @@
 /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(__webpack_require__.s = 0);
@@ -1677,6 +1677,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -1707,6 +1710,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         showUser: function showUser(user) {
             Bus.$emit('show-user', user);
+        },
+        deleteUser: function deleteUser(user) {
+            var _this2 = this;
+
+            __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('users/deleteuser/' + user.id).then(function (_ref2) {
+                var data = _ref2.data;
+
+                location.reload();
+            }).catch(function (error) {
+                _this2.wrong = true;
+            });
         }
     }
 });
@@ -20708,9 +20722,23 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                        Bekijken\n                    "
+                        "\n                            Bekijken\n                        "
                       )
                     ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn-delete",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.deleteUser(user)
+                        }
+                      }
+                    },
+                    [_vm._v("\n\t\t\t\t\t\t\tVerwijderen\n\t\t\t\t\t\t")]
                   )
                 ])
               ])
