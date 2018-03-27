@@ -22,6 +22,12 @@
             </div>
 
             <div class="mb-6">
+                <label class="label mb-2">Geboortedatum</label>
+
+                <datetime v-model="form.birthdate" required></datetime>
+            </div>
+
+            <div class="mb-6">
                 <label class="label mb-2">Gebruikersnaam</label>
                 <input type="text"
                        class="input w-full"
@@ -93,6 +99,10 @@
     import axios from '../axios';
 
     export default {
+        created() {
+            this.form.birthdate = String(Moment.now());
+        },
+
         data() {
             return {
                 form: {},
