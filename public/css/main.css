@@ -4866,6 +4866,10 @@ button,
   border-color: #dae1e7;
 }
 
+body input {
+  line-height: 1;
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;
