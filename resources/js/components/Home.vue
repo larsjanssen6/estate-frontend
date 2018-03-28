@@ -15,13 +15,19 @@
             <tbody>
                 <tr class="hover:bg-blue-lightest" v-for="user in users">
                     <td class="tr">{{ user.first_name }}</td>
-                    <td class="tr">{{ user.surname }}</td>
+                    <td class="tr">{{ user.role_id }}</td>
                     <td class="tr">{{ user.city }}</td>
                     <td class="tr">{{ user.date_joined }}</td>
                     <td class="tr">
                         <button class="btn-normal" type="button" @click="showUser(user)">
                             Bekijken
                         </button>
+                            <button class="btn-delete" type="button" @click="deleteUser(user)">
+                                Verwijderen
+                            </button>
+                            <button class="btn-normal" type="button" @click="promoteUser(user)">
+                                Admin
+                            </button>
                     </td>
                 </tr>
             </tbody>
@@ -35,7 +41,7 @@
 <script>
     import axios from '../axios';
     import register from './Register';
-    import userdetails from './User';
+    import userdetails from './user/User';
 
     export default {
         components: {
@@ -58,7 +64,19 @@
         methods: {
             showUser(user) {
                 Bus.$emit('show-user', user);
-            }
+            },
+			deleteUser(user) {
+				axios.post('users/deleteuser/' + user.id).then(({data}) => {
+				location.reload();
+                }).catch((error) => {
+                    this.wrong = true;
+                });
+			},
+			promoteUser(user){
+                axios.post('/users/promoteuser', user).then((response) => {
+                    location.reload();
+            });
         }
-    }
+    }}
+
 </script>
