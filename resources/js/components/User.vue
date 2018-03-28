@@ -5,13 +5,13 @@
             </h1>
             <div class="mb-6">
                 <label class="label mb-2">Rol</label>
-                <div v-if="user.role_id === 0">
+                <div v-if="user.role === 0">
                     Potentiële commissielid
                 </div>
-                <div v-else-if="user.role_id === 1">
+                <div v-else-if="user.role === 1">
                     commissielid
                 </div>
-                <div v-else-if="user.role_id === 2">
+                <div v-else-if="user.role === 2">
                     Admin
                 </div>
             </div>

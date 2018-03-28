@@ -2,8 +2,9 @@
     <modal name="registration" height="auto" :scrollable="true">
         <form class="p-8" @submit.prevent="register()">
             <div class="mb-6">
-                <label class="label mb-2">Voornaam</label>
+                <label for="first_name" class="label mb-2">Voornaam</label>
                 <input type="text"
+                       id="first_name"
                        class="input w-full"
                        name="first_name"
                        v-model="form.first_name"
@@ -12,8 +13,9 @@
             </div>
 
             <div class="mb-6">
-                <label class="label mb-2">Achternaam</label>
+                <label for="last_name" class="label mb-2">Achternaam</label>
                 <input type="text"
+                       id="last_name"
                        class="input w-full"
                        name="last_name"
                        v-model="form.surname"
@@ -22,8 +24,9 @@
             </div>
 
             <div class="mb-6">
-                <label class="label mb-2">Gebruikersnaam</label>
+                <label for="username" class="label mb-2">Gebruikersnaam</label>
                 <input type="text"
+                       id="username"
                        class="input w-full"
                        name="username"
                        v-model="form.username"
@@ -32,8 +35,9 @@
             </div>
 
             <div class="mb-6">
-                <label class="label mb-2">Wachtwoord</label>
+                <label for="password" class="label mb-2">Wachtwoord</label>
                 <input type="password"
+                       id="password"
                        class="input w-full"
                        name="password"
                        v-model="form.password"
@@ -42,18 +46,25 @@
             </div>
 
             <div class="mb-6">
-                <label class="label mb-2">Adres</label>
+                <label class="label mb-2">Rol</label>
+                <v-select :options="[{label: 'Potentieel lid', value: 0}, {label: 'Lid', value: 1}, {label: 'Potentieel lid', value: 2}]"></v-select>
+            </div>
+
+            <div class="mb-6">
+                <label for="address" class="label mb-2">Adres</label>
                 <input type="text"
+                       id="address"
                        class="input w-full"
-                       name="city"
+                       name="address"
                        v-model="form.address"
                        required
                        autofocus>
             </div>
 
             <div class="mb-6">
-                <label class="label mb-2">Woonplaats</label>
+                <label for="city" class="label mb-2">Woonplaats</label>
                 <input type="text"
+                       id="city"
                        class="input w-full"
                        name="city"
                        v-model="form.city"
@@ -62,8 +73,9 @@
             </div>
 
             <div class="mb-6">
-                <label class="label mb-2">Postcode</label>
+                <label for="postcode" class="label mb-2">Postcode</label>
                 <input type="text"
+                       id="postcode"
                        class="input w-full"
                        name="zip"
                        v-model="form.zipcode"
@@ -72,18 +84,20 @@
             </div>
 
             <div class="mb-6">
-                <label class="label mb-2">Vakgebied</label>
+                <label for="profession" class="label mb-2">Vakgebied</label>
                 <input type="text"
+                       id="profession"
                        class="input w-full"
-                       name="profesion"
-                       v-model="form.profesion"
+                       name="profession"
+                       v-model="form.profession"
                        required
                        autofocus>
             </div>
 			
 			<div class="mb-6">
-                <label class="label mb-2">Geboortedatum</label>
+                <label for="birthdate" class="label mb-2">Geboortedatum</label>
                 <input type="date"
+                       id="birthdate"
                        class="input w-full"
                        name="birthdate"
                        v-model="form.birthdate"
@@ -102,7 +116,10 @@
 <script>
     import axios from '../axios';
 	import moment from 'moment';
-	
+    import Vue from 'vue'
+    import vSelect from 'vue-select'
+    Vue.component('v-select', vSelect)
+
     export default {
         data() {
             return {
