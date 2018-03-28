@@ -70,17 +70,36 @@
                 Bus.$emit('show-user', user);
             },
 			deleteUser(user) {
-				axios.post('users/deleteuser/' + user.id).then(({data}) => {
-				location.reload();
-                }).catch((error) => {
-                    this.wrong = true;
-                });
-			},
+                Vue.swal({
+                    title: 'Weet je dit zeker?',
+                    text: "Eenmaal verwijderd kan een gebruiker niet meer worden teruggehaald!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ja, delete deze gebruiker!'
+                }).then((result) => {
+                    if (result.value) {
+                        axios.post('users/deleteuser/' + user.id).then(({data}) => {
+                            location.reload();
+                        }).catch((error) => {
+                            this.wrong = true;
+                        });
+
+                        Vue.swal(
+                            'Gebruiker verwijderd!',
+                            '',
+                            'Voltooid'
+                        )
+                    }
+                })
+            },
 			promoteUser(user){
                 axios.post('/users/promoteuser', user).then((response) => {
                     location.reload();
             });
-        }
+        },
+
     }}
 
 </script>

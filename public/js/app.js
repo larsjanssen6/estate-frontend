@@ -1724,12 +1724,26 @@ __WEBPACK_IMPORTED_MODULE_3_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_vue_
         deleteUser: function deleteUser(user) {
             var _this2 = this;
 
-            __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('users/deleteuser/' + user.id).then(function (_ref2) {
-                var data = _ref2.data;
+            __WEBPACK_IMPORTED_MODULE_3_vue___default.a.swal({
+                title: 'Weet je dit zeker?',
+                text: "Eenmaal verwijderd kan een gebruiker niet meer worden teruggehaald!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ja, delete deze gebruiker!'
+            }).then(function (result) {
+                if (result.value) {
+                    __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('users/deleteuser/' + user.id).then(function (_ref2) {
+                        var data = _ref2.data;
 
-                location.reload();
-            }).catch(function (error) {
-                _this2.wrong = true;
+                        location.reload();
+                    }).catch(function (error) {
+                        _this2.wrong = true;
+                    });
+
+                    __WEBPACK_IMPORTED_MODULE_3_vue___default.a.swal('Gebruiker verwijderd!', '', 'Voltooid');
+                }
             });
         },
         promoteUser: function promoteUser(user) {
