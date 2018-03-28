@@ -1747,8 +1747,28 @@ __WEBPACK_IMPORTED_MODULE_3_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_vue_
             });
         },
         promoteUser: function promoteUser(user) {
-            __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('/users/promoteuser', user).then(function (response) {
-                location.reload();
+            var _this3 = this;
+
+            __WEBPACK_IMPORTED_MODULE_3_vue___default.a.swal({
+                title: 'Weet je dit zeker?',
+                text: "Je kan het niet meer ongedaan maken!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ja, maak dit gebruiker Admin!'
+            }).then(function (result) {
+                if (result.value) {
+                    __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('/users/promoteuser', user).then(function (response) {
+                        location.reload();
+                        __WEBPACK_IMPORTED_MODULE_3_vue___default.a.swal('Admin rechten overgebracht!', 'Voltooid');
+                    }).catch(function (error) {
+                        _this3.wrong = true;
+                        __WEBPACK_IMPORTED_MODULE_3_vue___default.a.swal({
+                            title: 'Je hebt geen toegang tot dit!'
+                        });
+                    });
+                }
             });
         }
     } });
@@ -1959,12 +1979,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
 
 
 
@@ -1978,12 +1992,12 @@ __WEBPACK_IMPORTED_MODULE_2_vue___default.a.component('v-select', __WEBPACK_IMPO
     },
     data: function data() {
         return {
+            options: [{ text: 'Potentieel lid', value: 'PotentialMember' }, { text: 'lid', value: 'Member' }],
             form: {},
             isLoading: false
         };
     }
 }, _defineProperty(_created$data$created, 'created', function created() {
-    alert('test');
     this.form.birthdate = __WEBPACK_IMPORTED_MODULE_1_moment___default()().format('ddmmjjjj');
 }), _defineProperty(_created$data$created, 'methods', {
     register: function register() {
@@ -2009,14 +2023,6 @@ __WEBPACK_IMPORTED_MODULE_2_vue___default.a.component('v-select', __WEBPACK_IMPO
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__axios__ = __webpack_require__("./resources/js/axios.js");
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2127,13 +2133,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__EditUser__ = __webpack_require__("./resources/js/components/user/EditUser.vue");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__EditUser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__EditUser__);
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -28625,16 +28624,20 @@ var render = function() {
                 _vm._v("Geboortedatum")
               ]),
               _vm._v(" "),
-              _c("datetime", {
-                attrs: { required: "" },
-                model: {
-                  value: _vm.form.birthdate,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "birthdate", $$v)
-                  },
-                  expression: "form.birthdate"
-                }
-              })
+              _c(
+                "datetime",
+                {
+                  attrs: { required: "" },
+                  model: {
+                    value: _vm.form.birthdate,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "birthdate", $$v)
+                    },
+                    expression: "form.birthdate"
+                  }
+                },
+                [_vm._v("Klik hier om keuze te maken")]
+              )
             ],
             1
           ),
@@ -28711,24 +28714,53 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "mb-6" },
-            [
-              _c("label", { staticClass: "label mb-2" }, [_vm._v("Rol")]),
-              _vm._v(" "),
-              _c("v-select", {
-                attrs: {
-                  options: [
-                    { label: "Potentieel lid", value: 0 },
-                    { label: "Lid", value: 1 },
-                    { label: "Potentieel lid", value: 2 }
-                  ]
+          _c("div", { staticClass: "mb-6" }, [
+            _c("label", { staticClass: "label mb-2" }, [_vm._v("Rol")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.role,
+                    expression: "form.role"
+                  }
+                ],
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.form,
+                      "role",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
                 }
+              },
+              _vm._l(_vm.options, function(option) {
+                return _c(
+                  "option",
+                  { staticClass: "w-full", domProps: { value: option.value } },
+                  [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(option.text) +
+                        "\n                "
+                    )
+                  ]
+                )
               })
-            ],
-            1
-          ),
+            )
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "mb-6" }, [
             _c(
@@ -28867,42 +28899,6 @@ var render = function() {
                     return
                   }
                   _vm.$set(_vm.form, "profession", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-6" }, [
-            _c(
-              "label",
-              { staticClass: "label mb-2", attrs: { for: "birthdate" } },
-              [_vm._v("Geboortedatum")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.birthdate,
-                  expression: "form.birthdate"
-                }
-              ],
-              staticClass: "input w-full",
-              attrs: {
-                type: "date",
-                id: "birthdate",
-                name: "birthdate",
-                required: "",
-                autofocus: ""
-              },
-              domProps: { value: _vm.form.birthdate },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.form, "birthdate", $event.target.value)
                 }
               }
             })
@@ -29137,40 +29133,14 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "flex" }, [
-                _vm.user.role_id === 0
-                  ? _c("div", [
-                      _c(
-                        "span",
-                        {
-                          staticClass:
-                            "flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3"
-                        },
-                        [_vm._v("Potentiële commissielid")]
-                      )
-                    ])
-                  : _vm.user.role_id === 1
-                    ? _c("div", [
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3"
-                          },
-                          [_vm._v("commissielid")]
-                        )
-                      ])
-                    : _vm.user.role_id === 2
-                      ? _c("div", [
-                          _c(
-                            "span",
-                            {
-                              staticClass:
-                                "flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3"
-                            },
-                            [_vm._v("Admin")]
-                          )
-                        ])
-                      : _vm._e()
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3"
+                  },
+                  [_vm._v(_vm._s(_vm.user.role))]
+                )
               ])
             ]),
             _vm._v(" "),
@@ -29195,8 +29165,8 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.user.profesion,
-                        expression: "user.profesion"
+                        value: _vm.user.profession,
+                        expression: "user.profession"
                       }
                     ],
                     staticClass: "input w-full",
@@ -29206,13 +29176,13 @@ var render = function() {
                       required: "",
                       autofocus: ""
                     },
-                    domProps: { value: _vm.user.profesion },
+                    domProps: { value: _vm.user.profession },
                     on: {
                       input: function($event) {
                         if ($event.target.composing) {
                           return
                         }
-                        _vm.$set(_vm.user, "profesion", $event.target.value)
+                        _vm.$set(_vm.user, "profession", $event.target.value)
                       }
                     }
                   })
@@ -29448,7 +29418,7 @@ var render = function() {
                   _vm._v(_vm._s(user.first_name))
                 ]),
                 _vm._v(" "),
-                _c("td", { staticClass: "tr" }, [_vm._v(_vm._s(user.role_id))]),
+                _c("td", { staticClass: "tr" }, [_vm._v(_vm._s(user.surname))]),
                 _vm._v(" "),
                 _c("td", { staticClass: "tr" }, [_vm._v(_vm._s(user.city))]),
                 _vm._v(" "),
@@ -29585,40 +29555,14 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "flex" }, [
-                _vm.user.role_id === 0
-                  ? _c("div", [
-                      _c(
-                        "span",
-                        {
-                          staticClass:
-                            "flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3"
-                        },
-                        [_vm._v("Potentiële commissielid")]
-                      )
-                    ])
-                  : _vm.user.role_id === 1
-                    ? _c("div", [
-                        _c(
-                          "span",
-                          {
-                            staticClass:
-                              "flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3"
-                          },
-                          [_vm._v("commissielid")]
-                        )
-                      ])
-                    : _vm.user.role_id === 2
-                      ? _c("div", [
-                          _c(
-                            "span",
-                            {
-                              staticClass:
-                                "flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3"
-                            },
-                            [_vm._v("Admin")]
-                          )
-                        ])
-                      : _vm._e()
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3"
+                  },
+                  [_vm._v(_vm._s(_vm.user.role))]
+                )
               ])
             ]),
             _vm._v(" "),
@@ -29626,7 +29570,7 @@ var render = function() {
               _c("label", { staticClass: "label mb-2" }, [_vm._v("Vakgebied")]),
               _vm._v(
                 "\n                " +
-                  _vm._s(_vm.user.profesion) +
+                  _vm._s(_vm.user.profession) +
                   "\n            "
               )
             ]),

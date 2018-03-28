@@ -10,20 +10,13 @@
                     </div>
 
                     <div class="flex">
-                        <div v-if="user.role_id === 0">
-                            <span class="flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3">Potentiële commissielid</span>
-                        </div>
-                        <div v-else-if="user.role_id === 1">
-                            <span class="flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3">commissielid</span>
-                        </div>
-                        <div v-else-if="user.role_id === 2">
-                            <span class="flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3">Admin</span>
-                        </div>
+                            <span class="flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3">{{user.role}}</span>
+
                     </div>
                 </div>
                 <div class="mb-6">
                     <label class="label mb-2">Vakgebied</label>
-                    {{user.profesion}}
+                    {{user.profession}}
                 </div>
                 <div class="mb-6">
                     <label class="label mb-2">Geboortedatum</label>

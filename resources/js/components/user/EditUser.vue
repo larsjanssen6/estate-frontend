@@ -9,15 +9,7 @@
                 </div>
 
                 <div class="flex">
-                    <div v-if="user.role_id === 0">
-                        <span class="flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3">Potentiële commissielid</span>
-                    </div>
-                    <div v-else-if="user.role_id === 1">
-                        <span class="flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3">commissielid</span>
-                    </div>
-                    <div v-else-if="user.role_id === 2">
-                        <span class="flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3">Admin</span>
-                    </div>
+                    <span class="flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3">{{user.role}}</span>
                 </div>
             </div>
             <form @submit.prevent="update()">
@@ -26,7 +18,7 @@
                     <input type="text"
                            class="input w-full"
                            name="zip"
-                           v-model="user.profesion"
+                           v-model="user.profession"
                            required
                            autofocus>
                 </div>

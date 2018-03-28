@@ -15,7 +15,7 @@
             <tbody>
                 <tr class="hover:bg-blue-lightest" v-for="user in users">
                     <td class="tr">{{ user.first_name }}</td>
-                    <td class="tr">{{ user.role_id }}</td>
+                    <td class="tr">{{ user.surname }}</td>
                     <td class="tr">{{ user.city }}</td>
                     <td class="tr">{{ user.date_joined }}</td>
                     <td class="tr">
@@ -95,9 +95,31 @@
                 })
             },
 			promoteUser(user){
-                axios.post('/users/promoteuser', user).then((response) => {
-                    location.reload();
-            });
+                Vue.swal({
+                    title: 'Weet je dit zeker?',
+                    text: "Je kan het niet meer ongedaan maken!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ja, maak dit gebruiker Admin!'
+                }).then((result) => {
+                    if (result.value) {
+                    axios.post('/users/promoteuser', user).then((response) => {
+                        location.reload();
+                    Vue.swal(
+                        'Admin rechten overgebracht!',
+                        'Voltooid'
+                    )
+                }).catch((error) => {
+                        this.wrong = true;
+                    Vue.swal({
+                        title: 'Je hebt geen toegang tot dit!',
+                    })
+                });
+
+                }
+            })
         },
 
     }}

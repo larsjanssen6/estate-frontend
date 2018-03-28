@@ -25,7 +25,7 @@
 
             <div class="mb-6">
                 <label class="label mb-2">Geboortedatum</label>
-                <datetime v-model="form.birthdate" required></datetime>
+                <datetime v-model="form.birthdate" required>Klik hier om keuze te maken</datetime>
             </div>
 
             <div class="mb-6">
@@ -52,7 +52,11 @@
 
             <div class="mb-6">
                 <label class="label mb-2">Rol</label>
-                <v-select :options="[{label: 'Potentieel lid', value: 0}, {label: 'Lid', value: 1}, {label: 'Potentieel lid', value: 2}]"></v-select>
+                <select v-model="form.role">
+                    <option class="w-full" v-for="option in options" v-bind:value="option.value">
+                        {{ option.text }}
+                    </option>
+                </select>
             </div>
 
             <div class="mb-6">
@@ -98,17 +102,7 @@
                        required
                        autofocus>
             </div>
-			
-			<div class="mb-6">
-                <label for="birthdate" class="label mb-2">Geboortedatum</label>
-                <input type="date"
-                       id="birthdate"
-                       class="input w-full"
-                       name="birthdate"
-                       v-model="form.birthdate"
-                       required
-                       autofocus>
-            </div>
+
 
             <div class="flex -mx-4">
                 <button type="submit" class="btn-normal w-full mx-4 shadow" :class="{ 'loader': isLoading }">Register</button>
@@ -132,13 +126,16 @@
 
         data() {
             return {
+                options: [
+                    { text: 'Potentieel lid', value: 'PotentialMember' },
+                    { text: 'lid', value: 'Member' }
+                ],
                 form: {},
                 isLoading: false
             }
         },
 		
 		created() {
-			alert('test');
 			this.form.birthdate = moment().format('ddmmjjjj');
 		},
 
