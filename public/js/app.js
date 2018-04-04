@@ -1718,6 +1718,9 @@ __WEBPACK_IMPORTED_MODULE_3_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_vue_
 
 
     methods: {
+        goToNote: function goToNote() {
+            this.$router.push('/notities');
+        },
         showUser: function showUser(user) {
             Bus.$emit('show-user', user);
         },
@@ -1742,7 +1745,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_vue_
                         _this2.wrong = true;
                     });
 
-                    __WEBPACK_IMPORTED_MODULE_3_vue___default.a.swal('Gebruiker verwijderd!', '', 'Voltooid');
+                    __WEBPACK_IMPORTED_MODULE_3_vue___default.a.swal('Gebruiker verwijderd!', 'Voltooid');
                 }
             });
         },
@@ -1842,6 +1845,102 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.$store.dispatch("login", true);
             }).catch(function (error) {
                 _this.wrong = true;
+            });
+        }
+    }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/Notities.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__axios__ = __webpack_require__("./resources/js/axios.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Register__ = __webpack_require__("./resources/js/components/Register.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Register___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Register__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue__ = __webpack_require__("./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_sweetalert2__ = __webpack_require__("./node_modules/vue-sweetalert2/src/index.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+
+
+__WEBPACK_IMPORTED_MODULE_2_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_sweetalert2__["a" /* default */]);
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    components: {
+        register: __WEBPACK_IMPORTED_MODULE_1__Register___default.a
+    },
+
+    data: function data() {
+        return {
+            notes: []
+        };
+    },
+    created: function created() {
+        var _this = this;
+
+        __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('note/notes').then(function (_ref) {
+            var data = _ref.data;
+
+            _this.notes = data;
+        });
+    },
+
+    methods: {
+        deleteNote: function deleteNote(note) {
+            var _this2 = this;
+
+            __WEBPACK_IMPORTED_MODULE_2_vue___default.a.swal({
+                title: 'Weet je dit zeker?',
+                text: "Eenmaal verwijderd kan een notitie niet meer worden teruggehaald!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ja, delete deze notitie!'
+            }).then(function (result) {
+                if (result.value) {
+                    __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('note/delete/' + note.id).then(function (_ref2) {
+                        var data = _ref2.data;
+
+                        location.reload();
+                    }).catch(function (error) {
+                        _this2.wrong = true;
+                    });
+
+                    __WEBPACK_IMPORTED_MODULE_2_vue___default.a.swal('Notitie verwijderd!', 'Voltooid');
+                }
             });
         }
     }
@@ -28945,6 +29044,86 @@ if (false) {
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-3ce14b91\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Notities.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container mx-auto" }, [
+    _c(
+      "table",
+      {
+        staticClass: "text-left m-4 w-full bg-white",
+        staticStyle: { "border-collapse": "collapse" }
+      },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.notes, function(note) {
+            return _c("tr", { staticClass: "hover:bg-blue-lightest" }, [
+              _c("td", { staticClass: "tr" }, [_vm._v(_vm._s(note.content))]),
+              _vm._v(" "),
+              _c("td", { staticClass: "tr" }, [
+                _vm._v(_vm._s(note.date_created))
+              ]),
+              _vm._v(" "),
+              _c("td", { staticClass: "tr" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn-delete",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        _vm.deleteNote(note)
+                      }
+                    }
+                  },
+                  [
+                    _vm._v(
+                      "\n                        Verwijderen\n                        "
+                    )
+                  ]
+                )
+              ])
+            ])
+          })
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { staticClass: "th" }, [_vm._v("Content")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Datum")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Opties")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3ce14b91", module.exports)
+  }
+}
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-40229a3e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Login.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -29399,6 +29578,20 @@ var render = function() {
           }
         },
         [_vm._v("Registreer gebruiker")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn-normal",
+          attrs: { type: "button" },
+          on: {
+            click: function($event) {
+              _vm.goToNote()
+            }
+          }
+        },
+        [_vm._v("Ga naar notities")]
       ),
       _vm._v(" "),
       _c(
@@ -46678,14 +46871,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Login_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Login_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Home_vue__ = __webpack_require__("./resources/js/components/Home.vue");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_Home_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_Home_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_js_modal__ = __webpack_require__("./node_modules/vue-js-modal/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_js_modal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_js_modal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vuex__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__store__ = __webpack_require__("./resources/js/store.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment__ = __webpack_require__("./node_modules/moment/moment.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_vue_datetime__ = __webpack_require__("./node_modules/vue-datetime/dist/vue-datetime.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_vue_datetime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_vue_datetime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Notities_vue__ = __webpack_require__("./resources/js/components/Notities.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_Notities_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_Notities_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_js_modal__ = __webpack_require__("./node_modules/vue-js-modal/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_js_modal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue_js_modal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_vuex__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__store__ = __webpack_require__("./resources/js/store.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment__ = __webpack_require__("./node_modules/moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_vue_datetime__ = __webpack_require__("./node_modules/vue-datetime/dist/vue-datetime.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_vue_datetime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_vue_datetime__);
+
 
 
 
@@ -46696,16 +46892,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 window.Vue = __webpack_require__("./node_modules/vue/dist/vue.common.js");
-window.Moment = __WEBPACK_IMPORTED_MODULE_6_moment___default.a;
+window.Moment = __WEBPACK_IMPORTED_MODULE_7_moment___default.a;
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]);
-Vue.use(__WEBPACK_IMPORTED_MODULE_3_vue_js_modal___default.a);
-Vue.use(__WEBPACK_IMPORTED_MODULE_4_vuex__["a" /* default */]);
-Vue.use(__WEBPACK_IMPORTED_MODULE_7_vue_datetime___default.a);
+Vue.use(__WEBPACK_IMPORTED_MODULE_4_vue_js_modal___default.a);
+Vue.use(__WEBPACK_IMPORTED_MODULE_5_vuex__["a" /* default */]);
+Vue.use(__WEBPACK_IMPORTED_MODULE_8_vue_datetime___default.a);
 
 window.Bus = new Vue();
 
-var routes = [{ path: '/', component: __WEBPACK_IMPORTED_MODULE_1__components_Login_vue___default.a, name: 'login' }, { path: '/home', component: __WEBPACK_IMPORTED_MODULE_2__components_Home_vue___default.a, name: 'home' }];
+var routes = [{ path: '/', component: __WEBPACK_IMPORTED_MODULE_1__components_Login_vue___default.a, name: 'login' }, { path: '/home', component: __WEBPACK_IMPORTED_MODULE_2__components_Home_vue___default.a, name: 'home' }, { path: '/notities', component: __WEBPACK_IMPORTED_MODULE_3__components_Notities_vue___default.a, name: 'notities' }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
     routes: routes // short for `routes: routes`
@@ -46713,7 +46909,7 @@ var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
 
 var app = new Vue({
     router: router,
-    store: __WEBPACK_IMPORTED_MODULE_5__store__["a" /* default */]
+    store: __WEBPACK_IMPORTED_MODULE_6__store__["a" /* default */]
 }).$mount('#app');
 
 function requireAuth() {
@@ -46840,6 +47036,54 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-40229a3e", Component.options)
   } else {
     hotAPI.reload("data-v-40229a3e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Notities.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/Notities.vue")
+/* template */
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-3ce14b91\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Notities.vue")
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\js\\components\\Notities.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3ce14b91", Component.options)
+  } else {
+    hotAPI.reload("data-v-3ce14b91", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true

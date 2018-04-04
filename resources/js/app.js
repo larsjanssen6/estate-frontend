@@ -1,6 +1,7 @@
 import VueRouter from 'vue-router';
 import Login from './components/Login.vue';
 import Home from './components/Home.vue';
+import Notities from './components/Notities.vue';
 import VModal from 'vue-js-modal';
 import Vuex from 'vuex';
 import store from './store';
@@ -20,6 +21,7 @@ window.Bus = new Vue();
 const routes = [
     { path: '/', component: Login, name: 'login' },
     { path: '/home', component: Home, name: 'home' },
+    { path: '/notities', component: Notities, name: 'notities' },
 ];
 
 const router = new VueRouter({
@@ -34,7 +36,6 @@ const app = new Vue({
 function requireAuth() {
     return true;
 }
-
 
 
 
