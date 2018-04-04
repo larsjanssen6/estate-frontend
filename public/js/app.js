@@ -1956,7 +1956,7 @@ __WEBPACK_IMPORTED_MODULE_2_vue___default.a.component('v-select', __WEBPACK_IMPO
     },
     data: function data() {
         return {
-            options: [{ text: 'Potentieel lid', value: 'PotentialMember', index: 0 }, { text: 'Lid', value: 'Member', index: 1 }],
+            options: [{ text: 'Potentieel lid', value: 'PotentialMember' }, { text: 'Lid', value: 'Member' }],
             form: {},
             isLoading: false
         };
