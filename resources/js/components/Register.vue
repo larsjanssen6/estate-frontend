@@ -25,7 +25,7 @@
 
             <div class="mb-6">
                 <label class="label mb-2">Geboortedatum</label>
-                <datetime v-model="form.birthdate" required>Klik hier om keuze te maken</datetime>
+                <datetime v-model="form.birthdate" required>Klik hier om een keuze te maken.</datetime>
             </div>
 
             <div class="mb-6">
@@ -51,9 +51,12 @@
             </div>
 
             <div class="mb-6">
-                <label class="label mb-2">Rol</label>
+                <label class="label mb-2">Rol(lercoaster)</label>
                 <select required class="wide-dropdown" v-model="form.role">
-                    <option class="w-full" v-for="option in options" v-bind:value="option.value">
+                    <option selected disabled class="w-full">
+                        (Selecteer de juiste rol)
+                    </option>
+					<option class="w-full" v-for="option in options" v-bind:value="option.value" v-bind:selected="option.index == 0">
                         {{ option.text }}
                     </option>
                 </select>
@@ -126,9 +129,9 @@
 
         data() {
             return {
-                options: [
-                    { text: 'Potentieel lid', value: 'PotentialMember' },
-                    { text: 'lid', value: 'Member' }
+				options: [
+                    { text: 'Potentieel lid', value: 'PotentialMember', index: 0},
+                    { text: 'Lid', value: 'Member', index: 1 }
                 ],
                 form: {},
                 isLoading: false
