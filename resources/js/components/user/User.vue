@@ -39,7 +39,7 @@
                     {{user.city}}
                 </div>
                 <div class="flex -mx-4">
-                    <button @click="editUser(user)" class="btn-normal w-full mx-4 shadow">Edit</button>
+                    <button @click="editUser(user)" class="btn-normal w-full mx-4 shadow">Bewerken</button>
                     <button @click="$modal.hide('userdetails')" class="btn-normal w-full mx-4 shadow">Sluiten</button>
                 </div>
             </div>

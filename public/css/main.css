@@ -4890,6 +4890,10 @@ body input {
   line-height: 1;
 }
 
+.wide-dropdown {
+  width: 100%;
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;

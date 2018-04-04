@@ -2096,6 +2096,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -28728,6 +28743,8 @@ var render = function() {
                     expression: "form.role"
                   }
                 ],
+                staticClass: "wide-dropdown",
+                attrs: { required: "" },
                 on: {
                   change: function($event) {
                     var $$selectedVal = Array.prototype.filter
@@ -29123,7 +29140,7 @@ var render = function() {
                 _vm._s(_vm.user.first_name) +
                   " " +
                   _vm._s(_vm.user.surname) +
-                  "\n        "
+                  "\n            "
               )
             ]),
             _vm._v(" "),
@@ -29226,9 +29243,9 @@ var render = function() {
                     _vm._v("Lid sinds")
                   ]),
                   _vm._v(
-                    "\n                " +
+                    "\n                    " +
                       _vm._s(_vm.user.date_joined) +
-                      "\n            "
+                      "\n                "
                   )
                 ]),
                 _vm._v(" "),
@@ -29329,6 +29346,63 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
+                _c("div", { staticClass: "mb-6" }, [
+                  _c("label", { staticClass: "label mb-2" }, [
+                    _vm._v("Lidmaatschap interesse")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.city,
+                        expression: "user.city"
+                      }
+                    ],
+                    staticClass: "input w-full",
+                    attrs: {
+                      type: "text",
+                      name: "zip",
+                      required: "",
+                      autofocus: ""
+                    },
+                    domProps: { value: _vm.user.city },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.user, "city", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.user.joinradio,
+                        expression: "user.joinradio"
+                      }
+                    ],
+                    staticClass: "input w-full",
+                    attrs: {
+                      type: "radio",
+                      name: "zip",
+                      required: "",
+                      autofocus: ""
+                    },
+                    domProps: { checked: _vm._q(_vm.user.joinradio, null) },
+                    on: {
+                      change: function($event) {
+                        _vm.$set(_vm.user, "joinradio", null)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
                 _c("div", { staticClass: "flex -mx-4" }, [
                   _c(
                     "button",
@@ -29340,7 +29414,7 @@ var render = function() {
                         }
                       }
                     },
-                    [_vm._v("Update")]
+                    [_vm._v("Opslaan")]
                   ),
                   _vm._v(" "),
                   _c(
@@ -29633,7 +29707,7 @@ var render = function() {
                     }
                   }
                 },
-                [_vm._v("Edit")]
+                [_vm._v("Bewerken")]
               ),
               _vm._v(" "),
               _c(

@@ -62,8 +62,23 @@
                            required
                            autofocus>
                 </div>
+				<div class="mb-6">
+                    <label class="label mb-2">Lidmaatschap interesse</label>
+                    <input type="text"
+					   class="input w-full"
+					   name="zip"
+					   v-model="user.city"
+					   required
+					   autofocus>
+					<input type="radio"
+						class="input w-full"
+						name="zip"
+						v-model="user.joinradio"
+						required
+						autofocus>
+                </div>
                 <div class="flex -mx-4">
-                    <button @click="update()" class="btn-normal w-full mx-4 shadow">Update</button>
+                    <button @click="update()" class="btn-normal w-full mx-4 shadow">Opslaan</button>
                     <button @click="$modal.hide('edit-user') & $modal.hide('userdetails')" class="btn-normal w-full mx-4 shadow">Sluiten</button>
                 </div>
             </form>
