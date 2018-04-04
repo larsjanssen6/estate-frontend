@@ -51,7 +51,7 @@
             </div>
 
             <div class="mb-6">
-                <label class="label mb-2">Rol(lercoaster)</label>
+                <label class="label mb-2">Rol</label>
                 <select required class="wide-dropdown" v-model="form.role">
                     <option selected disabled class="w-full">
                         (Selecteer de juiste rol)
