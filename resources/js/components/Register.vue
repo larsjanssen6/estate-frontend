@@ -52,7 +52,7 @@
 
             <div class="mb-6">
                 <label class="label mb-2">Rol</label>
-                <select v-model="form.role">
+                <select required class="wide-dropdown" v-model="form.role">
                     <option class="w-full" v-for="option in options" v-bind:value="option.value">
                         {{ option.text }}
                     </option>
