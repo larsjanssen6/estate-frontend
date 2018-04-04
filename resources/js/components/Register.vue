@@ -130,8 +130,8 @@
         data() {
             return {
 				options: [
-                    { text: 'Potentieel lid', value: 'PotentialMember', index: 0},
-                    { text: 'Lid', value: 'Member', index: 1 }
+                    { text: 'Potentieel lid', value: 'PotentialMember' },
+                    { text: 'Lid', value: 'Member' }
                 ],
                 form: {},
                 isLoading: false
