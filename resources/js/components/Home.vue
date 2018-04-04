@@ -1,6 +1,6 @@
 <template>
     <div class="container mx-auto">
-        <button class="bg-teal font-semibold text-white py-2 px-4 border border-teal hover:border-transparent rounded m-4" @click="$modal.show('registration');">Registreer gebruiker</button>
+        <button class="bg-teal font-semibold text-white py-2 px-4 border border-teal hover:border-transparent rounded m-4" @click="$modal.show('registration');">Registreer lid</button>
 
         <table class="text-left m-4 w-full bg-white" style="border-collapse:collapse">
             <thead>
@@ -72,12 +72,12 @@
 			deleteUser(user) {
                 Vue.swal({
                     title: 'Weet je dit zeker?',
-                    text: "Eenmaal verwijderd kan een gebruiker niet meer worden teruggehaald!",
+                    text: "Eenmaal verwijderd kan een lid niet meer worden teruggehaald!",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Ja, delete deze gebruiker!'
+                    confirmButtonText: 'Ja, delete dit lid.'
                 }).then((result) => {
                     if (result.value) {
                         axios.post('users/deleteuser/' + user.id).then(({data}) => {
@@ -87,9 +87,9 @@
                         });
 
                         Vue.swal(
-                            'Gebruiker verwijderd!',
+                            'Lid verwijderd!',
                             '',
-                            'Voltooid'
+                            'Voltooid.'
                         )
                     }
                 })
@@ -102,7 +102,7 @@
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Ja, maak dit gebruiker Admin!'
+                    confirmButtonText: 'Ja, maak dit lid een admin!'
                 }).then((result) => {
                     if (result.value) {
                     axios.post('/users/promoteuser', user).then((response) => {
