@@ -1940,6 +1940,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -1953,7 +1956,7 @@ __WEBPACK_IMPORTED_MODULE_2_vue___default.a.component('v-select', __WEBPACK_IMPO
     },
     data: function data() {
         return {
-            options: [{ text: 'Potentieel lid', value: 'PotentialMember' }, { text: 'lid', value: 'Member' }],
+            options: [{ text: 'Potentieel lid', value: 'PotentialMember', index: 0 }, { text: 'Lid', value: 'Member', index: 1 }],
             form: {},
             isLoading: false
         };
@@ -28397,7 +28400,7 @@ var render = function() {
                     expression: "form.birthdate"
                   }
                 },
-                [_vm._v("Klik hier om keuze te maken")]
+                [_vm._v("Klik hier om een keuze te maken.")]
               )
             ],
             1
@@ -28509,19 +28512,41 @@ var render = function() {
                   }
                 }
               },
-              _vm._l(_vm.options, function(option) {
-                return _c(
+              [
+                _c(
                   "option",
-                  { staticClass: "w-full", domProps: { value: option.value } },
+                  {
+                    staticClass: "w-full",
+                    attrs: { selected: "", disabled: "" }
+                  },
                   [
                     _vm._v(
-                      "\n                    " +
-                        _vm._s(option.text) +
-                        "\n                "
+                      "\n                        (Selecteer de juiste rol)\n                    "
                     )
                   ]
-                )
-              })
+                ),
+                _vm._v(" "),
+                _vm._l(_vm.options, function(option) {
+                  return _c(
+                    "option",
+                    {
+                      staticClass: "w-full",
+                      domProps: {
+                        value: option.value,
+                        selected: option.index == 0
+                      }
+                    },
+                    [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(option.text) +
+                          "\n                    "
+                      )
+                    ]
+                  )
+                })
+              ],
+              2
             )
           ]),
           _vm._v(" "),
