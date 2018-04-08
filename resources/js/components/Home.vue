@@ -23,12 +23,14 @@
                         <button class="btn-normal" type="button" @click="showUser(user)">
                             Bekijken
                         </button>
-                            <button class="btn-delete" type="button" @click="deleteUser(user)">
-                                Verwijderen
-                            </button>
-                            <button class="btn-normal" type="button" @click="promoteUser(user)">
-                                Admin
-                            </button>
+
+                        <button class="btn-delete" type="button" @click="deleteUser(user)">
+                            Verwijderen
+                        </button>
+
+                        <button class="btn-normal" type="button" @click="promoteUser(user)">
+                            Admin
+                        </button>
                     </td>
                 </tr>
             </tbody>
