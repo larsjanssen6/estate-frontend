@@ -1687,6 +1687,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -1775,7 +1777,14 @@ __WEBPACK_IMPORTED_MODULE_3_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_vue_
                 }
             });
         }
-    } });
+    },
+
+    computed: {
+        isLoggedIn: function isLoggedIn() {
+            return this.$store.state.isAuthenticated;
+        }
+    }
+});
 
 /***/ }),
 
@@ -1841,9 +1850,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('token/generate-token', this.creds).then(function (_ref) {
                 var data = _ref.data;
 
+                _this.$store.dispatch("login", true);
                 localStorage.setItem('token', data.token);
                 _this.$router.push('/home');
-                _this.$store.dispatch("login", true);
             }).catch(function (error) {
                 _this.wrong = true;
             });
@@ -30181,7 +30190,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                            Verwijderen\n                        "
+                        "\n                        Verwijderen\n                    "
                       )
                     ]
                   ),
@@ -30199,7 +30208,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                            Admin\n                        "
+                        "\n                        Admin\n                    "
                       )
                     ]
                   )
@@ -47286,20 +47295,41 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_8_vue_datetime___default.a);
 
 window.Bus = new Vue();
 
-var routes = [{ path: '/', component: __WEBPACK_IMPORTED_MODULE_1__components_Login_vue___default.a, name: 'login' }, { path: '/home', component: __WEBPACK_IMPORTED_MODULE_2__components_Home_vue___default.a, name: 'home' }, { path: '/notities', component: __WEBPACK_IMPORTED_MODULE_3__components_Notities_vue___default.a, name: 'notities' }];
+var routes = [{ path: '/', component: __WEBPACK_IMPORTED_MODULE_1__components_Login_vue___default.a, name: 'login', meta: { guest: true } }, { path: '/home', component: __WEBPACK_IMPORTED_MODULE_2__components_Home_vue___default.a, name: 'home', meta: { requiresAuth: true } }, { path: '/notities', component: __WEBPACK_IMPORTED_MODULE_3__components_Notities_vue___default.a, name: 'notities', meta: { requiresAuth: true } }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
     routes: routes // short for `routes: routes`
+});
+
+router.beforeEach(function (to, from, next) {
+    var token = localStorage.getItem('token');
+    if (to.matched.some(function (record) {
+        return record.meta.requiresAuth;
+    })) {
+        if (!token || token === null) {
+            next({
+                path: '/'
+            });
+        }
+    }
+
+    if (to.matched.some(function (record) {
+        return record.meta.guest;
+    })) {
+        if (token || token !== null) {
+            next({
+                path: '/home'
+            });
+        }
+    }
+
+    next();
 });
 
 var app = new Vue({
     router: router,
     store: __WEBPACK_IMPORTED_MODULE_6__store__["a" /* default */]
 }).$mount('#app');
-
-function requireAuth() {
-    return true;
-}
 
 /***/ }),
 
@@ -47724,13 +47754,10 @@ module.exports = Component.exports
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* unused harmony export store */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__("./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__("./node_modules/vuex/dist/vuex.esm.js");
-var _mutations;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -47741,34 +47768,25 @@ var LOGIN_SUCCESS = "LOGIN_SUCCESS";
 var LOGOUT = "LOGOUT";
 
 var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
-
     state: {
-        isLoggedIn: !!localStorage.getItem("token"),
-        user: null
+        user: {},
+        authenticated: false
     },
-    mutations: (_mutations = {}, _defineProperty(_mutations, LOGIN, function (state) {
-        state.pending = true;
-    }), _defineProperty(_mutations, LOGIN_SUCCESS, function (state) {
-        state.isLoggedIn = true;
-        state.pending = false;
-    }), _defineProperty(_mutations, LOGOUT, function (state) {
-        state.isLoggedIn = false;
-    }), _mutations),
 
-    actions: {
-        login: function login(_ref) {
-            var state = _ref.state,
-                commit = _ref.commit,
-                rootState = _ref.rootState;
+    getters: {
+        isAuthenticated: function isAuthenticated(state) {
+            return state.authenticated;
+        }
+    },
 
-            commit(LOGIN_SUCCESS);
+    mutations: {
+        setUser: function setUser(state, user) {
+            state.authenticated = true;
+            state.user = user;
         },
-        setUser: function setUser(_ref2, user) {
-            //todo
-
-            var state = _ref2.state,
-                commit = _ref2.commit,
-                rootState = _ref2.rootState;
+        logout: function logout(state) {
+            localStorage.removeItem('jwt-token');
+            state.authenticated = false;
         }
     }
 });
