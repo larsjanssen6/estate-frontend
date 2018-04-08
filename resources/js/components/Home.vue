@@ -3,7 +3,7 @@
         <button class="btn-normal" type="button" @click="goToNote()">Ga naar notities</button>
         <button class="bg-teal font-semibold text-white py-2 px-4 border border-teal hover:border-transparent rounded m-4" @click="$modal.show('registration');">Registreer lid</button>
 
-        <table class="text-left m-4 w-full bg-white" style="border-collapse:collapse">
+        <table class="text-left w-full bg-white" style="border-collapse:collapse">
             <thead>
             <tr>
                 <th class="th">Naam</th>
