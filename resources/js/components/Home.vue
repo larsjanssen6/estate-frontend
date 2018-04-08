@@ -127,7 +127,13 @@
                 }
             })
         },
+        },
 
-    }}
+        computed: {
+            isLoggedIn() {
+                return this.$store.state.isAuthenticated;
+            }
+        }
+    }
 
 </script>

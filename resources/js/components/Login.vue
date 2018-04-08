@@ -49,9 +49,9 @@
         methods: {
             login() {
                 axios.post('token/generate-token', this.creds).then(({data}) => {
+                    this.$store.dispatch("login", true);
                     localStorage.setItem('token', data.token);
                     this.$router.push('/home');
-                    this.$store.dispatch("login", true);
                 }).catch((error) => {
                     this.wrong = true;
                 });
