@@ -7,32 +7,27 @@ const LOGIN = "LOGIN";
 const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 const LOGOUT = "LOGOUT";
 
-const store = new Vuex.Store({
-
+export const store = new Vuex.Store({
     state: {
-        isLoggedIn: !!localStorage.getItem("token"),
-        user: null
+        user: {},
+        authenticated: false
     },
+
+    getters: {
+        isAuthenticated(state) {
+            return state.authenticated;
+        },
+    },
+
     mutations: {
-        [LOGIN] (state) {
-            state.pending = true;
-        },
-        [LOGIN_SUCCESS] (state) {
-            state.isLoggedIn = true;
-            state.pending = false;
-        },
-        [LOGOUT](state) {
-            state.isLoggedIn = false;
-        }
-    },
-
-    actions: {
-        login({state, commit, rootState}) {
-            commit(LOGIN_SUCCESS);
+        setUser(state, user) {
+            state.authenticated = true;
+            state.user = user;
         },
 
-        setUser({state, commit, rootState}, user) {
-            //todo
+        logout(state) {
+            localStorage.removeItem('jwt-token');
+            state.authenticated = false;
         }
     }
 });
