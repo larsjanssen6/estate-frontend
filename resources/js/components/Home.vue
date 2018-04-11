@@ -14,7 +14,7 @@
             </tr>
             </thead>
             <tbody>
-                <tr class="hover:bg-blue-lightest" v-for="user in users">
+                <tr class="hover:bg-blue-lightest cursor-pointer" v-for="user in users" @click="showUser(user)">
                     <td class="tr">{{ user.first_name }}</td>
                     <td class="tr">{{ user.surname }}</td>
                     <td class="tr">{{ user.city }}</td>
