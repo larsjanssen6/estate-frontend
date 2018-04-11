@@ -25,7 +25,7 @@
 
             <div class="mb-6">
                 <label class="label mb-2">Geboortedatum</label>
-                <datetime v-model="form.birthdate" required>Klik hier om een keuze te maken.</datetime>
+                <datetime placeholder="Selecteer datum" v-model="form.birthdate" required>Klik hier om een keuze te maken.</datetime>
             </div>
 
             <div class="mb-6">
@@ -65,7 +65,7 @@
 			
 			<div class="mb-6">
                 <label class="label mb-2">Interesse vanaf:</label>
-                <datetime v-model="form.interestdate" required>Klik hier om een keuze te maken.</datetime>
+                <datetime type="datetime" placeholder="Selecteer datum" v-model="form.interestdate" required>Klik hier om een keuze te maken.</datetime>
             </div>
 
             <div class="mb-6">

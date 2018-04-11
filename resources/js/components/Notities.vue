@@ -17,13 +17,12 @@
                             <button class="btn-normal" type="button" @click="openNote(note)">
                                 Open
                             </button>
-                            
+
                             <button class="btn-delete" type="button" @click="deleteNote(note)">
                                 Verwijderen
                             </button>
                         </td>
                     </tr>
-                    
                 </tbody>
             </table>
 
