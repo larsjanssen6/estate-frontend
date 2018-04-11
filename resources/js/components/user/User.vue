@@ -23,8 +23,12 @@
                     {{user.birthdate}}
                 </div>
                 <div class="mb-6">
-                    <label class="label mb-2">Lid sinds</label>
+                    <label class="label mb-2">Registreerdatum</label>
                     {{user.date_joined}}
+                </div>
+				<div class="mb-6">
+                    <label class="label mb-2">Interesse vanaf:</label>
+                    {{user.interestdate}}
                 </div>
                 <div class="mb-6">
                     <label class="label mb-2">Adres</label>

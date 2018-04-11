@@ -9,7 +9,7 @@
                 <th class="th">Naam</th>
                 <th class="th">Achternaam</th>
                 <th class="th">Woonplaats</th>
-                <th class="th">Lid sinds</th>
+                <th class="th">Registreerdatum</th>
                 <th class="th">Opties</th>
             </tr>
             </thead>
