@@ -47395,7 +47395,13 @@ router.beforeEach(function (to, from, next) {
 
 var app = new Vue({
     router: router,
-    store: __WEBPACK_IMPORTED_MODULE_6__store__["a" /* default */]
+    store: __WEBPACK_IMPORTED_MODULE_6__store__["a" /* default */],
+
+    methods: {
+        goHome: function goHome() {
+            window.location = '/';
+        }
+    }
 }).$mount('#app');
 
 /***/ }),
