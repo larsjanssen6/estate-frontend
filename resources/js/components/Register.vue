@@ -61,6 +61,11 @@
                     </option>
                 </select>
             </div>
+			
+			<div class="mb-6">
+                <label class="label mb-2">Interesse vanaf:</label>
+                <datetime v-model="form.interestdate" required>Klik hier om een keuze te maken.</datetime>
+            </div>
 
             <div class="mb-6">
                 <label for="address" class="label mb-2">Adres</label>
@@ -123,10 +128,6 @@
     Vue.component('v-select', vSelect)
 
     export default {
-        created() {
-            this.form.birthdate = String(Moment.now());
-        },
-
         data() {
             return {
 				options: [
@@ -140,6 +141,7 @@
 		
 		created() {
 			this.form.birthdate = moment().format('ddmmjjjj');
+			this.form.interestdate = moment().format('ddmmjjjj');
 		},
 
         methods: {
