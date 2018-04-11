@@ -7,6 +7,7 @@ import Vuex from 'vuex';
 import store from './store';
 import moment from 'moment';
 import Datetime from 'vue-datetime';
+import VueSweetalert2 from 'vue-sweetalert2';
 
 window.Vue = require('vue');
 window.Moment = moment;
@@ -15,6 +16,7 @@ Vue.use(VueRouter);
 Vue.use(VModal);
 Vue.use(Vuex);
 Vue.use(Datetime);
+Vue.use(VueSweetalert2);
 
 window.Bus = new Vue();
 

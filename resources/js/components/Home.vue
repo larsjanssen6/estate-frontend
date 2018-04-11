@@ -46,9 +46,6 @@
     import register from './Register';
     import userdetails from './user/User';
     import Vue from 'vue';
-    import VueSweetalert2 from 'vue-sweetalert2';
-
-    Vue.use(VueSweetalert2);
 
     export default {
         components: {
@@ -76,7 +73,7 @@
                 Bus.$emit('show-user', user);
             },
 			deleteUser(user) {
-                Vue.swal({
+                this.$swal({
                     title: 'Weet je dit zeker?',
                     text: "Eenmaal verwijderd kan een lid niet meer worden teruggehaald!",
                     type: 'warning',
@@ -92,8 +89,7 @@
                             this.wrong = true;
                         });
 
-                        Vue.swal(
-
+                        this.$swal(
                             'Lid verwijderd!',
                             'Voltooid.'
                         )
@@ -101,7 +97,7 @@
                 })
             },
 			promoteUser(user){
-                Vue.swal({
+                this.$swal({
                     title: 'Weet je dit zeker?',
                     text: "Je kan het niet meer ongedaan maken!",
                     type: 'warning',
@@ -113,13 +109,13 @@
                     if (result.value) {
                     axios.post('/users/promoteuser', user).then((response) => {
                         location.reload();
-                    Vue.swal(
+                    this.$swal(
                         'Admin rechten overgebracht!',
                         'Voltooid'
                     )
                 }).catch((error) => {
                         this.wrong = true;
-                    Vue.swal({
+                    this.$wal({
                         title: 'Je hebt geen toegang tot dit!',
                     })
                 });
@@ -127,12 +123,6 @@
                 }
             })
         },
-        },
-
-        computed: {
-            isLoggedIn() {
-                return this.$store.state.isAuthenticated;
-            }
         }
     }
 
