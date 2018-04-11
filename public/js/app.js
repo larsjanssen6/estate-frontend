@@ -2091,20 +2091,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -29497,7 +29483,7 @@ var render = function() {
               _c(
                 "datetime",
                 {
-                  attrs: { required: "" },
+                  attrs: { placeholder: "Selecteer datum", required: "" },
                   model: {
                     value: _vm.form.birthdate,
                     callback: function($$v) {
@@ -29671,29 +29657,24 @@ var render = function() {
                 _vm._v("Interesse vanaf:")
               ]),
               _vm._v(" "),
-              _c("datetime", {
-                staticClass: "my-wrapper-class",
-                attrs: {
-                  type: "datetime",
-                  placeholder: "Select date",
-                  "input-class": "my-input-class",
-                  "value-zone": "America/New_York",
-                  zone: "Asia/Shanghai",
-                  format: { year: "numeric", month: "long", day: "numeric" },
-                  phrases: { ok: "Continue", cancel: "Exit" },
-                  "hour-step": 2,
-                  "week-start": 7,
-                  "use12-hour": "",
-                  auto: ""
-                },
-                model: {
-                  value: _vm.form.interestdate,
-                  callback: function($$v) {
-                    _vm.$set(_vm.form, "interestdate", $$v)
+              _c(
+                "datetime",
+                {
+                  attrs: {
+                    type: "datetime",
+                    placeholder: "Selecteer datum",
+                    required: ""
                   },
-                  expression: "form.interestdate"
-                }
-              })
+                  model: {
+                    value: _vm.form.interestdate,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "interestdate", $$v)
+                    },
+                    expression: "form.interestdate"
+                  }
+                },
+                [_vm._v("Klik hier om een keuze te maken.")]
+              )
             ],
             1
           ),
