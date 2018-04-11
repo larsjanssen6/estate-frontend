@@ -26,8 +26,15 @@ export const store = new Vuex.Store({
         },
 
         logout(state) {
-            localStorage.removeItem('jwt-token');
+            localStorage.removeItem('token');
             state.authenticated = false;
+        }
+    },
+
+    actions: {
+        logout(context) {
+            alert('logout');
+            context.commit('logout');
         }
     }
 });
