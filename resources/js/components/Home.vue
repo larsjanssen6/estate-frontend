@@ -75,12 +75,12 @@
 			deleteUser(user) {
                 this.$swal({
                     title: 'Weet je dit zeker?',
-                    text: "Eenmaal verwijderd kan een lid niet meer worden teruggehaald!",
+                    text: "Deze actie is definitief!",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Ja, delete dit lid.'
+                    confirmButtonText: 'Ja, verwijder dit lid.'
                 }).then((result) => {
                     if (result.value) {
                         axios.post('users/deleteuser/' + user.id).then(({data}) => {
@@ -99,7 +99,7 @@
 			promoteUser(user){
                 this.$swal({
                     title: 'Weet je dit zeker?',
-                    text: "Je kan het niet meer ongedaan maken!",
+                    text: "Deze actie is definitief!",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
