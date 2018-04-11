@@ -1645,7 +1645,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__user_User___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__user_User__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue__ = __webpack_require__("./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_sweetalert2__ = __webpack_require__("./node_modules/vue-sweetalert2/src/index.js");
 //
 //
 //
@@ -1694,9 +1693,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
-
-__WEBPACK_IMPORTED_MODULE_3_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_vue_sweetalert2__["a" /* default */]);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: {
@@ -1730,7 +1726,7 @@ __WEBPACK_IMPORTED_MODULE_3_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_vue_
         deleteUser: function deleteUser(user) {
             var _this2 = this;
 
-            __WEBPACK_IMPORTED_MODULE_3_vue___default.a.swal({
+            this.$swal({
                 title: 'Weet je dit zeker?',
                 text: "Eenmaal verwijderd kan een lid niet meer worden teruggehaald!",
                 type: 'warning',
@@ -1748,14 +1744,14 @@ __WEBPACK_IMPORTED_MODULE_3_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_vue_
                         _this2.wrong = true;
                     });
 
-                    __WEBPACK_IMPORTED_MODULE_3_vue___default.a.swal('Lid verwijderd!', 'Voltooid.');
+                    _this2.$swal('Lid verwijderd!', 'Voltooid.');
                 }
             });
         },
         promoteUser: function promoteUser(user) {
             var _this3 = this;
 
-            __WEBPACK_IMPORTED_MODULE_3_vue___default.a.swal({
+            this.$swal({
                 title: 'Weet je dit zeker?',
                 text: "Je kan het niet meer ongedaan maken!",
                 type: 'warning',
@@ -1767,21 +1763,15 @@ __WEBPACK_IMPORTED_MODULE_3_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_4_vue_
                 if (result.value) {
                     __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('/users/promoteuser', user).then(function (response) {
                         location.reload();
-                        __WEBPACK_IMPORTED_MODULE_3_vue___default.a.swal('Admin rechten overgebracht!', 'Voltooid');
+                        _this3.$swal('Admin rechten overgebracht!', 'Voltooid');
                     }).catch(function (error) {
                         _this3.wrong = true;
-                        __WEBPACK_IMPORTED_MODULE_3_vue___default.a.swal({
+                        _this3.$wal({
                             title: 'Je hebt geen toegang tot dit!'
                         });
                     });
                 }
             });
-        }
-    },
-
-    computed: {
-        isLoggedIn: function isLoggedIn() {
-            return this.$store.state.isAuthenticated;
         }
     }
 });
@@ -2339,11 +2329,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -2365,8 +2350,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         update: function update() {
+            var _this2 = this;
+
             __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('alex', this.user).then(function (response) {
-                console.log(response);
+                _this2.$swal({
+                    type: 'success',
+                    title: 'Success',
+                    text: 'Gebruiker geupdatet!'
+                });
             });
         }
     }
@@ -29838,10 +29829,7 @@ var render = function() {
         ? _c("div", { staticClass: "p-8" }, [
             _c("h1", [
               _vm._v(
-                _vm._s(_vm.user.first_name) +
-                  " " +
-                  _vm._s(_vm.user.surname) +
-                  "\n        "
+                _vm._s(_vm.user.first_name) + " " + _vm._s(_vm.user.surname)
               )
             ]),
             _vm._v(" "),
@@ -29862,221 +29850,203 @@ var render = function() {
               ])
             ]),
             _vm._v(" "),
-            _c(
-              "form",
-              {
-                on: {
-                  submit: function($event) {
-                    $event.preventDefault()
-                    _vm.update()
-                  }
-                }
-              },
-              [
-                _c("div", { staticClass: "mb-6" }, [
-                  _c("label", { staticClass: "label mb-2" }, [
-                    _vm._v("Vakgebied")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.user.profession,
-                        expression: "user.profession"
-                      }
-                    ],
-                    staticClass: "input w-full",
-                    attrs: {
-                      type: "text",
-                      name: "zip",
-                      required: "",
-                      autofocus: ""
-                    },
-                    domProps: { value: _vm.user.profession },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.user, "profession", $event.target.value)
-                      }
-                    }
-                  })
+            _c("form", [
+              _c("div", { staticClass: "mb-6" }, [
+                _c("label", { staticClass: "label mb-2" }, [
+                  _vm._v("Vakgebied")
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "mb-6" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.profession,
+                      expression: "user.profession"
+                    }
+                  ],
+                  staticClass: "input w-full",
+                  attrs: {
+                    type: "text",
+                    name: "zip",
+                    required: "",
+                    autofocus: ""
+                  },
+                  domProps: { value: _vm.user.profession },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "profession", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "mb-6" },
+                [
                   _c("label", { staticClass: "label mb-2" }, [
                     _vm._v("Geboortedatum")
                   ]),
                   _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
+                  _c(
+                    "datetime",
+                    {
+                      attrs: { required: "" },
+                      model: {
                         value: _vm.user.birthdate,
+                        callback: function($$v) {
+                          _vm.$set(_vm.user, "birthdate", $$v)
+                        },
                         expression: "user.birthdate"
                       }
-                    ],
-                    staticClass: "input w-full",
-                    attrs: {
-                      type: "text",
-                      name: "zip",
-                      required: "",
-                      autofocus: ""
                     },
-                    domProps: { value: _vm.user.birthdate },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.user, "birthdate", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "mb-6" }, [
-                  _c("label", { staticClass: "label mb-2" }, [
-                    _vm._v("Lid sinds")
-                  ]),
-                  _vm._v(
-                    "\n                " +
-                      _vm._s(_vm.user.date_joined) +
-                      "\n            "
+                    [_vm._v("Klik hier om een keuze te maken.")]
                   )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-6" }, [
+                _c("label", { staticClass: "label mb-2" }, [
+                  _vm._v("Lid sinds")
                 ]),
+                _vm._v(
+                  "\n                " +
+                    _vm._s(_vm.user.date_joined) +
+                    "\n            "
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-6" }, [
+                _c("label", { staticClass: "label mb-2" }, [_vm._v("Adres")]),
                 _vm._v(" "),
-                _c("div", { staticClass: "mb-6" }, [
-                  _c("label", { staticClass: "label mb-2" }, [_vm._v("Adres")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.user.address,
-                        expression: "user.address"
-                      }
-                    ],
-                    staticClass: "input w-full",
-                    attrs: {
-                      type: "text",
-                      name: "zip",
-                      required: "",
-                      autofocus: ""
-                    },
-                    domProps: { value: _vm.user.address },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.user, "address", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "mb-6" }, [
-                  _c("label", { staticClass: "label mb-2" }, [
-                    _vm._v("Postcode")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.user.zipcode,
-                        expression: "user.zipcode"
-                      }
-                    ],
-                    staticClass: "input w-full",
-                    attrs: {
-                      type: "text",
-                      name: "zip",
-                      required: "",
-                      autofocus: ""
-                    },
-                    domProps: { value: _vm.user.zipcode },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.user, "zipcode", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "mb-6" }, [
-                  _c("label", { staticClass: "label mb-2" }, [
-                    _vm._v("Woonplaats")
-                  ]),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.user.city,
-                        expression: "user.city"
-                      }
-                    ],
-                    staticClass: "input w-full",
-                    attrs: {
-                      type: "text",
-                      name: "zip",
-                      required: "",
-                      autofocus: ""
-                    },
-                    domProps: { value: _vm.user.city },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.user, "city", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "flex -mx-4" }, [
-                  _c(
-                    "button",
+                _c("input", {
+                  directives: [
                     {
-                      staticClass: "btn-normal w-full mx-4 shadow",
-                      on: {
-                        click: function($event) {
-                          _vm.update()
-                        }
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.address,
+                      expression: "user.address"
+                    }
+                  ],
+                  staticClass: "input w-full",
+                  attrs: {
+                    type: "text",
+                    name: "zip",
+                    required: "",
+                    autofocus: ""
+                  },
+                  domProps: { value: _vm.user.address },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    },
-                    [_vm._v("Opslaan")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
+                      _vm.$set(_vm.user, "address", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-6" }, [
+                _c("label", { staticClass: "label mb-2" }, [
+                  _vm._v("Postcode")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
                     {
-                      staticClass: "btn-normal w-full mx-4 shadow",
-                      on: {
-                        click: function($event) {
-                          _vm.$modal.hide("edit-user") &
-                            _vm.$modal.hide("userdetails")
-                        }
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.zipcode,
+                      expression: "user.zipcode"
+                    }
+                  ],
+                  staticClass: "input w-full",
+                  attrs: {
+                    type: "text",
+                    name: "zip",
+                    required: "",
+                    autofocus: ""
+                  },
+                  domProps: { value: _vm.user.zipcode },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
                       }
-                    },
-                    [_vm._v("Sluiten")]
-                  )
-                ])
-              ]
-            )
+                      _vm.$set(_vm.user, "zipcode", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-6" }, [
+                _c("label", { staticClass: "label mb-2" }, [
+                  _vm._v("Woonplaats")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.city,
+                      expression: "user.city"
+                    }
+                  ],
+                  staticClass: "input w-full",
+                  attrs: {
+                    type: "text",
+                    name: "zip",
+                    required: "",
+                    autofocus: ""
+                  },
+                  domProps: { value: _vm.user.city },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "city", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex -mx-4" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn-normal w-full mx-4 shadow",
+                    on: {
+                      click: function($event) {
+                        _vm.update()
+                      }
+                    }
+                  },
+                  [_vm._v("Opslaan")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn-normal w-full mx-4 shadow",
+                    on: {
+                      click: function($event) {
+                        _vm.$modal.hide("edit-user") &
+                          _vm.$modal.hide("userdetails")
+                      }
+                    }
+                  },
+                  [_vm._v("Sluiten")]
+                )
+              ])
+            ])
           ])
         : _vm._e()
     ]
@@ -47275,6 +47245,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_moment__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_vue_datetime__ = __webpack_require__("./node_modules/vue-datetime/dist/vue-datetime.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_vue_datetime___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_vue_datetime__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_vue_sweetalert2__ = __webpack_require__("./node_modules/vue-sweetalert2/src/index.js");
+
 
 
 
@@ -47292,6 +47264,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]);
 Vue.use(__WEBPACK_IMPORTED_MODULE_4_vue_js_modal___default.a);
 Vue.use(__WEBPACK_IMPORTED_MODULE_5_vuex__["a" /* default */]);
 Vue.use(__WEBPACK_IMPORTED_MODULE_8_vue_datetime___default.a);
+Vue.use(__WEBPACK_IMPORTED_MODULE_9_vue_sweetalert2__["a" /* default */]);
 
 window.Bus = new Vue();
 
@@ -47785,8 +47758,15 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
             state.user = user;
         },
         logout: function logout(state) {
-            localStorage.removeItem('jwt-token');
+            localStorage.removeItem('token');
             state.authenticated = false;
+        }
+    },
+
+    actions: {
+        logout: function logout(context) {
+            alert('logout');
+            context.commit('logout');
         }
     }
 });
