@@ -1862,9 +1862,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__note_CreateNote___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__note_CreateNote__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue__ = __webpack_require__("./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_sweetalert2__ = __webpack_require__("./node_modules/vue-sweetalert2/src/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__note_OpenNote__ = __webpack_require__("./resources/js/components/note/OpenNote.vue");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__note_OpenNote___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__note_OpenNote__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__note_OpenNote__ = __webpack_require__("./resources/js/components/note/OpenNote.vue");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__note_OpenNote___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__note_OpenNote__);
+//
+//
 //
 //
 //
@@ -1902,14 +1903,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
-
-__WEBPACK_IMPORTED_MODULE_2_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_sweetalert2__["a" /* default */]);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     components: {
         createNote: __WEBPACK_IMPORTED_MODULE_1__note_CreateNote___default.a,
-        noteDetails: __WEBPACK_IMPORTED_MODULE_4__note_OpenNote___default.a
+        noteDetails: __WEBPACK_IMPORTED_MODULE_3__note_OpenNote___default.a
     },
 
     data: function data() {
@@ -1934,14 +1932,14 @@ __WEBPACK_IMPORTED_MODULE_2_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_
         deleteNote: function deleteNote(note) {
             var _this2 = this;
 
-            __WEBPACK_IMPORTED_MODULE_2_vue___default.a.swal({
+            this.$swal({
                 title: 'Weet je dit zeker?',
-                text: "Eenmaal verwijderd kan een notitie niet meer worden teruggehaald!",
+                text: "Deze actie is definitief!",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Ja, delete deze notitie!'
+                confirmButtonText: 'Ja, verwijder deze notitie!'
             }).then(function (result) {
                 if (result.value) {
                     __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('note/delete/' + note.id).then(function (_ref2) {
@@ -1952,7 +1950,7 @@ __WEBPACK_IMPORTED_MODULE_2_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue_
                         _this2.wrong = true;
                     });
 
-                    __WEBPACK_IMPORTED_MODULE_2_vue___default.a.swal('Notitie verwijderd!', 'Voltooid');
+                    _this2.$swal('Notitie verwijderd!', 'Voltooid');
                 }
             });
         }
@@ -28919,7 +28917,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                        Open\n                        "
+                        "\n                            Open\n                        "
                       )
                     ]
                   ),
@@ -28937,7 +28935,7 @@ var render = function() {
                     },
                     [
                       _vm._v(
-                        "\n                        Verwijderen\n                        "
+                        "\n                            Verwijderen\n                        "
                       )
                     ]
                   )

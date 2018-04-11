@@ -15,16 +15,18 @@
                         <td class="tr">{{ note.date_created }}</td>
                         <td class="tr">
                             <button class="btn-normal" type="button" @click="openNote(note)">
-                            Open
+                                Open
                             </button>
+                            
                             <button class="btn-delete" type="button" @click="deleteNote(note)">
-                            Verwijderen
+                                Verwijderen
                             </button>
                         </td>
                     </tr>
                     
                 </tbody>
             </table>
+
             <createNote></createNote>
             <noteDetails></noteDetails>
     </div>
@@ -34,10 +36,7 @@
     import axios from '../axios';
     import createNote from './note/CreateNote';
     import Vue from 'vue';
-    import VueSweetalert2 from 'vue-sweetalert2';
     import noteDetails from './note/OpenNote';
-
-    Vue.use(VueSweetalert2);
 
     export default {
         components: {
@@ -60,14 +59,14 @@
                 Bus.$emit('show-note', note);
             },
             deleteNote(note){
-                                Vue.swal({
+                this.$swal({
                     title: 'Weet je dit zeker?',
-                    text: "Eenmaal verwijderd kan een notitie niet meer worden teruggehaald!",
+                    text: "Deze actie is definitief!",
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Ja, delete deze notitie!'
+                    confirmButtonText: 'Ja, verwijder deze notitie!'
                 }).then((result) => {
                     if (result.value) {
                         axios.post('note/delete/' + note.id).then(({data}) => {
@@ -76,7 +75,7 @@
                             this.wrong = true;
                         });
 
-                        Vue.swal(
+                        this.$swal(
                             'Notitie verwijderd!',
                             'Voltooid'
                         )
@@ -84,6 +83,5 @@
                 })
             }
         }
-        }
-
-        </script>
+    }
+</script>
