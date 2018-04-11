@@ -126,10 +126,6 @@
 	import moment from 'moment';
     import Vue from 'vue'
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 8f1deb2451bb3782ea80e388b7e5563f97850023
     export default {
         data() {
             return {
@@ -141,14 +137,11 @@
                 isLoading: false
             }
         },
-<<<<<<< HEAD
 		
 		created() {
 			this.form.birthdate = moment().format('ddmmjjjj');
 			this.form.interestdate = moment().format('ddmmjjjj');
 		},
-=======
->>>>>>> 8f1deb2451bb3782ea80e388b7e5563f97850023
 
         methods: {
             register() {
