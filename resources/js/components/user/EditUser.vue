@@ -1,8 +1,7 @@
 <template>
     <modal name="edit-user" height="auto" :scrollable="true">
         <div class="p-8" v-if="user">
-            <h1>{{user.first_name}} {{user.surname}}
-            </h1>
+            <h1>{{user.first_name}} {{user.surname}}</h1>
             <div class="mb-6 flex flex-col">
                 <div>
                     <label class="label mb-2">Rol</label>
@@ -12,7 +11,8 @@
                     <span class="flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3">{{user.role}}</span>
                 </div>
             </div>
-            <form @submit.prevent="update()">
+
+            <form>
                 <div class="mb-6">
                     <label class="label mb-2">Vakgebied</label>
                     <input type="text"
@@ -24,12 +24,7 @@
                 </div>
                 <div class="mb-6">
                     <label class="label mb-2">Geboortedatum</label>
-                    <input type="text"
-                           class="input w-full"
-                           name="zip"
-                           v-model="user.birthdate"
-                           required
-                           autofocus>
+                    <datetime v-model="user.birthdate" required>Klik hier om een keuze te maken.</datetime>
                 </div>
                 <div class="mb-6">
                     <label class="label mb-2">Lid sinds</label>
@@ -91,7 +86,11 @@
         methods: {
             update() {
                 axios.post('alex', this.user).then((response) => {
-                    console.log(response);
+                    this.$swal({
+                        type: 'success',
+                        title: 'Success',
+                        text: 'Gebruiker geupdatet!'
+                    });
                 });
             }
         }
