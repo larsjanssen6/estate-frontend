@@ -1728,12 +1728,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.$swal({
                 title: 'Weet je dit zeker?',
-                text: "Eenmaal verwijderd kan een lid niet meer worden teruggehaald!",
+                text: "Deze actie is definitief!",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Ja, delete dit lid.'
+                confirmButtonText: 'Ja, verwijder dit lid.'
             }).then(function (result) {
                 if (result.value) {
                     __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('users/deleteuser/' + user.id).then(function (_ref2) {
@@ -1753,7 +1753,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.$swal({
                 title: 'Weet je dit zeker?',
-                text: "Je kan het niet meer ongedaan maken!",
+                text: "Deze actie is definitief!",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -2329,6 +2329,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2352,7 +2374,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         update: function update() {
             var _this2 = this;
 
-            __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('alex', this.user).then(function (response) {
+            __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('/update-user', this.user).then(function () {
                 _this2.$swal({
                     type: 'success',
                     title: 'Success',
@@ -28853,7 +28875,7 @@ var render = function() {
       _c(
         "button",
         {
-          staticClass: "btn-normal",
+          staticClass: "btn-normal mt-4 mb-4",
           attrs: { type: "button" },
           on: {
             click: function($event) {
@@ -28867,7 +28889,7 @@ var render = function() {
       _c(
         "table",
         {
-          staticClass: "text-left m-4 w-full bg-white",
+          staticClass: "text-left w-full bg-white",
           staticStyle: { "border-collapse": "collapse" }
         },
         [
@@ -29851,6 +29873,78 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("form", [
+              _c("div", { staticClass: "mb-6" }, [
+                _c(
+                  "label",
+                  { staticClass: "label mb-2", attrs: { for: "first_name" } },
+                  [_vm._v("Voornaam")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.first_name,
+                      expression: "user.first_name"
+                    }
+                  ],
+                  staticClass: "input w-full",
+                  attrs: {
+                    type: "text",
+                    id: "first_name",
+                    name: "first_name",
+                    required: "",
+                    autofocus: ""
+                  },
+                  domProps: { value: _vm.user.first_name },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "first_name", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-6" }, [
+                _c(
+                  "label",
+                  { staticClass: "label mb-2", attrs: { for: "last_name" } },
+                  [_vm._v("Achternaam")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.surname,
+                      expression: "user.surname"
+                    }
+                  ],
+                  staticClass: "input w-full",
+                  attrs: {
+                    type: "text",
+                    id: "last_name",
+                    name: "last_name",
+                    required: "",
+                    autofocus: ""
+                  },
+                  domProps: { value: _vm.user.surname },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "surname", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
               _c("div", { staticClass: "mb-6" }, [
                 _c("label", { staticClass: "label mb-2" }, [
                   _vm._v("Vakgebied")
