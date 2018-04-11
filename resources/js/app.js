@@ -53,7 +53,13 @@ router.beforeEach((to, from, next) => {
 
 const app = new Vue({
     router,
-    store
+    store,
+
+    methods: {
+        goHome() {
+            window.location = '/';
+        }
+    }
 }).$mount('#app');
 
 
