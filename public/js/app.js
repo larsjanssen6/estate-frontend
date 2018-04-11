@@ -1687,7 +1687,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -1717,9 +1716,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
-        goToNote: function goToNote() {
-            this.$router.push('/notities');
-        },
         showUser: function showUser(user) {
             Bus.$emit('show-user', user);
         },
@@ -1864,6 +1860,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__note_OpenNote__ = __webpack_require__("./resources/js/components/note/OpenNote.vue");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__note_OpenNote___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__note_OpenNote__);
+//
+//
+//
+//
 //
 //
 //
@@ -29063,11 +29063,7 @@ var render = function() {
               _c(
                 "datetime",
                 {
-                  attrs: {
-                    type: "datetime",
-                    placeholder: "Selecteer datum",
-                    required: ""
-                  },
+                  attrs: { placeholder: "Selecteer datum", required: "" },
                   model: {
                     value: _vm.form.interestdate,
                     callback: function($$v) {
@@ -29299,56 +29295,64 @@ var render = function() {
         [
           _vm._m(0),
           _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.notes, function(note) {
-              return _c("tr", { staticClass: "hover:bg-blue-lightest" }, [
-                _c("td", { staticClass: "tr" }, [_vm._v(_vm._s(note.content))]),
-                _vm._v(" "),
-                _c("td", { staticClass: "tr" }, [
-                  _vm._v(_vm._s(note.date_created))
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "tr" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn-normal",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          _vm.openNote(note)
-                        }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Open\n                        "
+          _vm.notes.length > 0
+            ? _c(
+                "tbody",
+                _vm._l(_vm.notes, function(note) {
+                  return _c("tr", { staticClass: "hover:bg-blue-lightest" }, [
+                    _c("td", { staticClass: "tr" }, [
+                      _vm._v(_vm._s(note.content))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "tr" }, [
+                      _vm._v(_vm._s(note.date_created))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "tr" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn-normal",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              _vm.openNote(note)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Open\n                        "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn-delete",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              _vm.deleteNote(note)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Verwijderen\n                        "
+                          )
+                        ]
                       )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn-delete",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          _vm.deleteNote(note)
-                        }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Verwijderen\n                        "
-                      )
-                    ]
-                  )
+                    ])
+                  ])
+                })
+              )
+            : _c("tbody", [
+                _c("td", { staticClass: "p-2" }, [
+                  _vm._v("Er zijn nog geen notities.")
                 ])
               ])
-            })
-          )
         ]
       ),
       _vm._v(" "),
@@ -29565,12 +29569,12 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "mb-6 flex flex-col" }, [
+            _c("div", { staticClass: "flex flex-col" }, [
               _c("div", [
-                _c("label", { staticClass: "label mb-2" }, [_vm._v("Rol")])
+                _c("label", { staticClass: "label" }, [_vm._v("Rol")])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "flex" }, [
+              _c("div", { staticClass: "flex mb-2 mt-2" }, [
                 _c(
                   "span",
                   {
@@ -30011,22 +30015,8 @@ var render = function() {
       _c(
         "button",
         {
-          staticClass: "btn-normal",
-          attrs: { type: "button" },
-          on: {
-            click: function($event) {
-              _vm.goToNote()
-            }
-          }
-        },
-        [_vm._v("Ga naar notities")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
           staticClass:
-            "bg-teal font-semibold text-white py-2 px-4 border border-teal hover:border-transparent rounded m-4",
+            "bg-teal font-semibold text-white py-2 px-4 border border-teal hover:border-transparent rounded mt-4 mb-4",
           on: {
             click: function($event) {
               _vm.$modal.show("registration")
@@ -30048,75 +30038,88 @@ var render = function() {
           _c(
             "tbody",
             _vm._l(_vm.users, function(user) {
-              return _c("tr", { staticClass: "hover:bg-blue-lightest" }, [
-                _c("td", { staticClass: "tr" }, [
-                  _vm._v(_vm._s(user.first_name))
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "tr" }, [_vm._v(_vm._s(user.surname))]),
-                _vm._v(" "),
-                _c("td", { staticClass: "tr" }, [_vm._v(_vm._s(user.city))]),
-                _vm._v(" "),
-                _c("td", { staticClass: "tr" }, [
-                  _vm._v(_vm._s(user.date_joined))
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "tr" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn-normal",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          _vm.showUser(user)
-                        }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                        Bekijken\n                    "
-                      )
-                    ]
-                  ),
+              return _c(
+                "tr",
+                {
+                  staticClass: "hover:bg-blue-lightest cursor-pointer",
+                  on: {
+                    click: function($event) {
+                      _vm.showUser(user)
+                    }
+                  }
+                },
+                [
+                  _c("td", { staticClass: "tr" }, [
+                    _vm._v(_vm._s(user.first_name))
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn-delete",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          _vm.deleteUser(user)
-                        }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                        Verwijderen\n                    "
-                      )
-                    ]
-                  ),
+                  _c("td", { staticClass: "tr" }, [
+                    _vm._v(_vm._s(user.surname))
+                  ]),
                   _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn-normal",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          _vm.promoteUser(user)
+                  _c("td", { staticClass: "tr" }, [_vm._v(_vm._s(user.city))]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "tr" }, [
+                    _vm._v(_vm._s(user.date_joined))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "tr" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn-normal",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.showUser(user)
+                          }
                         }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                        Admin\n                    "
-                      )
-                    ]
-                  )
-                ])
-              ])
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Bekijken\n                    "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn-delete",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.deleteUser(user)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Verwijderen\n                    "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn-normal",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.promoteUser(user)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Admin\n                    "
+                        )
+                      ]
+                    )
+                  ])
+                ]
+              )
             })
           )
         ]

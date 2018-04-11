@@ -4892,6 +4892,10 @@ body input {
   width: 100%;
 }
 
+.router-link-active {
+  color: #fff;
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;

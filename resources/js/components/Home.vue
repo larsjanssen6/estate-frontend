@@ -1,7 +1,6 @@
 <template>
     <div class="container mx-auto">
-        <button class="btn-normal" type="button" @click="goToNote()">Ga naar notities</button>
-        <button class="bg-teal font-semibold text-white py-2 px-4 border border-teal hover:border-transparent rounded m-4" @click="$modal.show('registration');">Registreer lid</button>
+        <button class="bg-teal font-semibold text-white py-2 px-4 border border-teal hover:border-transparent rounded mt-4 mb-4" @click="$modal.show('registration');">Registreer lid</button>
 
         <table class="text-left w-full bg-white" style="border-collapse:collapse">
             <thead>
@@ -14,7 +13,7 @@
             </tr>
             </thead>
             <tbody>
-                <tr class="hover:bg-blue-lightest" v-for="user in users">
+                <tr class="hover:bg-blue-lightest cursor-pointer" v-for="user in users" @click="showUser(user)">
                     <td class="tr">{{ user.first_name }}</td>
                     <td class="tr">{{ user.surname }}</td>
                     <td class="tr">{{ user.city }}</td>
@@ -66,9 +65,6 @@
         },
 
         methods: {
-            goToNote(){
-                this.$router.push('/notities');
-            },
             showUser(user) {
                 Bus.$emit('show-user', user);
             },

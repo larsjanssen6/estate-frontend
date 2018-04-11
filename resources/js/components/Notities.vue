@@ -9,7 +9,7 @@
                     <th class="th">Opties</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody v-if="notes.length > 0">
                     <tr class="hover:bg-blue-lightest" v-for="note in notes">
                         <td class="tr">{{ note.content }}</td>
                         <td class="tr">{{ note.date_created }}</td>
@@ -23,6 +23,10 @@
                             </button>
                         </td>
                     </tr>
+                </tbody>
+
+                <tbody v-else>
+                    <td class="p-2">Er zijn nog geen notities.</td>
                 </tbody>
             </table>
 

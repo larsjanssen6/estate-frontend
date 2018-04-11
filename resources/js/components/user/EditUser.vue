@@ -2,12 +2,12 @@
     <modal name="edit-user" height="auto" :scrollable="true">
         <div class="p-8" v-if="user">
             <h1>{{user.first_name}} {{user.surname}}</h1>
-            <div class="mb-6 flex flex-col">
+            <div class="flex flex-col">
                 <div>
-                    <label class="label mb-2">Rol</label>
+                    <label class="label">Rol</label>
                 </div>
 
-                <div class="flex">
+                <div class="flex mb-2 mt-2">
                     <span class="flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3">{{user.role}}</span>
                 </div>
             </div>
