@@ -1,7 +1,7 @@
 <template>
     <div class="container mx-auto">
-        <button class="btn-normal" type="button"  @click="$modal.show('createNote')">Maak notitie aan</button>
-            <table class="text-left m-4 w-full bg-white" style="border-collapse:collapse">
+        <button class="btn-normal mt-4 mb-4" type="button"  @click="$modal.show('createNote')">Maak notitie aan</button>
+            <table class="text-left w-full bg-white" style="border-collapse:collapse">
                 <thead>
                 <tr>
                     <th class="th">Content</th>
