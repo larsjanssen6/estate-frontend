@@ -1960,176 +1960,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ }),
 
 /***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/Register.vue":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__axios__ = __webpack_require__("./resources/js/axios.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__("./node_modules/moment/moment.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue__ = __webpack_require__("./node_modules/vue/dist/vue.common.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_select__ = __webpack_require__("./node_modules/vue-select/dist/vue-select.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_select___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_select__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-
-
-
-__WEBPACK_IMPORTED_MODULE_2_vue___default.a.component('v-select', __WEBPACK_IMPORTED_MODULE_3_vue_select___default.a);
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            options: [{ text: 'Potentieel lid', value: 'PotentialMember' }, { text: 'Lid', value: 'Member' }],
-            form: {},
-            isLoading: false
-        };
-    },
-    created: function created() {
-        this.form.birthdate = __WEBPACK_IMPORTED_MODULE_1_moment___default()().format('ddmmjjjj');
-        this.form.interestdate = __WEBPACK_IMPORTED_MODULE_1_moment___default()().format('ddmmjjjj');
-    },
-
-
-    methods: {
-        register: function register() {
-            var _this = this;
-
-            this.isLoading = true;
-            __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('signup', this.form).then(function (_ref) {
-                var data = _ref.data;
-
-                _this.isLoading = false;
-                location.reload();
-            }).catch(function (error) {
-                _this.isLoading = false;
-            });
-        }
-    }
-});
+throw new Error("Module build failed: SyntaxError: D:/Xampp/htdocs/resources/js/components/Register.vue: Unexpected token (129:0)\n\n  127 |     import Vue from 'vue'\n  128 | \n> 129 | <<<<<<< HEAD\n      | ^\n  130 | =======\n  131 | \n  132 | >>>>>>> 8f1deb2451bb3782ea80e388b7e5563f97850023\n");
 
 /***/ }),
 
@@ -29151,7 +28984,7 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "mb-6" }, [
+          _c("div", { staticClass: "inline-block relative w-full mb-6" }, [
             _c("label", { staticClass: "label mb-2" }, [_vm._v("Rol")]),
             _vm._v(" "),
             _c(
@@ -29165,7 +28998,8 @@ var render = function() {
                     expression: "form.role"
                   }
                 ],
-                staticClass: "wide-dropdown",
+                staticClass:
+                  "block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow",
                 attrs: { required: "" },
                 on: {
                   change: function($event) {
@@ -29185,41 +29019,47 @@ var render = function() {
                   }
                 }
               },
-              [
-                _c(
+              _vm._l(_vm.options, function(option) {
+                return _c(
                   "option",
-                  {
-                    staticClass: "w-full",
-                    attrs: { selected: "", disabled: "" }
-                  },
+                  { staticClass: "w-full", domProps: { value: option.value } },
                   [
                     _vm._v(
-                      "\n                        (Selecteer de juiste rol)\n                    "
+                      "\n                        " +
+                        _vm._s(option.text) +
+                        "\n                    "
                     )
                   ]
-                ),
-                _vm._v(" "),
-                _vm._l(_vm.options, function(option) {
-                  return _c(
-                    "option",
-                    {
-                      staticClass: "w-full",
-                      domProps: {
-                        value: option.value,
-                        selected: option.index == 0
+                )
+              })
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker"
+              },
+              [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "fill-current h-4 w-4",
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      viewBox: "0 0 20 20"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
                       }
-                    },
-                    [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(option.text) +
-                          "\n                    "
-                      )
-                    ]
-                  )
-                })
-              ],
-              2
+                    })
+                  ]
+                )
+              ]
             )
           ]),
           _vm._v(" "),

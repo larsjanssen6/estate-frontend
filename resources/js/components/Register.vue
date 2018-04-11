@@ -50,16 +50,17 @@
                        autofocus>
             </div>
 
-            <div class="mb-6">
+            <div class="inline-block relative w-full mb-6">
                 <label class="label mb-2">Rol</label>
-                <select required class="wide-dropdown" v-model="form.role">
-                    <option selected disabled class="w-full">
-                        (Selecteer de juiste rol)
-                    </option>
-					<option class="w-full" v-for="option in options" v-bind:value="option.value" v-bind:selected="option.index == 0">
+                <select required class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow" v-model="form.role">
+                    <option class="w-full" v-for="option in options" v-bind:value="option.value">
                         {{ option.text }}
                     </option>
                 </select>
+
+                <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
             </div>
 			
 			<div class="mb-6">
@@ -124,9 +125,11 @@
     import axios from '../axios';
 	import moment from 'moment';
     import Vue from 'vue'
-    import vSelect from 'vue-select'
-    Vue.component('v-select', vSelect)
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8f1deb2451bb3782ea80e388b7e5563f97850023
     export default {
         data() {
             return {
@@ -134,15 +137,18 @@
                     { text: 'Potentieel lid', value: 'PotentialMember' },
                     { text: 'Lid', value: 'Member' }
                 ],
-                form: {},
+                form: { role: 'PotentialMember' },
                 isLoading: false
             }
         },
+<<<<<<< HEAD
 		
 		created() {
 			this.form.birthdate = moment().format('ddmmjjjj');
 			this.form.interestdate = moment().format('ddmmjjjj');
 		},
+=======
+>>>>>>> 8f1deb2451bb3782ea80e388b7e5563f97850023
 
         methods: {
             register() {
