@@ -23,8 +23,6 @@
 <script>
     import axios from '../../axios';
     import Vue from 'vue'
-    import vSelect from 'vue-select'
-    Vue.component('v-select', vSelect)
 
     export default {
 
@@ -33,7 +31,7 @@
                 note:{}
             }
         },
-                mounted() {
+        mounted() {
             Bus.$on('show-note', (note) => {
                 this.note = note;
                 this.$modal.show('noteDetails');
