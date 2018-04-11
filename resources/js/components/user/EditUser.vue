@@ -14,6 +14,28 @@
 
             <form>
                 <div class="mb-6">
+                    <label for="first_name" class="label mb-2">Voornaam</label>
+                    <input type="text"
+                           id="first_name"
+                           class="input w-full"
+                           name="first_name"
+                           v-model="user.first_name"
+                           required
+                           autofocus>
+                </div>
+
+                <div class="mb-6">
+                    <label for="last_name" class="label mb-2">Achternaam</label>
+                    <input type="text"
+                           id="last_name"
+                           class="input w-full"
+                           name="last_name"
+                           v-model="user.surname"
+                           required
+                           autofocus>
+                </div>
+
+                <div class="mb-6">
                     <label class="label mb-2">Vakgebied</label>
                     <input type="text"
                            class="input w-full"
@@ -85,7 +107,7 @@
 
         methods: {
             update() {
-                axios.post('alex', this.user).then((response) => {
+                axios.post('/update-user', this.user).then(() => {
                     this.$swal({
                         type: 'success',
                         title: 'Success',
