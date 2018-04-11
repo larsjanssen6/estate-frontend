@@ -2344,7 +2344,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -29750,9 +29749,7 @@ var render = function() {
                       }
                     },
                     [_vm._v("Klik hier om een keuze te maken.")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", [_vm._v(_vm._s(_vm.user.interestdate))])
+                  )
                 ],
                 1
               ),

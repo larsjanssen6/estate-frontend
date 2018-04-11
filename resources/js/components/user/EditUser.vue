@@ -55,7 +55,6 @@
 				<div class="mb-6">
                     <label class="label mb-2">Interesse vanaf:</label>
                     <datetime v-model="user.interestdate" required>Klik hier om een keuze te maken.</datetime>
-					<p>{{user.interestdate}}</p>
                 </div>
                 <div class="mb-6">
                     <label class="label mb-2">Adres</label>
