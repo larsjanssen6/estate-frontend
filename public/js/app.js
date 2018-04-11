@@ -1897,6 +1897,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -28884,56 +28888,64 @@ var render = function() {
         [
           _vm._m(0),
           _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.notes, function(note) {
-              return _c("tr", { staticClass: "hover:bg-blue-lightest" }, [
-                _c("td", { staticClass: "tr" }, [_vm._v(_vm._s(note.content))]),
-                _vm._v(" "),
-                _c("td", { staticClass: "tr" }, [
-                  _vm._v(_vm._s(note.date_created))
-                ]),
-                _vm._v(" "),
-                _c("td", { staticClass: "tr" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn-normal",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          _vm.openNote(note)
-                        }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Open\n                        "
+          _vm.notes.length > 0
+            ? _c(
+                "tbody",
+                _vm._l(_vm.notes, function(note) {
+                  return _c("tr", { staticClass: "hover:bg-blue-lightest" }, [
+                    _c("td", { staticClass: "tr" }, [
+                      _vm._v(_vm._s(note.content))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "tr" }, [
+                      _vm._v(_vm._s(note.date_created))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "tr" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn-normal",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              _vm.openNote(note)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Open\n                        "
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn-delete",
+                          attrs: { type: "button" },
+                          on: {
+                            click: function($event) {
+                              _vm.deleteNote(note)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                            Verwijderen\n                        "
+                          )
+                        ]
                       )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn-delete",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          _vm.deleteNote(note)
-                        }
-                      }
-                    },
-                    [
-                      _vm._v(
-                        "\n                            Verwijderen\n                        "
-                      )
-                    ]
-                  )
+                    ])
+                  ])
+                })
+              )
+            : _c("tbody", [
+                _c("td", { staticClass: "p-2" }, [
+                  _vm._v("Er zijn nog geen notities.")
                 ])
               ])
-            })
-          )
         ]
       ),
       _vm._v(" "),
