@@ -140,7 +140,7 @@
 		
 		created() {
 			this.form.birthdate = moment().format('ddmmjjjj');
-			this.form.interestdate = moment().format('ddmmjjjj');
+			this.form.interestdate = moment.utc().format();
 		},
 
         methods: {
