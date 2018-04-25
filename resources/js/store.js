@@ -28,13 +28,7 @@ export const store = new Vuex.Store({
         logout(state) {
             localStorage.removeItem('token');
             state.authenticated = false;
-        }
-    },
-
-    actions: {
-        logout(context) {
-            alert('logout');
-            context.commit('logout');
+            state.user = { role : 1  };
         }
     }
 });

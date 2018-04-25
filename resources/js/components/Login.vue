@@ -49,11 +49,19 @@
         methods: {
             login() {
                 axios.post('token/generate-token', this.creds).then(({data}) => {
-                    this.$store.dispatch("login", true);
+
                     localStorage.setItem('token', data.token);
+                    this.getUser();
                     this.$router.push('/home');
                 }).catch((error) => {
                     this.wrong = true;
+                });
+            },
+
+            getUser() {
+                axios.get('/user').then((response) => {
+                    alert('dfddd');
+                    Bus.$emit('userHasLoggedIn', response.data);
                 });
             }
         }

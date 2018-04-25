@@ -55,9 +55,19 @@ const app = new Vue({
     router,
     store,
 
+    created() {
+        Bus.$on('userHasLoggedIn', (user) => {
+            this.$store.commit('setUser', user);
+        });
+    },
+
     methods: {
         goHome() {
             window.location = '/';
+        },
+
+        setUser(user) {
+            this.store.commit('setUser', user);
         }
     }
 }).$mount('#app');
