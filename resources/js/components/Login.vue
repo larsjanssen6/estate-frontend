@@ -64,7 +64,7 @@
                     document.cookie = "is_authenticated=" + true;
                     document.cookie = "role=" + response.data.role;
 
-                    this.$router.push('/home');
+                    location.reload();
                 });
             }
         }
