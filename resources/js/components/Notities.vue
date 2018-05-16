@@ -57,6 +57,7 @@
                 this.notes = data;
             });
         },
+
         methods:{
             openNote(note) {
                 Bus.$emit('show-note', note);
