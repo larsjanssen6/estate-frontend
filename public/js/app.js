@@ -46977,6 +46977,9 @@ module.exports = Component.exports
                 }
             }
             return "";
+        },
+        delCookie: function delCookie(name) {
+            document.cookie = name + '=; expires=Thu, 2 Aug 2001 20:47:11 UTC; path=';
         }
     }
 });
@@ -46993,6 +46996,13 @@ module.exports = Component.exports
 /* harmony default export */ __webpack_exports__["a"] = ({
     mixins: [__WEBPACK_IMPORTED_MODULE_0__CookieHelper__["a" /* default */]],
 
+    data: function data() {
+        return {
+            cookies: ['user_id', 'role', 'first_name', 'is_authenticated', 'role']
+        };
+    },
+
+
     computed: {
         username: function username() {
             return this.getCookie('first_name');
@@ -47002,6 +47012,20 @@ module.exports = Component.exports
         },
         isAdmin: function isAdmin() {
             return this.getCookie('role') == 'Admin';
+        }
+    },
+
+    methods: {
+        signOut: function signOut() {
+            var _this = this;
+
+            this.cookies.forEach(function (cookie) {
+                _this.delCookie(cookie);
+            });
+
+            localStorage.clear();
+
+            window.location = '/';
         }
     }
 });
