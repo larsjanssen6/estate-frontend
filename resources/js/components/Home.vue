@@ -27,7 +27,7 @@
                             Verwijderen
                         </button>
 
-                        <button class="btn-normal" type="button" @click="promoteUser(user)">
+                        <button class="btn-normal" type="button" @click="promoteUser(user)" v-if="isAdmin">
                             Admin
                         </button>
                     </td>
@@ -45,12 +45,16 @@
     import register from './Register';
     import userdetails from './user/User';
     import Vue from 'vue';
+    import CookieHelper from "../mixins/CookieHelper";
+    import CurrUserHelper from "../mixins/CurrUserHelper";
 
     export default {
         components: {
             register,
             userdetails
         },
+
+        mixins: [ CookieHelper, CurrUserHelper ],
 
         data() {
             return {
@@ -62,6 +66,7 @@
             axios.get('users').then(({data}) => {
                 this.users = data;
             });
+            alert(this.username);
         },
 
         methods: {
@@ -111,7 +116,7 @@
                     )
                 }).catch((error) => {
                         this.wrong = true;
-                    this.$wal({
+                    this.$swal({
                         title: 'Je hebt geen toegang tot dit!',
                     })
                 });
