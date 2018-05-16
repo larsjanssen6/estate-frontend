@@ -49,10 +49,8 @@
         methods: {
             login() {
                 axios.post('token/generate-token', this.creds).then(({data}) => {
-
                     localStorage.setItem('token', data.token);
                     this.getUser();
-                    this.$router.push('/home');
                 }).catch((error) => {
                     this.wrong = true;
                 });
@@ -60,8 +58,13 @@
 
             getUser() {
                 axios.get('/user').then((response) => {
-                    alert('dfddd');
-                    Bus.$emit('userHasLoggedIn', response.data);
+                    document.cookie = "user_id=" + response.data.id;
+                    document.cookie = "role=" + response.data.role;
+                    document.cookie = "first_name=" + response.data.first_name;
+                    document.cookie = "is_authenticated=" + true;
+                    document.cookie = "role=" + response.data.role;
+
+                    this.$router.push('/home');
                 });
             }
         }
