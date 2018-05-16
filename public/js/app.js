@@ -1689,6 +1689,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 
 
@@ -1718,7 +1720,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             _this.users = data;
         });
-        alert(this.username);
     },
 
 
@@ -1850,8 +1851,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         },
         getUser: function getUser() {
-            var _this2 = this;
-
             __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].get('/user').then(function (response) {
                 document.cookie = "user_id=" + response.data.id;
                 document.cookie = "role=" + response.data.role;
@@ -1859,7 +1858,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 document.cookie = "is_authenticated=" + true;
                 document.cookie = "role=" + response.data.role;
 
-                _this2.$router.push('/home');
+                location.reload();
             });
         }
     }
@@ -1942,6 +1941,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             _this.notes = data;
         });
     },
+
 
     methods: {
         openNote: function openNote(note) {
@@ -30267,19 +30267,23 @@ var render = function() {
     "div",
     { staticClass: "container mx-auto" },
     [
-      _c(
-        "button",
-        {
-          staticClass:
-            "bg-teal font-semibold text-white py-2 px-4 border border-teal hover:border-transparent rounded mt-4 mb-4",
-          on: {
-            click: function($event) {
-              _vm.$modal.show("registration")
-            }
-          }
-        },
-        [_vm._v("Registreer lid")]
-      ),
+      _c("div", { staticClass: "mt-4 mb-4" }, [
+        _vm.isAdmin
+          ? _c(
+              "button",
+              {
+                staticClass:
+                  "bg-teal font-semibold text-white py-2 px-4 border border-teal hover:border-transparent rounded",
+                on: {
+                  click: function($event) {
+                    _vm.$modal.show("registration")
+                  }
+                }
+              },
+              [_vm._v("Registreer lid")]
+            )
+          : _vm._e()
+      ]),
       _vm._v(" "),
       _c(
         "table",
@@ -30337,23 +30341,25 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn-delete",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            _vm.deleteUser(user)
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                        Verwijderen\n                    "
+                    _vm.isAdmin
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "btn-delete",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                _vm.deleteUser(user)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        Verwijderen\n                    "
+                            )
+                          ]
                         )
-                      ]
-                    ),
+                      : _vm._e(),
                     _vm._v(" "),
                     _vm.isAdmin
                       ? _c(
@@ -46527,7 +46533,7 @@ router.beforeEach(function (to, from, next) {
     })) {
         if (token || token !== null) {
             next({
-                path: '/home'
+                path: '/notities'
             });
         }
     }
