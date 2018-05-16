@@ -1,6 +1,8 @@
 <template>
     <div class="container mx-auto">
-        <button class="bg-teal font-semibold text-white py-2 px-4 border border-teal hover:border-transparent rounded mt-4 mb-4" @click="$modal.show('registration');">Registreer lid</button>
+        <div class="mt-4 mb-4">
+            <button class="bg-teal font-semibold text-white py-2 px-4 border border-teal hover:border-transparent rounded" @click="$modal.show('registration');" v-if="isAdmin">Registreer lid</button>
+        </div>
 
         <table class="text-left w-full bg-white" style="border-collapse:collapse">
             <thead>
@@ -23,7 +25,7 @@
                             Bekijken
                         </button>
 
-                        <button class="btn-delete" type="button" @click="deleteUser(user)">
+                        <button class="btn-delete" type="button" @click="deleteUser(user)" v-if="isAdmin">
                             Verwijderen
                         </button>
 
@@ -66,7 +68,6 @@
             axios.get('users').then(({data}) => {
                 this.users = data;
             });
-            alert(this.username);
         },
 
         methods: {
