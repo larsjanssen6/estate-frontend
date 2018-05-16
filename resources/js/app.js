@@ -3,20 +3,19 @@ import Login from './components/Login.vue';
 import Home from './components/Home.vue';
 import Notities from './components/Notities.vue';
 import VModal from 'vue-js-modal';
-import Vuex from 'vuex';
-import store from './store';
 import moment from 'moment';
 import Datetime from 'vue-datetime';
 import VueSweetalert2 from 'vue-sweetalert2';
+import CurrUserHelper from './mixins/CurrUserHelper';
 
 window.Vue = require('vue');
 window.Moment = moment;
 
 Vue.use(VueRouter);
 Vue.use(VModal);
-Vue.use(Vuex);
 Vue.use(Datetime);
 Vue.use(VueSweetalert2);
+Vue.mixin(CurrUserHelper);
 
 window.Bus = new Vue();
 
@@ -53,23 +52,6 @@ router.beforeEach((to, from, next) => {
 
 const app = new Vue({
     router,
-    store,
-
-    created() {
-        Bus.$on('userHasLoggedIn', (user) => {
-            this.$store.commit('setUser', user);
-        });
-    },
-
-    methods: {
-        goHome() {
-            window.location = '/';
-        },
-
-        setUser(user) {
-            this.store.commit('setUser', user);
-        }
-    }
 }).$mount('#app');
 
 
