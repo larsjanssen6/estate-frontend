@@ -7,7 +7,7 @@
                     <th class="th">Content</th>
                     <th class="th">Start datum</th>
                     <th class="th">Eind datum</th>
-                    <th class="th">Datum</th>
+                    <th class="th">Gedaan</th>
                     <th class="th">Gemaakt op</th>
                     <th class="th">Opties</th>
                 </tr>
