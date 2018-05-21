@@ -11,12 +11,12 @@
             </div>
 
             <div class="mb-6">
-                <label class="label mb-2">Start datum</label>
+                <label class="label mb-2">Moet klaar zijn op</label>
                 <datetime placeholder="Selecteer datum" v-model="note.start" required>Selecteer start.</datetime>
             </div>
 
             <div class="mb-6">
-                <label class="label mb-2">Eind datum</label>
+                <label class="label mb-2">Gedaan op</label>
                 <datetime placeholder="Selecteer datum" v-model="note.end" required>Selecteer einde.</datetime>
             </div>
 

@@ -5,10 +5,10 @@
                 <thead>
                 <tr>
                     <th class="th">Content</th>
-                    <th class="th">Start datum</th>
-                    <th class="th">Eind datum</th>
+                    <th class="th">Moet klaar zijn op</th>
+                    <th class="th">Gedaan op</th>
                     <th class="th">Gedaan</th>
-                    <th class="th">Gemaakt op</th>
+                    <th class="th">Aanmaak datum</th>
                     <th class="th">Opties</th>
                 </tr>
                 </thead>
@@ -16,7 +16,8 @@
                     <tr class="hover:bg-blue-lightest" v-for="note in notes">
                         <td class="tr">{{ note.content }}</td>
                         <td class="tr">{{ note.start }}</td>
-                        <td class="tr">{{ note.end }}</td>
+                        <td class="tr" v-if="note.end">{{ note.end }}</td>
+                        <td class="tr" v-else>nvt</td>
                         <td class="tr">
                             <span class="rounded p-2 bg-orange text-white" v-if="note.done === 'false'">Nee</span>
                             <span class="rounded p-2 bg-green text-white" v-else>Ja</span>

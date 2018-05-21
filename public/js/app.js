@@ -1924,6 +1924,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -2165,11 +2166,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__axios__ = __webpack_require__("./resources/js/axios.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__("./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
-//
-//
-//
-//
-//
 //
 //
 //
@@ -28944,7 +28940,9 @@ var render = function() {
           "div",
           { staticClass: "mb-6" },
           [
-            _c("label", { staticClass: "label mb-2" }, [_vm._v("Start datum")]),
+            _c("label", { staticClass: "label mb-2" }, [
+              _vm._v("Moet klaar zijn op")
+            ]),
             _vm._v(" "),
             _c(
               "datetime",
@@ -28968,7 +28966,7 @@ var render = function() {
           "div",
           { staticClass: "mb-6" },
           [
-            _c("label", { staticClass: "label mb-2" }, [_vm._v("Eind datum")]),
+            _c("label", { staticClass: "label mb-2" }, [_vm._v("Gedaan op")]),
             _vm._v(" "),
             _c(
               "datetime",
@@ -29102,7 +29100,11 @@ var render = function() {
                       _vm._v(_vm._s(note.start))
                     ]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "tr" }, [_vm._v(_vm._s(note.end))]),
+                    note.end
+                      ? _c("td", { staticClass: "tr" }, [
+                          _vm._v(_vm._s(note.end))
+                        ])
+                      : _c("td", { staticClass: "tr" }, [_vm._v("nvt")]),
                     _vm._v(" "),
                     _c("td", { staticClass: "tr" }, [
                       note.done === "false"
@@ -29186,13 +29188,13 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { staticClass: "th" }, [_vm._v("Content")]),
         _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Start datum")]),
+        _c("th", { staticClass: "th" }, [_vm._v("Moet klaar zijn op")]),
         _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Eind datum")]),
+        _c("th", { staticClass: "th" }, [_vm._v("Gedaan op")]),
         _vm._v(" "),
         _c("th", { staticClass: "th" }, [_vm._v("Gedaan")]),
         _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Gemaakt op")]),
+        _c("th", { staticClass: "th" }, [_vm._v("Aanmaak datum")]),
         _vm._v(" "),
         _c("th", { staticClass: "th" }, [_vm._v("Opties")])
       ])
@@ -29496,7 +29498,7 @@ var render = function() {
             { staticClass: "mb-6" },
             [
               _c("label", { staticClass: "label mb-2" }, [
-                _vm._v("Start datum")
+                _vm._v("Moet klaar zijn op")
               ]),
               _vm._v(" "),
               _c(
@@ -29512,32 +29514,6 @@ var render = function() {
                   }
                 },
                 [_vm._v("Selecteer start.")]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "mb-6" },
-            [
-              _c("label", { staticClass: "label mb-2" }, [
-                _vm._v("Eind datum")
-              ]),
-              _vm._v(" "),
-              _c(
-                "datetime",
-                {
-                  attrs: { placeholder: "Selecteer datum", required: "" },
-                  model: {
-                    value: _vm.form.end,
-                    callback: function($$v) {
-                      _vm.$set(_vm.form, "end", $$v)
-                    },
-                    expression: "form.end"
-                  }
-                },
-                [_vm._v("Selecteer einde.")]
               )
             ],
             1

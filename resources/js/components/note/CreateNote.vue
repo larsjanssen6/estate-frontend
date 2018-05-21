@@ -19,13 +19,8 @@
             </div>
 
             <div class="mb-6">
-                <label class="label mb-2">Start datum</label>
+                <label class="label mb-2">Moet klaar zijn op</label>
                 <datetime placeholder="Selecteer datum" v-model="form.start" required>Selecteer start.</datetime>
-            </div>
-
-            <div class="mb-6">
-                <label class="label mb-2">Eind datum</label>
-                <datetime placeholder="Selecteer datum" v-model="form.end" required>Selecteer einde.</datetime>
             </div>
 
             <div class="mb-6">
