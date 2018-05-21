@@ -1,6 +1,15 @@
 <template>
     <modal name="createNote" height="auto" :scrollable="true">
         <form class="p-8" @submit.prevent="createNote()">
+           <div class="mb-6">
+               <label class="label mb-6">Potentieel lid</label>
+               <select required class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow" v-model="form.potential_member_id" required>
+                   <option class="w-full" v-for="user in users" v-bind:value="user.id">
+                       {{ user.first_name }} {{ user.surname }}
+                   </option>
+               </select>
+           </div>
+
             <div class="mb-6">
                 <label for="Content" class="label mb-2">Notitie</label>
                 <textarea rows="5" cols="50"
@@ -29,9 +38,16 @@
 
         data() {
             return {
-                form: {},
-                isLoading: false
+                form: { potential_member_id: 0 },
+                isLoading: false,
+                users: []
             }
+        },
+
+        created() {
+            axios.get('users').then(({data}) => {
+                this.users = data;
+            });
         },
 
         methods: {

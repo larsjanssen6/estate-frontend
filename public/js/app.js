@@ -2179,6 +2179,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2186,24 +2195,34 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            form: {},
-            isLoading: false
+            form: { potential_member_id: 0 },
+            isLoading: false,
+            users: []
         };
+    },
+    created: function created() {
+        var _this = this;
+
+        __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].get('users').then(function (_ref) {
+            var data = _ref.data;
+
+            _this.users = data;
+        });
     },
 
 
     methods: {
         createNote: function createNote() {
-            var _this = this;
+            var _this2 = this;
 
             this.isLoading = true;
-            __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('note/create', this.form).then(function (_ref) {
-                var data = _ref.data;
+            __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('note/create', this.form).then(function (_ref2) {
+                var data = _ref2.data;
 
-                _this.isLoading = false;
+                _this2.isLoading = false;
                 location.reload();
             }).catch(function (error) {
-                _this.isLoading = false;
+                _this2.isLoading = false;
             });
         }
     }
@@ -2241,6 +2260,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2248,15 +2276,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            note: {}
+            note: {},
+            users: []
         };
     },
-    mounted: function mounted() {
+    created: function created() {
         var _this = this;
 
+        __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].get('users').then(function (_ref) {
+            var data = _ref.data;
+
+            _this.users = data;
+        });
+    },
+    mounted: function mounted() {
+        var _this2 = this;
+
         Bus.$on('show-note', function (note) {
-            _this.note = note;
-            _this.$modal.show('noteDetails');
+            _this2.note = note;
+            _this2.$modal.show('noteDetails');
         });
     }
 });
@@ -28810,6 +28848,61 @@ var render = function() {
     { attrs: { name: "noteDetails", height: "auto", scrollable: true } },
     [
       _c("div", { staticClass: "p-8" }, [
+        _c("div", { staticClass: "mb-8" }, [
+          _c("label", { staticClass: "label mb-6" }, [
+            _vm._v("Potentieel lid")
+          ]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.note.potential_member_id,
+                  expression: "note.potential_member_id"
+                }
+              ],
+              staticClass:
+                "block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow",
+              attrs: { required: "", required: "" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.note,
+                    "potential_member_id",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            _vm._l(_vm.users, function(user) {
+              return _c(
+                "option",
+                { staticClass: "w-full", domProps: { value: user.id } },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(user.first_name) +
+                      " " +
+                      _vm._s(user.surname) +
+                      "\n                "
+                  )
+                ]
+              )
+            })
+          )
+        ]),
+        _vm._v(" "),
         _c("div", { staticClass: "mb-6" }, [
           _c(
             "label",
@@ -29189,6 +29282,61 @@ var render = function() {
           }
         },
         [
+          _c("div", { staticClass: "mb-6" }, [
+            _c("label", { staticClass: "label mb-6" }, [
+              _vm._v("Potentieel lid")
+            ]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.potential_member_id,
+                    expression: "form.potential_member_id"
+                  }
+                ],
+                staticClass:
+                  "block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow",
+                attrs: { required: "", required: "" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.form,
+                      "potential_member_id",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              _vm._l(_vm.users, function(user) {
+                return _c(
+                  "option",
+                  { staticClass: "w-full", domProps: { value: user.id } },
+                  [
+                    _vm._v(
+                      "\n                   " +
+                        _vm._s(user.first_name) +
+                        " " +
+                        _vm._s(user.surname) +
+                        "\n               "
+                    )
+                  ]
+                )
+              })
+            )
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "mb-6" }, [
             _c(
               "label",
@@ -30299,14 +30447,7 @@ var render = function() {
             _vm._l(_vm.users, function(user) {
               return _c(
                 "tr",
-                {
-                  staticClass: "hover:bg-blue-lightest cursor-pointer",
-                  on: {
-                    click: function($event) {
-                      _vm.showUser(user)
-                    }
-                  }
-                },
+                { staticClass: "hover:bg-blue-lightest cursor-pointer" },
                 [
                   _c("td", { staticClass: "tr" }, [
                     _vm._v(_vm._s(user.first_name))
