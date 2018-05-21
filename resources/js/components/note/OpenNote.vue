@@ -9,7 +9,7 @@
                     </option>
                 </select>
             </div>
-            
+
             <div class="mb-6">
                 <label for="Content" class="label mb-2">Notitie</label>
                 <textarea readonly

@@ -2188,6 +2188,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2195,7 +2203,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            form: { potential_member_id: 0 },
+            form: { potential_member_id: 0, done: "false" },
             isLoading: false,
             users: []
         };
@@ -29334,6 +29342,49 @@ var render = function() {
                   ]
                 )
               })
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-6" }, [
+            _c("label", { staticClass: "label mb-6" }, [_vm._v("Gedaan")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.done,
+                    expression: "form.done"
+                  }
+                ],
+                staticClass:
+                  "block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow",
+                attrs: { required: "", required: "" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.form,
+                      "done",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "false" } }, [_vm._v("Nee")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "true" } }, [_vm._v("Ja")])
+              ]
             )
           ]),
           _vm._v(" "),

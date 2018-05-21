@@ -11,6 +11,14 @@
            </div>
 
             <div class="mb-6">
+                <label class="label mb-6">Gedaan</label>
+                <select required class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow" v-model="form.done" required>
+                   <option value="false">Nee</option>
+                    <option value="true">Ja</option>
+                </select>
+            </div>
+
+            <div class="mb-6">
                 <label for="Content" class="label mb-2">Notitie</label>
                 <textarea rows="5" cols="50"
                        id="content"
@@ -38,7 +46,7 @@
 
         data() {
             return {
-                form: { potential_member_id: 0 },
+                form: { potential_member_id: 0, done: "false" },
                 isLoading: false,
                 users: []
             }
