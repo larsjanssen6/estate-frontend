@@ -11,6 +11,7 @@
                 <th class="th">Achternaam</th>
                 <th class="th">Woonplaats</th>
                 <th class="th">Registreerdatum</th>
+                <th class="th">Role</th>
                 <th class="th">Opties</th>
             </tr>
             </thead>
@@ -20,6 +21,11 @@
                     <td class="tr">{{ user.surname }}</td>
                     <td class="tr">{{ user.city }}</td>
                     <td class="tr">{{ user.date_joined }}</td>
+                    <td class="tr">
+                        <span class="rounded p-2 bg-green text-white">
+                            {{ user.role }}
+                        </span>
+                    </td>
                     <td class="tr">
                         <button class="btn-normal" type="button" @click="showUser(user)">
                             Bekijken

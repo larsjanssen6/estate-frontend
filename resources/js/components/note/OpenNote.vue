@@ -11,6 +11,14 @@
             </div>
 
             <div class="mb-6">
+                <label class="label mb-6">Gedaan</label>
+                <select required class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow" v-model="note.done" required>
+                    <option value="false">Nee</option>
+                    <option value="true">Ja</option>
+                </select>
+            </div>
+
+            <div class="mb-6">
                 <label class="label mb-2">Moet klaar zijn op</label>
                 <datetime placeholder="Selecteer datum" v-model="note.start" required>Selecteer start.</datetime>
             </div>

@@ -1691,6 +1691,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2261,6 +2267,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__axios__ = __webpack_require__("./resources/js/axios.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__("./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -28936,6 +28950,49 @@ var render = function() {
           )
         ]),
         _vm._v(" "),
+        _c("div", { staticClass: "mb-6" }, [
+          _c("label", { staticClass: "label mb-6" }, [_vm._v("Gedaan")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.note.done,
+                  expression: "note.done"
+                }
+              ],
+              staticClass:
+                "block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow",
+              attrs: { required: "", required: "" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.note,
+                    "done",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "false" } }, [_vm._v("Nee")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "true" } }, [_vm._v("Ja")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
         _c(
           "div",
           { staticClass: "mb-6" },
@@ -30647,6 +30704,20 @@ var render = function() {
                   _vm._v(" "),
                   _c("td", { staticClass: "tr" }, [
                     _c(
+                      "span",
+                      { staticClass: "rounded p-2 bg-green text-white" },
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(user.role) +
+                            "\n                    "
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "tr" }, [
+                    _c(
                       "button",
                       {
                         staticClass: "btn-normal",
@@ -30732,6 +30803,8 @@ var staticRenderFns = [
         _c("th", { staticClass: "th" }, [_vm._v("Woonplaats")]),
         _vm._v(" "),
         _c("th", { staticClass: "th" }, [_vm._v("Registreerdatum")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Role")]),
         _vm._v(" "),
         _c("th", { staticClass: "th" }, [_vm._v("Opties")])
       ])
