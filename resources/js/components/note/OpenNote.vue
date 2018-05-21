@@ -30,7 +30,7 @@
 
             <div class="mb-6">
                 <label for="Content" class="label mb-2">Notitie</label>
-                <textarea readonly
+                <textarea
                         rows="5"
                         cols="50"
                         id="content"
@@ -41,6 +41,7 @@
                         ></textarea>
                 </div>
             <div class="flex -mx-4">
+                <button class="btn-normal w-full mx-4 shadow" @click="updateNote()">Update</button>
                 <button @click="$modal.hide('noteDetails')" class="btn-outlined w-full mx-4 shadow">Sluiten</button>
             </div>
         </div>
@@ -64,6 +65,14 @@
             axios.get('users').then(({data}) => {
                 this.users = data;
             });
+        },
+
+        methods: {
+            updateNote() {
+                axios.post('/note/update', this.note).then(() => {
+                    location.reload();
+                });
+            }
         },
 
         mounted() {

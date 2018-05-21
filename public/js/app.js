@@ -2249,7 +2249,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var data = _ref2.data;
 
                 _this2.isLoading = false;
-                //                    location.reload();
+                location.reload();
             }).catch(function (error) {
                 _this2.isLoading = false;
             });
@@ -2267,6 +2267,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__axios__ = __webpack_require__("./resources/js/axios.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__("./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
+//
 //
 //
 //
@@ -2336,6 +2337,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             _this.users = data;
         });
     },
+
+
+    methods: {
+        updateNote: function updateNote() {
+            __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('/note/update', this.note).then(function () {
+                location.reload();
+            });
+        }
+    },
+
     mounted: function mounted() {
         var _this2 = this;
 
@@ -29061,7 +29072,6 @@ var render = function() {
             ],
             staticClass: "input w-full",
             attrs: {
-              readonly: "",
               rows: "5",
               cols: "50",
               id: "content",
@@ -29081,6 +29091,19 @@ var render = function() {
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "flex -mx-4" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn-normal w-full mx-4 shadow",
+              on: {
+                click: function($event) {
+                  _vm.updateNote()
+                }
+              }
+            },
+            [_vm._v("Update")]
+          ),
+          _vm._v(" "),
           _c(
             "button",
             {

@@ -68,7 +68,7 @@
                 this.isLoading = true;
                 axios.post('note/create', this.form).then(({data}) => {
                     this.isLoading = false;
-//                    location.reload();
+                    location.reload();
                 }).catch((error) => {
                     this.isLoading = false;
                 });
