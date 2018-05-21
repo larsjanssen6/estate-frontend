@@ -1915,6 +1915,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2196,6 +2205,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2203,7 +2222,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            form: { potential_member_id: 0, done: "false" },
+            form: { potential_member_id: 0, done: "false", start: "", end: "" },
             isLoading: false,
             users: []
         };
@@ -2228,7 +2247,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var data = _ref2.data;
 
                 _this2.isLoading = false;
-                location.reload();
+                //                    location.reload();
             }).catch(function (error) {
                 _this2.isLoading = false;
             });
@@ -29022,6 +29041,26 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "tr" }, [
+                      _vm._v(_vm._s(note.start))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "tr" }, [_vm._v(_vm._s(note.end))]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "tr" }, [
+                      note.done === "false"
+                        ? _c(
+                            "span",
+                            { staticClass: "rounded p-2 bg-orange text-white" },
+                            [_vm._v("Nee")]
+                          )
+                        : _c(
+                            "span",
+                            { staticClass: "rounded p-2 bg-green text-white" },
+                            [_vm._v("Ja")]
+                          )
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "tr" }, [
                       _vm._v(_vm._s(note.date_created))
                     ]),
                     _vm._v(" "),
@@ -29089,7 +29128,13 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { staticClass: "th" }, [_vm._v("Content")]),
         _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Start datum")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Eind datum")]),
+        _vm._v(" "),
         _c("th", { staticClass: "th" }, [_vm._v("Datum")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Gemaakt op")]),
         _vm._v(" "),
         _c("th", { staticClass: "th" }, [_vm._v("Opties")])
       ])
@@ -29387,6 +29432,58 @@ var render = function() {
               ]
             )
           ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "mb-6" },
+            [
+              _c("label", { staticClass: "label mb-2" }, [
+                _vm._v("Start datum")
+              ]),
+              _vm._v(" "),
+              _c(
+                "datetime",
+                {
+                  attrs: { placeholder: "Selecteer datum", required: "" },
+                  model: {
+                    value: _vm.form.start,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "start", $$v)
+                    },
+                    expression: "form.start"
+                  }
+                },
+                [_vm._v("Selecteer start.")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "mb-6" },
+            [
+              _c("label", { staticClass: "label mb-2" }, [
+                _vm._v("Eind datum")
+              ]),
+              _vm._v(" "),
+              _c(
+                "datetime",
+                {
+                  attrs: { placeholder: "Selecteer datum", required: "" },
+                  model: {
+                    value: _vm.form.end,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "end", $$v)
+                    },
+                    expression: "form.end"
+                  }
+                },
+                [_vm._v("Selecteer einde.")]
+              )
+            ],
+            1
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "mb-6" }, [
             _c(

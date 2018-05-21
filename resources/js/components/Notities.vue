@@ -5,13 +5,22 @@
                 <thead>
                 <tr>
                     <th class="th">Content</th>
+                    <th class="th">Start datum</th>
+                    <th class="th">Eind datum</th>
                     <th class="th">Datum</th>
+                    <th class="th">Gemaakt op</th>
                     <th class="th">Opties</th>
                 </tr>
                 </thead>
                 <tbody v-if="notes.length > 0">
                     <tr class="hover:bg-blue-lightest" v-for="note in notes">
                         <td class="tr">{{ note.content }}</td>
+                        <td class="tr">{{ note.start }}</td>
+                        <td class="tr">{{ note.end }}</td>
+                        <td class="tr">
+                            <span class="rounded p-2 bg-orange text-white" v-if="note.done === 'false'">Nee</span>
+                            <span class="rounded p-2 bg-green text-white" v-else>Ja</span>
+                        </td>
                         <td class="tr">{{ note.date_created }}</td>
                         <td class="tr">
                             <button class="btn-normal" type="button" @click="openNote(note)">

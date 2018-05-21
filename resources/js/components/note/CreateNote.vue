@@ -19,6 +19,16 @@
             </div>
 
             <div class="mb-6">
+                <label class="label mb-2">Start datum</label>
+                <datetime placeholder="Selecteer datum" v-model="form.start" required>Selecteer start.</datetime>
+            </div>
+
+            <div class="mb-6">
+                <label class="label mb-2">Eind datum</label>
+                <datetime placeholder="Selecteer datum" v-model="form.end" required>Selecteer einde.</datetime>
+            </div>
+
+            <div class="mb-6">
                 <label for="Content" class="label mb-2">Notitie</label>
                 <textarea rows="5" cols="50"
                        id="content"
@@ -46,7 +56,7 @@
 
         data() {
             return {
-                form: { potential_member_id: 0, done: "false" },
+                form: { potential_member_id: 0, done: "false", start: "", end: "" },
                 isLoading: false,
                 users: []
             }
@@ -63,7 +73,7 @@
                 this.isLoading = true;
                 axios.post('note/create', this.form).then(({data}) => {
                     this.isLoading = false;
-                    location.reload();
+//                    location.reload();
                 }).catch((error) => {
                     this.isLoading = false;
                 });
