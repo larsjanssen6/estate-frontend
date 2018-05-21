@@ -29132,7 +29132,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "th" }, [_vm._v("Eind datum")]),
         _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Datum")]),
+        _c("th", { staticClass: "th" }, [_vm._v("Gedaan")]),
         _vm._v(" "),
         _c("th", { staticClass: "th" }, [_vm._v("Gemaakt op")]),
         _vm._v(" "),
