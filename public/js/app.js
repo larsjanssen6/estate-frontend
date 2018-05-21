@@ -2296,6 +2296,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -28929,6 +28939,54 @@ var render = function() {
             })
           )
         ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "mb-6" },
+          [
+            _c("label", { staticClass: "label mb-2" }, [_vm._v("Start datum")]),
+            _vm._v(" "),
+            _c(
+              "datetime",
+              {
+                attrs: { placeholder: "Selecteer datum", required: "" },
+                model: {
+                  value: _vm.note.start,
+                  callback: function($$v) {
+                    _vm.$set(_vm.note, "start", $$v)
+                  },
+                  expression: "note.start"
+                }
+              },
+              [_vm._v("Selecteer start.")]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "mb-6" },
+          [
+            _c("label", { staticClass: "label mb-2" }, [_vm._v("Eind datum")]),
+            _vm._v(" "),
+            _c(
+              "datetime",
+              {
+                attrs: { placeholder: "Selecteer datum", required: "" },
+                model: {
+                  value: _vm.note.end,
+                  callback: function($$v) {
+                    _vm.$set(_vm.note, "end", $$v)
+                  },
+                  expression: "note.end"
+                }
+              },
+              [_vm._v("Selecteer einde.")]
+            )
+          ],
+          1
+        ),
         _vm._v(" "),
         _c("div", { staticClass: "mb-6" }, [
           _c(

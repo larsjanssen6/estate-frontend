@@ -11,6 +11,16 @@
             </div>
 
             <div class="mb-6">
+                <label class="label mb-2">Start datum</label>
+                <datetime placeholder="Selecteer datum" v-model="note.start" required>Selecteer start.</datetime>
+            </div>
+
+            <div class="mb-6">
+                <label class="label mb-2">Eind datum</label>
+                <datetime placeholder="Selecteer datum" v-model="note.end" required>Selecteer einde.</datetime>
+            </div>
+
+            <div class="mb-6">
                 <label for="Content" class="label mb-2">Notitie</label>
                 <textarea readonly
                         rows="5"
