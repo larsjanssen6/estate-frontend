@@ -2138,6 +2138,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2279,6 +2289,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__axios__ = __webpack_require__("./resources/js/axios.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__("./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
+//
 //
 //
 //
@@ -2577,6 +2588,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2620,6 +2640,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__EditUser__ = __webpack_require__("./resources/js/components/user/EditUser.vue");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__EditUser___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__EditUser__);
+//
+//
+//
+//
 //
 //
 //
@@ -29452,6 +29476,42 @@ var render = function() {
             })
           ]),
           _vm._v(" "),
+          _c("div", { staticClass: "mb-6" }, [
+            _c(
+              "label",
+              { staticClass: "label mb-2", attrs: { for: "number" } },
+              [_vm._v("Nummer")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.number,
+                  expression: "form.number"
+                }
+              ],
+              staticClass: "input w-full",
+              attrs: {
+                type: "text",
+                id: "number",
+                name: "number",
+                required: "",
+                autofocus: ""
+              },
+              domProps: { value: _vm.form.number },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "number", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
           _c("div", { staticClass: "flex -mx-4" }, [
             _c(
               "button",
@@ -29537,6 +29597,13 @@ var render = function() {
                     _vm._v("Beroep:"),
                     _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
                       _vm._v(_vm._s(_vm.bindUser.profession))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("label", { staticClass: "label mb-4" }, [
+                    _vm._v("Nummer:"),
+                    _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
+                      _vm._v(_vm._s(_vm.bindUser.number))
                     ])
                   ]),
                   _vm._v(" "),
@@ -30181,6 +30248,37 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
+              _c("div", { staticClass: "mb-6" }, [
+                _c("label", { staticClass: "label mb-2" }, [_vm._v("Nummer")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.user.number,
+                      expression: "user.number"
+                    }
+                  ],
+                  staticClass: "input w-full",
+                  attrs: {
+                    type: "text",
+                    name: "number",
+                    required: "",
+                    autofocus: ""
+                  },
+                  domProps: { value: _vm.user.number },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.user, "number", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
               _c(
                 "div",
                 { staticClass: "mb-6" },
@@ -30658,11 +30756,11 @@ var render = function() {
                 { staticClass: "hover:bg-blue-lightest cursor-pointer" },
                 [
                   _c("td", { staticClass: "tr" }, [
-                    _vm._v(_vm._s(user.first_name))
+                    _vm._v(_vm._s(user.first_name) + " " + _vm._s(user.surname))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "tr" }, [
-                    _vm._v(_vm._s(user.surname))
+                    _vm._v(_vm._s(user.number))
                   ]),
                   _vm._v(" "),
                   _c("td", { staticClass: "tr" }, [_vm._v(_vm._s(user.city))]),
@@ -30767,7 +30865,7 @@ var staticRenderFns = [
       _c("tr", [
         _c("th", { staticClass: "th" }, [_vm._v("Naam")]),
         _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Achternaam")]),
+        _c("th", { staticClass: "th" }, [_vm._v("Nummer")]),
         _vm._v(" "),
         _c("th", { staticClass: "th" }, [_vm._v("Woonplaats")]),
         _vm._v(" "),
@@ -31076,6 +31174,15 @@ var render = function() {
               _vm._v(
                 "\n                    " +
                   _vm._s(_vm.user.profession) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-6" }, [
+              _c("label", { staticClass: "label mb-2" }, [_vm._v("Nummer")]),
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.user.number) +
                   "\n                "
               )
             ]),
@@ -47320,7 +47427,7 @@ var app = new Vue({
 
 
 var instance = __WEBPACK_IMPORTED_MODULE_0_axios___default.a.create({
-    baseURL: 'http://localhost:8080',
+    baseURL: 'https://localhost:8080',
     timeout: 10000,
     params: {} // do not remove this, its added to add params later in the config
 });

@@ -111,7 +111,17 @@
                        required
                        autofocus>
             </div>
-
+			
+			 <div class="mb-6">
+                <label for="number" class="label mb-2">Nummer</label>
+                <input type="text"
+                       id="number"
+                       class="input w-full"
+                       name="number"
+                       v-model="form.number"
+                       required
+                       autofocus>
+            </div>
 
             <div class="flex -mx-4">
                 <button type="submit" class="btn-normal w-full mx-4 shadow" :class="{ 'loader': isLoading }">Register</button>

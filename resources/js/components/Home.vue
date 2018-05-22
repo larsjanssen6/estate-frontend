@@ -8,7 +8,7 @@
             <thead>
             <tr>
                 <th class="th">Naam</th>
-                <th class="th">Achternaam</th>
+                <th class="th">Nummer</th>
                 <th class="th">Woonplaats</th>
                 <th class="th">Registreerdatum</th>
                 <th class="th">Role</th>
@@ -17,8 +17,8 @@
             </thead>
             <tbody>
                 <tr class="hover:bg-blue-lightest cursor-pointer" v-for="user in users">
-                    <td class="tr">{{ user.first_name }}</td>
-                    <td class="tr">{{ user.surname }}</td>
+                    <td class="tr">{{ user.first_name }} {{ user.surname }}</td>
+                    <td class="tr">{{ user.number }}</td>
                     <td class="tr">{{ user.city }}</td>
                     <td class="tr">{{ user.date_joined }}</td>
                     <td class="tr">

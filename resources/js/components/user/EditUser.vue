@@ -44,6 +44,15 @@
                            required
                            autofocus>
                 </div>
+				<div class="mb-6">
+                    <label class="label mb-2">Nummer</label>
+                    <input type="text"
+                           class="input w-full"
+                           name="number"
+                           v-model="user.number"
+                           required
+                           autofocus>
+                </div>
                 <div class="mb-6">
                     <label class="label mb-2">Geboortedatum</label>
                     <datetime v-model="user.birthdate" required>Klik hier om een keuze te maken.</datetime>

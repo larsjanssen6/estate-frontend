@@ -12,6 +12,7 @@
                 <label class="label mb-6">Details</label>
                 <label class="label mb-4">Geïntereseerd op:<p class="p-2 rounded text-black rounded">{{bindUser.interestdate}}</p></label>
                 <label class="label mb-4">Beroep:<p class="p-2 rounded text-black rounded">{{bindUser.profession}}</p></label>
+				<label class="label mb-4">Nummer:<p class="p-2 rounded text-black rounded">{{bindUser.number}}</p></label>
                 <label class="label mb-4">Stad:<p class="p-2 rounded text-black rounded">{{bindUser.city}}</p></label>
                 <label class="label mb-4">Adres:<p class="p-2 rounded text-black rounded">{{bindUser.address}}</p></label>
                 <label class="label mb-4">Postcode:<p class="p-2 rounded text-black rounded"> {{bindUser.zipcode}}</p></label>

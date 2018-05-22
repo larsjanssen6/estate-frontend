@@ -18,6 +18,10 @@
                     <label class="label mb-2">Vakgebied</label>
                     {{user.profession}}
                 </div>
+				<div class="mb-6">
+                    <label class="label mb-2">Nummer</label>
+                    {{user.number}}
+                </div>
                 <div class="mb-6">
                     <label class="label mb-2">Geboortedatum</label>
                     {{user.birthdate}}
