@@ -5,6 +5,7 @@
                 <thead>
                 <tr>
                     <th class="th">Content</th>
+                    <th class="th">Contact gegevens</th>
                     <th class="th">Moet klaar zijn op</th>
                     <th class="th">Gedaan op</th>
                     <th class="th">Gedaan</th>
@@ -13,8 +14,13 @@
                 </tr>
                 </thead>
                 <tbody v-if="notes.length > 0">
-                    <tr class="hover:bg-blue-lightest" v-for="note in notes">
+                    <tr class="hover:bg-blue-lightest" v-for="note, ndx in notes">
                         <td class="tr"><p class="summary">{{ note.content }}</p></td>
+                        <td class="tr">
+                            {{ users[ndx].first_name }} {{ users[ndx].surname }}
+                            <br>
+                            {{ users[ndx].number }}
+                        </td>
                         <td class="tr">{{ note.start }}</td>
                         <td class="tr" v-if="note.end">{{ note.end }}</td>
                         <td class="tr" v-else>nvt</td>
@@ -66,12 +72,16 @@
 
         data() {
             return {
-                notes: []
+                notes: [],
+                users: []
             }
         },        
         created() {
             axios.post('note/notes').then(({data}) => {
                 this.notes = data;
+            });
+            axios.get('users').then(({data}) => {
+                this.users = data;
             });
         },
 

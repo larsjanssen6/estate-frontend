@@ -1938,6 +1938,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -1954,7 +1960,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     data: function data() {
         return {
-            notes: []
+            notes: [],
+            users: []
         };
     },
     created: function created() {
@@ -1964,6 +1971,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var data = _ref.data;
 
             _this.notes = data;
+        });
+        __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].get('users').then(function (_ref2) {
+            var data = _ref2.data;
+
+            _this.users = data;
         });
     },
 
@@ -1988,8 +2000,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 confirmButtonText: 'Ja, verwijder deze notitie!'
             }).then(function (result) {
                 if (result.value) {
-                    __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('note/delete/' + note.id).then(function (_ref2) {
-                        var data = _ref2.data;
+                    __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('note/delete/' + note.id).then(function (_ref3) {
+                        var data = _ref3.data;
 
                         location.reload();
                     }).catch(function (error) {
@@ -29802,12 +29814,28 @@ var render = function() {
           _vm.notes.length > 0
             ? _c(
                 "tbody",
-                _vm._l(_vm.notes, function(note) {
+                _vm._l(_vm.notes, function(note, ndx) {
                   return _c("tr", { staticClass: "hover:bg-blue-lightest" }, [
                     _c("td", { staticClass: "tr" }, [
                       _c("p", { staticClass: "summary" }, [
                         _vm._v(_vm._s(note.content))
                       ])
+                    ]),
+                    _vm._v(" "),
+                    _c("td", { staticClass: "tr" }, [
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.users[ndx].first_name) +
+                          " " +
+                          _vm._s(_vm.users[ndx].surname) +
+                          "\n                        "
+                      ),
+                      _c("br"),
+                      _vm._v(
+                        "\n                        " +
+                          _vm._s(_vm.users[ndx].number) +
+                          "\n                    "
+                      )
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "tr" }, [
@@ -29921,6 +29949,8 @@ var staticRenderFns = [
     return _c("thead", [
       _c("tr", [
         _c("th", { staticClass: "th" }, [_vm._v("Content")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Contact gegevens")]),
         _vm._v(" "),
         _c("th", { staticClass: "th" }, [_vm._v("Moet klaar zijn op")]),
         _vm._v(" "),
@@ -47427,7 +47457,7 @@ var app = new Vue({
 
 
 var instance = __WEBPACK_IMPORTED_MODULE_0_axios___default.a.create({
-    baseURL: 'https://localhost:8080',
+    baseURL: 'http://localhost:8080',
     timeout: 10000,
     params: {} // do not remove this, its added to add params later in the config
 });
