@@ -8,7 +8,7 @@
                         {{ user.first_name }} {{ user.surname }}
                     </option>
                 </select>
-            </div>
+            </div> 
 
             <div class="mb-6">
                 <label class="label mb-6">Gedaan</label>
@@ -57,13 +57,20 @@
         data() {
             return {
                 note:{},
-                users: []
+                users: [],
+                bindUser: {}
             }
         },
 
         created() {
             axios.get('users').then(({data}) => {
                 this.users = data;
+
+                this.users.forEach((user) => {
+                    if(user.id == this.note.user_id) {
+                        this.bindUser = user;
+                    }
+                });
             });
         },
 

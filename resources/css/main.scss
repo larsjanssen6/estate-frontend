@@ -76,3 +76,10 @@ body {
 .router-link-active {
   @apply .text-white;
 }
+
+.summary {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}

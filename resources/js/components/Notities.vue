@@ -14,7 +14,7 @@
                 </thead>
                 <tbody v-if="notes.length > 0">
                     <tr class="hover:bg-blue-lightest" v-for="note in notes">
-                        <td class="tr">{{ note.content }}</td>
+                        <td class="tr"><p class="summary">{{ note.content }}</p></td>
                         <td class="tr">{{ note.start }}</td>
                         <td class="tr" v-if="note.end">{{ note.end }}</td>
                         <td class="tr" v-else>nvt</td>
@@ -26,6 +26,10 @@
                         <td class="tr">
                             <button class="btn-normal" type="button" @click="openNote(note)">
                                 Open
+                            </button>
+
+                            <button class="btn-normal" type="button" @click="openDetails(note)">
+                                Details
                             </button>
 
                             <button class="btn-delete" type="button" @click="deleteNote(note)">
@@ -42,6 +46,7 @@
 
             <createNote></createNote>
             <noteDetails></noteDetails>
+            <noteOnlyDetails></noteOnlyDetails>
     </div>
            
 </template>
@@ -50,11 +55,13 @@
     import createNote from './note/CreateNote';
     import Vue from 'vue';
     import noteDetails from './note/OpenNote';
+    import noteOnlyDetails from './note/DetailsNote';
 
     export default {
         components: {
             createNote,
-            noteDetails
+            noteDetails,
+            noteOnlyDetails
         },
 
         data() {
@@ -71,6 +78,9 @@
         methods:{
             openNote(note) {
                 Bus.$emit('show-note', note);
+            },
+            openDetails(note) {
+                Bus.$emit('show-details-note', note);
             },
             deleteNote(note){
                 this.$swal({

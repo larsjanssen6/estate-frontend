@@ -4896,6 +4896,13 @@ body input {
   color: #fff;
 }
 
+.summary {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;
