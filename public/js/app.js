@@ -1936,14 +1936,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -2356,6 +2348,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2388,6 +2386,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.$modal.show('noteOnlyDetails');
             });
         });
+    },
+
+    methods: {
+        openNote: function openNote(note) {
+            Bus.$emit('show-note', note);
+            this.$modal.hide('noteOnlyDetails');
+        },
+        deleteNote: function deleteNote(note) {
+            var _this2 = this;
+
+            this.$swal({
+                title: 'Weet je dit zeker?',
+                text: "Deze actie is definitief!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ja, verwijder deze notitie!'
+            }).then(function (result) {
+                if (result.value) {
+                    __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('note/delete/' + note.id).then(function (_ref2) {
+                        var data = _ref2.data;
+
+                        location.reload();
+                    }).catch(function (error) {
+                        _this2.wrong = true;
+                    });
+
+                    _this2.$swal('Notitie verwijderd!', 'Voltooid');
+                }
+            });
+        }
     }
 });
 
@@ -29578,172 +29608,195 @@ var render = function() {
     [
       _vm.note
         ? _c("div", { staticClass: "p-8" }, [
-            _c("div", { staticClass: "mb-8" }, [
-              _c("label", { staticClass: "label mb-6" }, [
-                _vm._v("Potentieel lid")
+            _c("label", { staticClass: "label mb-6" }, [_vm._v("Details")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex mb-4" }, [
+              _c("div", { staticClass: "w-1/2" }, [
+                _c(
+                  "label",
+                  { staticClass: "label mb-2", attrs: { for: "Content" } },
+                  [_vm._v("Taak")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.note.content,
+                      expression: "note.content"
+                    }
+                  ],
+                  staticClass: "input w-full",
+                  attrs: {
+                    rows: "8",
+                    cols: "50",
+                    id: "content",
+                    name: "content",
+                    required: ""
+                  },
+                  domProps: { value: _vm.note.content },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.note, "content", $event.target.value)
+                    }
+                  }
+                })
               ]),
               _vm._v(" "),
-              _c("label", { staticClass: "w-full" }, [
-                _vm._v(
-                  _vm._s(_vm.bindUser.first_name) +
-                    " " +
-                    _vm._s(_vm.bindUser.surname)
-                )
+              _c("div", { staticClass: "w-1/2" }, [
+                _c("label", { staticClass: "label mb-2" }, [
+                  _vm._v("Naam"),
+                  _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
+                    _vm._v(
+                      _vm._s(_vm.bindUser.first_name) +
+                        " " +
+                        _vm._s(_vm.bindUser.surname)
+                    )
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("label", { staticClass: "label mb-2" }, [
+                  _vm._v("Contact informatie"),
+                  _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
+                    _vm._v("\n\t\t\t\t" + _vm._s(_vm.bindUser.number)),
+                    _c("br"),
+                    _c("br"),
+                    _vm._v(_vm._s(_vm.bindUser.address)),
+                    _c("br"),
+                    _vm._v(_vm._s(_vm.bindUser.zipcode)),
+                    _c("br"),
+                    _vm._v(_vm._s(_vm.bindUser.city) + "\n\t\t\t\t")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("label", { staticClass: "label mb-2" }, [
+                  _vm._v("Beroep"),
+                  _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
+                    _vm._v(_vm._s(_vm.bindUser.profession))
+                  ])
+                ])
               ])
             ]),
             _vm._v(" "),
-            _vm.bindUser
-              ? _c("div", { staticClass: "mb-6" }, [
+            _c("div", { staticClass: "flex mb-4" }, [
+              _c("div", { staticClass: "w-1/4  h-26" }, [
+                _c(
+                  "div",
+                  { staticClass: "mb-6" },
+                  [
+                    _c("label", { staticClass: "label mb-2" }, [
+                      _vm._v("Deadline")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "datetime",
+                      {
+                        attrs: { placeholder: "Selecteer datum", required: "" },
+                        model: {
+                          value: _vm.note.start,
+                          callback: function($$v) {
+                            _vm.$set(_vm.note, "start", $$v)
+                          },
+                          expression: "note.start"
+                        }
+                      },
+                      [_vm._v("Selecteer start.")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  { staticClass: "mb-6" },
+                  [
+                    _c("label", { staticClass: "label mb-2" }, [
+                      _vm._v("Gedaan op")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "datetime",
+                      {
+                        attrs: { placeholder: "nvt.", required: "" },
+                        model: {
+                          value: _vm.note.end,
+                          callback: function($$v) {
+                            _vm.$set(_vm.note, "end", $$v)
+                          },
+                          expression: "note.end"
+                        }
+                      },
+                      [_vm._v("Selecteer einde.")]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "w-1/4 h-26" }, [
+                _c("div", { staticClass: "mb-6" }, [
                   _c("label", { staticClass: "label mb-6" }, [
-                    _vm._v("Details")
+                    _vm._v("Gedaan")
                   ]),
                   _vm._v(" "),
+                  _vm.note.done === "false"
+                    ? _c(
+                        "p",
+                        { staticClass: "p-2 rounded text-black rounded" },
+                        [_vm._v("Nee")]
+                      )
+                    : _c(
+                        "p",
+                        { staticClass: "p-2 rounded text-black rounded" },
+                        [_vm._v("Ja")]
+                      )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "mb-6" }, [
                   _c("label", { staticClass: "label mb-4" }, [
                     _vm._v("Geïntereseerd op:"),
                     _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
                       _vm._v(_vm._s(_vm.bindUser.interestdate))
                     ])
-                  ]),
-                  _vm._v(" "),
-                  _c("label", { staticClass: "label mb-4" }, [
-                    _vm._v("Beroep:"),
-                    _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
-                      _vm._v(_vm._s(_vm.bindUser.profession))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("label", { staticClass: "label mb-4" }, [
-                    _vm._v("Nummer:"),
-                    _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
-                      _vm._v(_vm._s(_vm.bindUser.number))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("label", { staticClass: "label mb-4" }, [
-                    _vm._v("Stad:"),
-                    _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
-                      _vm._v(_vm._s(_vm.bindUser.city))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("label", { staticClass: "label mb-4" }, [
-                    _vm._v("Adres:"),
-                    _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
-                      _vm._v(_vm._s(_vm.bindUser.address))
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("label", { staticClass: "label mb-4" }, [
-                    _vm._v("Postcode:"),
-                    _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
-                      _vm._v(" " + _vm._s(_vm.bindUser.zipcode))
-                    ])
                   ])
                 ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-6" }, [
-              _c("label", { staticClass: "label mb-6" }, [_vm._v("Gedaan")]),
+              ]),
               _vm._v(" "),
-              _vm.note.done == true
-                ? _c(
-                    "label",
-                    { staticClass: "p-2 rounded text-black rounded" },
-                    [_vm._v("Ja")]
-                  )
-                : _c(
-                    "label",
-                    { staticClass: "p-2 rounded text-black rounded" },
-                    [_vm._v("Nee")]
-                  )
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "mb-6" },
-              [
-                _c("label", { staticClass: "label mb-2" }, [
-                  _vm._v("Moet klaar zijn op")
-                ]),
-                _vm._v(" "),
+              _c("div", { staticClass: "w-1/2  h-24" }, [
                 _c(
-                  "datetime",
+                  "button",
                   {
-                    attrs: { placeholder: "Selecteer datum", required: "" },
-                    model: {
-                      value: _vm.note.start,
-                      callback: function($$v) {
-                        _vm.$set(_vm.note, "start", $$v)
-                      },
-                      expression: "note.start"
+                    staticClass: "btn-normal w-full",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        _vm.openNote(_vm.note)
+                      }
                     }
                   },
-                  [_vm._v("Selecteer start.")]
+                  [_vm._v("Bewerken")]
                 )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "mb-6" },
-              [
-                _c("label", { staticClass: "label mb-2" }, [
-                  _vm._v("Gedaan op")
-                ]),
-                _vm._v(" "),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "w-1/4  h-24" }, [
                 _c(
-                  "datetime",
+                  "button",
                   {
-                    attrs: { placeholder: "Selecteer datum", required: "" },
-                    model: {
-                      value: _vm.note.end,
-                      callback: function($$v) {
-                        _vm.$set(_vm.note, "end", $$v)
-                      },
-                      expression: "note.end"
+                    staticClass: "btn-delete",
+                    attrs: { type: "button" },
+                    on: {
+                      click: function($event) {
+                        _vm.deleteNote(_vm.note)
+                      }
                     }
                   },
-                  [_vm._v("Selecteer einde.")]
+                  [_vm._v("Verwijderen")]
                 )
-              ],
-              1
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-6" }, [
-              _c(
-                "label",
-                { staticClass: "label mb-2", attrs: { for: "Content" } },
-                [_vm._v("Notitie")]
-              ),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.note.content,
-                    expression: "note.content"
-                  }
-                ],
-                staticClass: "input w-full",
-                attrs: {
-                  rows: "5",
-                  cols: "50",
-                  id: "content",
-                  name: "content",
-                  required: ""
-                },
-                domProps: { value: _vm.note.content },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.note, "content", $event.target.value)
-                  }
-                }
-              })
+              ])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "flex -mx-4" }, [
@@ -29874,24 +29927,6 @@ var render = function() {
                           attrs: { type: "button" },
                           on: {
                             click: function($event) {
-                              _vm.openNote(note)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Open\n                        "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn-normal",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
                               _vm.openDetails(note)
                             }
                           }
@@ -29899,24 +29934,6 @@ var render = function() {
                         [
                           _vm._v(
                             "\n                            Details\n                        "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn-delete",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              _vm.deleteNote(note)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Verwijderen\n                        "
                           )
                         ]
                       )

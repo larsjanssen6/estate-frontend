@@ -30,16 +30,8 @@
                         </td>
                         <td class="tr">{{ note.date_created }}</td>
                         <td class="tr">
-                            <button class="btn-normal" type="button" @click="openNote(note)">
-                                Open
-                            </button>
-
                             <button class="btn-normal" type="button" @click="openDetails(note)">
                                 Details
-                            </button>
-
-                            <button class="btn-delete" type="button" @click="deleteNote(note)">
-                                Verwijderen
                             </button>
                         </td>
                     </tr>
