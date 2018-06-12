@@ -3,7 +3,7 @@
         <form class="p-8" @submit.prevent="createNote()">
            <div class="mb-6">
                <label class="label mb-6">Potentieel lid</label>
-               <select required class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow" v-model="form.potential_member_id" required>
+               <select required class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow" v-model="form.potential_member_id_id" required>
                    <option class="w-full" v-for="user in users" v-bind:value="user.id">
                        {{ user.first_name }} {{ user.surname }}
                    </option>
@@ -51,7 +51,7 @@
 
         data() {
             return {
-                form: { potential_member_id: 0, done: "false", start: "", end: "" },
+                form: { potential_member_id_id: null, done: "false", start: "", end: "" },
                 isLoading: false,
                 users: []
             }

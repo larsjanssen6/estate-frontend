@@ -8,7 +8,7 @@
                         {{ user.first_name }} {{ user.surname }}
                     </option>
                 </select>
-            </div> 
+            </div>
 
             <div class="mb-6">
                 <label class="label mb-6">Gedaan</label>
@@ -38,8 +38,8 @@
                         name="content"
                         v-model="note.content"
                         required
-                        ></textarea>
-                </div>
+                ></textarea>
+            </div>
             <div class="flex -mx-4">
                 <button class="btn-normal w-full mx-4 shadow" @click="updateNote()">Update</button>
                 <button @click="$modal.hide('noteDetails')" class="btn-outlined w-full mx-4 shadow">Sluiten</button>
@@ -51,9 +51,7 @@
 <script>
     import axios from '../../axios';
     import Vue from 'vue'
-
     export default {
-
         data() {
             return {
                 note:{},
@@ -61,11 +59,9 @@
                 bindUser: {}
             }
         },
-
         created() {
             axios.get('users').then(({data}) => {
                 this.users = data;
-
                 this.users.forEach((user) => {
                     if(user.id == this.note.user_id) {
                         this.bindUser = user;
@@ -73,7 +69,6 @@
                 });
             });
         },
-
         methods: {
             updateNote() {
                 axios.post('/note/update', this.note).then(() => {
@@ -81,7 +76,6 @@
                 });
             }
         },
-
         mounted() {
             Bus.$on('show-note', (note) => {
                 this.note = note;

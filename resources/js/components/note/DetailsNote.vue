@@ -16,11 +16,11 @@
                         ></textarea>
 			</div>
 			<div class="w-1/2">
-                    <label class="label mb-2">Naam<p class="p-2 rounded text-black rounded">{{ bindUser.first_name }} {{ bindUser.surname }}</p></label>
+                    <label class="label mb-2">Naam<p class="p-2 rounded text-black rounded">{{ note.potential_member_id['first_name'] }} {{ note.potential_member_id['surname'] }}</p></label>
 					<label class="label mb-2">Contact informatie<p class="p-2 rounded text-black rounded">
-				{{bindUser.number}}<br><br>{{bindUser.address}}<br>{{bindUser.zipcode}}<br>{{bindUser.city}}
+				{{note.potential_member_id['number']}}<br><br>{{note.potential_member_id['address']}}<br>{{note.potential_member_id['zipcode']}}<br>{{note.potential_member_id['city']}}
 				</p></label>
-				<label class="label mb-2">Beroep<p class="p-2 rounded text-black rounded">{{ bindUser.profession }}</p></label>
+				<label class="label mb-2">Beroep<p class="p-2 rounded text-black rounded">{{ note.potential_member_id['profession'] }}</p></label>
 			</div>
 		</div>
             <div class="flex mb-4">
@@ -42,7 +42,7 @@
                             <p class="p-2 rounded text-black rounded" v-else>Ja</p>
                 </div>
                     <div class="mb-6">
-                        <label class="label mb-4">Geïntereseerd op:<p class="p-2 rounded text-black rounded">{{bindUser.interestdate}}</p></label>
+                        <label class="label mb-4">Geïntereseerd op:<p class="p-2 rounded text-black rounded">{{note.potential_member_id['interestdate']}}</p></label>
                     </div>
                 </div>
   <div class="w-1/2  h-24">
@@ -69,7 +69,6 @@
             return {
                 note:{},
                 users: [],
-                bindUser: {},
             }
         },
 
@@ -79,12 +78,6 @@
 
                 axios.get('users').then(({data}) => {
                     this.users = data;
-
-                    this.users.forEach((user) => {
-                        if(user.id == this.note.potential_member_id) {
-                            this.bindUser = user;
-                        }
-                    });
 
                     this.$modal.show('noteOnlyDetails');
                 });

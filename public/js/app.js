@@ -1932,11 +1932,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-
 
 
 
@@ -1949,11 +1944,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         noteDetails: __WEBPACK_IMPORTED_MODULE_3__note_OpenNote___default.a,
         noteOnlyDetails: __WEBPACK_IMPORTED_MODULE_4__note_DetailsNote___default.a
     },
-
     data: function data() {
         return {
-            notes: [],
-            users: []
+            notes: []
         };
     },
     created: function created() {
@@ -1964,13 +1957,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             _this.notes = data;
         });
-        __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('users/notes').then(function (_ref2) {
-            var data = _ref2.data;
-
-            _this.users = data;
-        });
     },
-
 
     methods: {
         openNote: function openNote(note) {
@@ -1992,14 +1979,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 confirmButtonText: 'Ja, verwijder deze notitie!'
             }).then(function (result) {
                 if (result.value) {
-                    __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('note/delete/' + note.id).then(function (_ref3) {
-                        var data = _ref3.data;
+                    __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('note/delete/' + note.id).then(function (_ref2) {
+                        var data = _ref2.data;
 
                         location.reload();
                     }).catch(function (error) {
                         _this2.wrong = true;
                     });
-
                     _this2.$swal('Notitie verwijderd!', 'Voltooid');
                 }
             });
@@ -2250,7 +2236,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            form: { potential_member_id: 0, done: "false", start: "", end: "" },
+            form: { potential_member_id_id: null, done: "false", start: "", end: "" },
             isLoading: false,
             users: []
         };
@@ -2362,8 +2348,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             note: {},
-            users: [],
-            bindUser: {}
+            users: []
         };
     },
     mounted: function mounted() {
@@ -2376,12 +2361,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var data = _ref.data;
 
                 _this.users = data;
-
-                _this.users.forEach(function (user) {
-                    if (user.id == _this.note.potential_member_id) {
-                        _this.bindUser = user;
-                    }
-                });
 
                 _this.$modal.show('noteOnlyDetails');
             });
@@ -2484,7 +2463,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
@@ -2500,7 +2478,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var data = _ref.data;
 
             _this.users = data;
-
             _this.users.forEach(function (user) {
                 if (user.id == _this.note.user_id) {
                     _this.bindUser = user;
@@ -2509,7 +2486,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         });
     },
 
-
     methods: {
         updateNote: function updateNote() {
             __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('/note/update', this.note).then(function () {
@@ -2517,7 +2493,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             });
         }
     },
-
     mounted: function mounted() {
         var _this2 = this;
 
@@ -29652,9 +29627,9 @@ var render = function() {
                   _vm._v("Naam"),
                   _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
                     _vm._v(
-                      _vm._s(_vm.bindUser.first_name) +
+                      _vm._s(_vm.note.potential_member_id["first_name"]) +
                         " " +
-                        _vm._s(_vm.bindUser.surname)
+                        _vm._s(_vm.note.potential_member_id["surname"])
                     )
                   ])
                 ]),
@@ -29662,21 +29637,27 @@ var render = function() {
                 _c("label", { staticClass: "label mb-2" }, [
                   _vm._v("Contact informatie"),
                   _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
-                    _vm._v("\n\t\t\t\t" + _vm._s(_vm.bindUser.number)),
+                    _vm._v(
+                      "\n\t\t\t\t" +
+                        _vm._s(_vm.note.potential_member_id["number"])
+                    ),
                     _c("br"),
                     _c("br"),
-                    _vm._v(_vm._s(_vm.bindUser.address)),
+                    _vm._v(_vm._s(_vm.note.potential_member_id["address"])),
                     _c("br"),
-                    _vm._v(_vm._s(_vm.bindUser.zipcode)),
+                    _vm._v(_vm._s(_vm.note.potential_member_id["zipcode"])),
                     _c("br"),
-                    _vm._v(_vm._s(_vm.bindUser.city) + "\n\t\t\t\t")
+                    _vm._v(
+                      _vm._s(_vm.note.potential_member_id["city"]) +
+                        "\n\t\t\t\t"
+                    )
                   ])
                 ]),
                 _vm._v(" "),
                 _c("label", { staticClass: "label mb-2" }, [
                   _vm._v("Beroep"),
                   _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
-                    _vm._v(_vm._s(_vm.bindUser.profession))
+                    _vm._v(_vm._s(_vm.note.potential_member_id["profession"]))
                   ])
                 ])
               ])
@@ -29760,7 +29741,9 @@ var render = function() {
                   _c("label", { staticClass: "label mb-4" }, [
                     _vm._v("Geïntereseerd op:"),
                     _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
-                      _vm._v(_vm._s(_vm.bindUser.interestdate))
+                      _vm._v(
+                        _vm._s(_vm.note.potential_member_id["interestdate"])
+                      )
                     ])
                   ])
                 ])
@@ -29867,7 +29850,7 @@ var render = function() {
           _vm.notes.length > 0
             ? _c(
                 "tbody",
-                _vm._l(_vm.notes, function(note, ndx) {
+                _vm._l(_vm.notes, function(note) {
                   return _c("tr", { staticClass: "hover:bg-blue-lightest" }, [
                     _c("td", { staticClass: "tr" }, [
                       _c("p", { staticClass: "summary" }, [
@@ -29875,23 +29858,9 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm.users.length > 0
-                      ? _c("td", { staticClass: "tr" }, [
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(_vm.users[ndx].first_name) +
-                              " " +
-                              _vm._s(_vm.users[ndx].surname) +
-                              "\n                        "
-                          ),
-                          _c("br"),
-                          _vm._v(
-                            "\n                        " +
-                              _vm._s(_vm.users[ndx].number) +
-                              "\n                    "
-                          )
-                        ])
-                      : _vm._e(),
+                    _c("td", { staticClass: "tr" }, [
+                      _vm._v(_vm._s(note.potential_member_id["first_name"]))
+                    ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "tr" }, [
                       _vm._v(_vm._s(note.start))
@@ -29935,7 +29904,7 @@ var render = function() {
                         },
                         [
                           _vm._v(
-                            "\n                            Details\n                        "
+                            "\n                    Details\n                "
                           )
                         ]
                       )
@@ -30569,8 +30538,8 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.form.potential_member_id,
-                    expression: "form.potential_member_id"
+                    value: _vm.form.potential_member_id_id,
+                    expression: "form.potential_member_id_id"
                   }
                 ],
                 staticClass:
@@ -30588,7 +30557,7 @@ var render = function() {
                       })
                     _vm.$set(
                       _vm.form,
-                      "potential_member_id",
+                      "potential_member_id_id",
                       $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                     )
                   }
