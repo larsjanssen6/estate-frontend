@@ -1964,7 +1964,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             _this.notes = data;
         });
-        __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].get('users').then(function (_ref2) {
+        __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('users/notes').then(function (_ref2) {
             var data = _ref2.data;
 
             _this.users = data;
@@ -29875,21 +29875,23 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _c("td", { staticClass: "tr" }, [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(_vm.users[ndx].first_name) +
-                          " " +
-                          _vm._s(_vm.users[ndx].surname) +
-                          "\n                        "
-                      ),
-                      _c("br"),
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(_vm.users[ndx].number) +
-                          "\n                    "
-                      )
-                    ]),
+                    _vm.users.length > 0
+                      ? _c("td", { staticClass: "tr" }, [
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.users[ndx].first_name) +
+                              " " +
+                              _vm._s(_vm.users[ndx].surname) +
+                              "\n                        "
+                          ),
+                          _c("br"),
+                          _vm._v(
+                            "\n                        " +
+                              _vm._s(_vm.users[ndx].number) +
+                              "\n                    "
+                          )
+                        ])
+                      : _vm._e(),
                     _vm._v(" "),
                     _c("td", { staticClass: "tr" }, [
                       _vm._v(_vm._s(note.start))
