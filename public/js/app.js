@@ -1932,10 +1932,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -1952,8 +1948,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     data: function data() {
         return {
-            notes: [],
-            users: []
+            notes: []
         };
     },
     created: function created() {
@@ -1963,11 +1958,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var data = _ref.data;
 
             _this.notes = data;
-        });
-        __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('users/notes').then(function (_ref2) {
-            var data = _ref2.data;
-
-            _this.users = data;
         });
     },
 
@@ -1992,8 +1982,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 confirmButtonText: 'Ja, verwijder deze notitie!'
             }).then(function (result) {
                 if (result.value) {
-                    __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('note/delete/' + note.id).then(function (_ref3) {
-                        var data = _ref3.data;
+                    __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('note/delete/' + note.id).then(function (_ref2) {
+                        var data = _ref2.data;
 
                         location.reload();
                     }).catch(function (error) {
@@ -2405,7 +2395,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            form: { potential_member_id: 0, done: "false", start: "", end: "" },
+            form: { potential_member: null, done: "false", start: "", end: "" },
             isLoading: false,
             users: []
         };
@@ -2545,8 +2535,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             note: {},
-            users: [],
-            bindUser: {}
+            users: []
         };
     },
     mounted: function mounted() {
@@ -2559,12 +2548,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 var data = _ref.data;
 
                 _this.users = data;
-
-                _this.users.forEach(function (user) {
-                    if (user.id == _this.note.potential_member_id) {
-                        _this.bindUser = user;
-                    }
-                });
 
                 _this.$modal.show('noteOnlyDetails');
             });
@@ -30017,9 +30000,9 @@ var render = function() {
                   ),
                   _c("p", { staticClass: "text-black rounded noteproperty" }, [
                     _vm._v(
-                      _vm._s(_vm.bindUser.first_name) +
+                      _vm._s(_vm.note.potential_member["first_name"]) +
                         " " +
-                        _vm._s(_vm.bindUser.surname)
+                        _vm._s(_vm.note.potential_member["surname"])
                     )
                   ])
                 ]),
@@ -30030,17 +30013,18 @@ var render = function() {
                   ),
                   _c("p", { staticClass: "text-black rounded noteproperty" }, [
                     _vm._v(
-                      "\n                            " +
-                        _vm._s(_vm.bindUser.number)
+                      "\n\t\t\t\t\t\t\t" +
+                        _vm._s(_vm.note.potential_member["number"])
                     ),
                     _c("br"),
                     _c("br"),
-                    _vm._v(_vm._s(_vm.bindUser.address)),
+                    _vm._v(_vm._s(_vm.note.potential_member["address"])),
                     _c("br"),
-                    _vm._v(_vm._s(_vm.bindUser.zipcode)),
+                    _vm._v(_vm._s(_vm.note.potential_member["zipcode"])),
                     _c("br"),
                     _vm._v(
-                      _vm._s(_vm.bindUser.city) + "\n                        "
+                      _vm._s(_vm.note.potential_member["city"]) +
+                        "\n                        "
                     )
                   ])
                 ]),
@@ -30050,7 +30034,7 @@ var render = function() {
                     "\n                        Beroep\n                        "
                   ),
                   _c("p", { staticClass: "text-black rounded noteproperty" }, [
-                    _vm._v(_vm._s(_vm.bindUser.profession))
+                    _vm._v(_vm._s(_vm.note.potential_member["profession"]))
                   ])
                 ])
               ])
@@ -30140,7 +30124,7 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
-                    _vm._v(_vm._s(_vm.bindUser.interestdate))
+                    _vm._v(_vm._s(_vm.note.potential_member["interestdate"]))
                   ])
                 ])
               ])
@@ -30254,7 +30238,7 @@ var render = function() {
           _vm.notes.length > 0
             ? _c(
                 "tbody",
-                _vm._l(_vm.notes, function(note, ndx) {
+                _vm._l(_vm.notes, function(note) {
                   return _c(
                     "tr",
                     {
@@ -30272,23 +30256,9 @@ var render = function() {
                         ])
                       ]),
                       _vm._v(" "),
-                      _vm.users.length > 0
-                        ? _c("td", { staticClass: "tr" }, [
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(_vm.users[ndx].first_name) +
-                                " " +
-                                _vm._s(_vm.users[ndx].surname) +
-                                "\n                        "
-                            ),
-                            _c("br"),
-                            _vm._v(
-                              "\n                        " +
-                                _vm._s(_vm.users[ndx].number) +
-                                "\n                    "
-                            )
-                          ])
-                        : _vm._e(),
+                      _c("td", { staticClass: "tr" }, [
+                        _vm._v(_vm._s(note.potential_member["first_name"]))
+                      ]),
                       _vm._v(" "),
                       _c("td", { staticClass: "tr" }, [
                         _vm._v(_vm._s(note.start))
@@ -30949,8 +30919,8 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.form.potential_member_id,
-                    expression: "form.potential_member_id"
+                    value: _vm.form.potential_member,
+                    expression: "form.potential_member"
                   }
                 ],
                 staticClass:
@@ -30968,7 +30938,7 @@ var render = function() {
                       })
                     _vm.$set(
                       _vm.form,
-                      "potential_member_id",
+                      "potential_member",
                       $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                     )
                   }
@@ -30977,7 +30947,7 @@ var render = function() {
               _vm._l(_vm.users, function(user) {
                 return _c(
                   "option",
-                  { staticClass: "w-full", domProps: { value: user.id } },
+                  { staticClass: "w-full", domProps: { value: user } },
                   [
                     _vm._v(
                       "\n                   " +
@@ -31342,8 +31312,8 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.note.potential_member_id,
-                  expression: "note.potential_member_id"
+                  value: _vm.note.potential_member,
+                  expression: "note.potential_member"
                 }
               ],
               staticClass:
@@ -31361,7 +31331,7 @@ var render = function() {
                     })
                   _vm.$set(
                     _vm.note,
-                    "potential_member_id",
+                    "potential_member",
                     $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                   )
                 }
@@ -31370,7 +31340,7 @@ var render = function() {
             _vm._l(_vm.users, function(user) {
               return _c(
                 "option",
-                { staticClass: "w-full", domProps: { value: user.id } },
+                { staticClass: "w-full", domProps: { value: user } },
                 [
                   _vm._v(
                     "\n                    " +

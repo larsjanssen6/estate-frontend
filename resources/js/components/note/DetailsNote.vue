@@ -19,17 +19,17 @@
                 <div class="w-1/2 px-2">
                     <label class="label mb-4">
                         Naam
-                        <p class="text-black rounded noteproperty">{{ bindUser.first_name }} {{ bindUser.surname }}</p>
+                        <p class="text-black rounded noteproperty">{{ note.potential_member['first_name'] }} {{ note.potential_member['surname'] }}</p>
                     </label>
                     <label class="label mb-4">
                         Contact informatie
                         <p class="text-black rounded noteproperty">
-                            {{bindUser.number}}<br><br>{{bindUser.address}}<br>{{bindUser.zipcode}}<br>{{bindUser.city}}
+							{{note.potential_member['number']}}<br><br>{{note.potential_member['address']}}<br>{{note.potential_member['zipcode']}}<br>{{note.potential_member['city']}}
                         </p>
                     </label>
                     <label class="label mb-4">
                         Beroep
-                        <p class="text-black rounded noteproperty">{{ bindUser.profession }}</p>
+                        <p class="text-black rounded noteproperty">{{ note.potential_member['profession'] }}</p>
                     </label>
                 </div>
             </div>
@@ -58,7 +58,7 @@
 				<div class="w-1/4 px-2">
 					<div class="mb-6">
 						<label class="label mb-4">Geïntereseerd op:</label>
-						<p class="p-2 rounded text-black rounded">{{bindUser.interestdate}}</p>
+						<p class="p-2 rounded text-black rounded">{{note.potential_member['interestdate']}}</p>
 					</div>
 				</div>
 			</div>
@@ -97,7 +97,6 @@
             return {
                 note:{},
                 users: [],
-                bindUser: {},
             }
         },
     
@@ -107,12 +106,6 @@
     
                 axios.get('users').then(({data}) => {
                     this.users = data;
-    
-                    this.users.forEach((user) => {
-                        if(user.id == this.note.potential_member_id) {
-                            this.bindUser = user;
-                        }
-                    });
     
                     this.$modal.show('noteOnlyDetails');
                 });

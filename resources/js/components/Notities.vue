@@ -14,13 +14,9 @@
                 </tr>
                 </thead>
                 <tbody v-if="notes.length > 0">
-                    <tr class="clickable-row hover:bg-blue-lightest" v-for="note, ndx in notes" @click="openDetails(note)">
+                    <tr class="clickable-row hover:bg-blue-lightest" v-for="note in notes" @click="openDetails(note)">
                         <td class="tr"><p class="summary">{{ note.content }}</p></td>
-                        <td class="tr" v-if="users.length > 0">
-                            {{ users[ndx].first_name }} {{ users[ndx].surname }}
-                            <br>
-                            {{ users[ndx].number }}
-                        </td>
+                        <td class="tr">{{ note.potential_member['first_name'] }}</td>
                         <td class="tr">{{ note.start }}</td>
                         <td class="tr" v-if="note.end">{{ note.end }}</td>
                         <td class="tr" v-else>nvt</td>
@@ -65,15 +61,11 @@
         data() {
             return {
                 notes: [],
-                users: []
             }
         },        
         created() {
             axios.post('note/notes').then(({data}) => {
                 this.notes = data;
-            });
-            axios.post('users/notes').then(({data}) => {
-                this.users = data;
             });
         },
 
