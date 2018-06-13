@@ -30011,11 +30011,11 @@ var render = function() {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "w-1/2 px-2" }, [
-                _c("label", { staticClass: "label mb-2" }, [
+                _c("label", { staticClass: "label mb-4" }, [
                   _vm._v(
                     "\n                        Naam\n                        "
                   ),
-                  _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
+                  _c("p", { staticClass: "text-black rounded noteproperty" }, [
                     _vm._v(
                       _vm._s(_vm.bindUser.first_name) +
                         " " +
@@ -30024,11 +30024,11 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("label", { staticClass: "label mb-2" }, [
+                _c("label", { staticClass: "label mb-4" }, [
                   _vm._v(
                     "\n                        Contact informatie\n                        "
                   ),
-                  _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
+                  _c("p", { staticClass: "text-black rounded noteproperty" }, [
                     _vm._v(
                       "\n                            " +
                         _vm._s(_vm.bindUser.number)
@@ -30045,11 +30045,11 @@ var render = function() {
                   ])
                 ]),
                 _vm._v(" "),
-                _c("label", { staticClass: "label mb-2" }, [
+                _c("label", { staticClass: "label mb-4" }, [
                   _vm._v(
                     "\n                        Beroep\n                        "
                   ),
-                  _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
+                  _c("p", { staticClass: "text-black rounded noteproperty" }, [
                     _vm._v(_vm._s(_vm.bindUser.profession))
                   ])
                 ])

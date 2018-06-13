@@ -17,19 +17,19 @@
                         ></textarea>
                 </div>
                 <div class="w-1/2 px-2">
-                    <label class="label mb-2">
+                    <label class="label mb-4">
                         Naam
-                        <p class="p-2 rounded text-black rounded">{{ bindUser.first_name }} {{ bindUser.surname }}</p>
+                        <p class="text-black rounded noteproperty">{{ bindUser.first_name }} {{ bindUser.surname }}</p>
                     </label>
-                    <label class="label mb-2">
+                    <label class="label mb-4">
                         Contact informatie
-                        <p class="p-2 rounded text-black rounded">
+                        <p class="text-black rounded noteproperty">
                             {{bindUser.number}}<br><br>{{bindUser.address}}<br>{{bindUser.zipcode}}<br>{{bindUser.city}}
                         </p>
                     </label>
-                    <label class="label mb-2">
+                    <label class="label mb-4">
                         Beroep
-                        <p class="p-2 rounded text-black rounded">{{ bindUser.profession }}</p>
+                        <p class="text-black rounded noteproperty">{{ bindUser.profession }}</p>
                     </label>
                 </div>
             </div>
