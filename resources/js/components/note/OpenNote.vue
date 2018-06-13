@@ -58,19 +58,12 @@
             return {
                 note:{},
                 users: [],
-                bindUser: {}
             }
         },
 
         created() {
-            axios.get('users').then(({data}) => {
+            axios.get('potential-users').then(({data}) => {
                 this.users = data;
-
-                this.users.forEach((user) => {
-                    if(user.id == this.note.user_id) {
-                        this.bindUser = user;
-                    }
-                });
             });
         },
 

@@ -58,7 +58,7 @@
         },
 
         created() {
-            axios.get('users').then(({data}) => {
+            axios.get('potential-users').then(({data}) => {
                 this.users = data;
             });
         },

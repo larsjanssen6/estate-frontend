@@ -2403,7 +2403,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     created: function created() {
         var _this = this;
 
-        __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].get('users').then(function (_ref) {
+        __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].get('potential-users').then(function (_ref) {
             var data = _ref.data;
 
             _this.users = data;
@@ -2655,23 +2655,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             note: {},
-            users: [],
-            bindUser: {}
+            users: []
         };
     },
     created: function created() {
         var _this = this;
 
-        __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].get('users').then(function (_ref) {
+        __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].get('potential-users').then(function (_ref) {
             var data = _ref.data;
 
             _this.users = data;
-
-            _this.users.forEach(function (user) {
-                if (user.id == _this.note.user_id) {
-                    _this.bindUser = user;
-                }
-            });
         });
     },
 
