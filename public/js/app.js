@@ -2510,6 +2510,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -29946,7 +29973,7 @@ var render = function() {
             _c("label", { staticClass: "label mb-6" }, [_vm._v("Details")]),
             _vm._v(" "),
             _c("div", { staticClass: "flex mb-4" }, [
-              _c("div", { staticClass: "w-1/2" }, [
+              _c("div", { staticClass: "w-1/2 px-2" }, [
                 _c(
                   "label",
                   { staticClass: "label mb-2", attrs: { for: "Content" } },
@@ -29983,9 +30010,11 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "w-1/2" }, [
+              _c("div", { staticClass: "w-1/2 px-2" }, [
                 _c("label", { staticClass: "label mb-2" }, [
-                  _vm._v("Naam"),
+                  _vm._v(
+                    "\n                        Naam\n                        "
+                  ),
                   _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
                     _vm._v(
                       _vm._s(_vm.bindUser.first_name) +
@@ -29996,21 +30025,30 @@ var render = function() {
                 ]),
                 _vm._v(" "),
                 _c("label", { staticClass: "label mb-2" }, [
-                  _vm._v("Contact informatie"),
+                  _vm._v(
+                    "\n                        Contact informatie\n                        "
+                  ),
                   _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
-                    _vm._v("\n\t\t\t\t" + _vm._s(_vm.bindUser.number)),
+                    _vm._v(
+                      "\n                            " +
+                        _vm._s(_vm.bindUser.number)
+                    ),
                     _c("br"),
                     _c("br"),
                     _vm._v(_vm._s(_vm.bindUser.address)),
                     _c("br"),
                     _vm._v(_vm._s(_vm.bindUser.zipcode)),
                     _c("br"),
-                    _vm._v(_vm._s(_vm.bindUser.city) + "\n\t\t\t\t")
+                    _vm._v(
+                      _vm._s(_vm.bindUser.city) + "\n                        "
+                    )
                   ])
                 ]),
                 _vm._v(" "),
                 _c("label", { staticClass: "label mb-2" }, [
-                  _vm._v("Beroep"),
+                  _vm._v(
+                    "\n                        Beroep\n                        "
+                  ),
                   _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
                     _vm._v(_vm._s(_vm.bindUser.profession))
                   ])
@@ -30019,7 +30057,7 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "flex mb-4" }, [
-              _c("div", { staticClass: "w-1/4  h-26" }, [
+              _c("div", { staticClass: "w-1/4 px-2" }, [
                 _c(
                   "div",
                   { staticClass: "mb-6" },
@@ -30044,8 +30082,10 @@ var render = function() {
                     )
                   ],
                   1
-                ),
-                _vm._v(" "),
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "w-1/4 px-2" }, [
                 _c(
                   "div",
                   { staticClass: "mb-6" },
@@ -30073,7 +30113,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "w-1/4 h-26" }, [
+              _c("div", { staticClass: "w-1/4 px-2" }, [
                 _c("div", { staticClass: "mb-6" }, [
                   _c("label", { staticClass: "label mb-6" }, [
                     _vm._v("Gedaan")
@@ -30090,64 +30130,75 @@ var render = function() {
                         { staticClass: "p-2 rounded text-black rounded" },
                         [_vm._v("Ja")]
                       )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "mb-6" }, [
-                  _c("label", { staticClass: "label mb-4" }, [
-                    _vm._v("Geïntereseerd op:"),
-                    _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
-                      _vm._v(_vm._s(_vm.bindUser.interestdate))
-                    ])
-                  ])
                 ])
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "w-1/2  h-24" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn-normal w-full",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function($event) {
-                        _vm.openNote(_vm.note)
-                      }
-                    }
-                  },
-                  [_vm._v("Bewerken")]
-                )
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "w-1/4  h-24" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn-delete",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function($event) {
-                        _vm.deleteNote(_vm.note)
-                      }
-                    }
-                  },
-                  [_vm._v("Verwijderen")]
-                )
+              _c("div", { staticClass: "w-1/4 px-2" }, [
+                _c("div", { staticClass: "mb-6" }, [
+                  _c("label", { staticClass: "label mb-4" }, [
+                    _vm._v("Geïntereseerd op:")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
+                    _vm._v(_vm._s(_vm.bindUser.interestdate))
+                  ])
+                ])
               ])
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "flex -mx-4" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn-outlined w-full mx-4 shadow",
-                  on: {
-                    click: function($event) {
-                      _vm.$modal.hide("noteOnlyDetails")
+            _c("div", { staticClass: "flex mb-4" }, [
+              _c("div", { staticClass: "w-1/2 px-2" }, [
+                _c("div", { staticClass: "mb-6" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn-normal w-full",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.openNote(_vm.note)
+                        }
+                      }
+                    },
+                    [_vm._v("Bewerken")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "w-1/2 px-2" }, [
+                _c("div", { staticClass: "mb-6" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn-delete w-full",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.deleteNote(_vm.note)
+                        }
+                      }
+                    },
+                    [_vm._v("Verwijderen")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex mb-4" }, [
+              _c("div", { staticClass: "w-full" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn-outlined w-full shadow",
+                    on: {
+                      click: function($event) {
+                        _vm.$modal.hide("noteOnlyDetails")
+                      }
                     }
-                  }
-                },
-                [_vm._v("Sluiten")]
-              )
+                  },
+                  [_vm._v("Sluiten")]
+                )
+              ])
             ])
           ])
         : _vm._e()
