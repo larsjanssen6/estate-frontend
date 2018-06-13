@@ -16,11 +16,11 @@
                         ></textarea>
 			</div>
 			<div class="w-1/2">
-                    <label class="label mb-2">Naam<p class="p-2 rounded text-black rounded">{{ note.potential_member_id['first_name'] }} {{ note.potential_member_id['surname'] }}</p></label>
+                    <label class="label mb-2">Naam<p class="p-2 rounded text-black rounded">{{ note.potential_member['first_name'] }} {{ note.potential_member['surname'] }}</p></label>
 					<label class="label mb-2">Contact informatie<p class="p-2 rounded text-black rounded">
-				{{note.potential_member_id['number']}}<br><br>{{note.potential_member_id['address']}}<br>{{note.potential_member_id['zipcode']}}<br>{{note.potential_member_id['city']}}
+				{{note.potential_member['number']}}<br><br>{{note.potential_member['address']}}<br>{{note.potential_member['zipcode']}}<br>{{note.potential_member['city']}}
 				</p></label>
-				<label class="label mb-2">Beroep<p class="p-2 rounded text-black rounded">{{ note.potential_member_id['profession'] }}</p></label>
+				<label class="label mb-2">Beroep<p class="p-2 rounded text-black rounded">{{ note.potential_member['profession'] }}</p></label>
 			</div>
 		</div>
             <div class="flex mb-4">
@@ -42,7 +42,7 @@
                             <p class="p-2 rounded text-black rounded" v-else>Ja</p>
                 </div>
                     <div class="mb-6">
-                        <label class="label mb-4">Geïntereseerd op:<p class="p-2 rounded text-black rounded">{{note.potential_member_id['interestdate']}}</p></label>
+                        <label class="label mb-4">Geïntereseerd op:<p class="p-2 rounded text-black rounded">{{note.potential_member['interestdate']}}</p></label>
                     </div>
                 </div>
   <div class="w-1/2  h-24">

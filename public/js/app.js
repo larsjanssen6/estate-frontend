@@ -2236,7 +2236,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            form: { potential_member_id_id: null, done: "false", start: "", end: "" },
+            form: { potential_member: null, done: "false", start: "", end: "" },
             isLoading: false,
             users: []
         };
@@ -29627,9 +29627,9 @@ var render = function() {
                   _vm._v("Naam"),
                   _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
                     _vm._v(
-                      _vm._s(_vm.note.potential_member_id["first_name"]) +
+                      _vm._s(_vm.note.potential_member["first_name"]) +
                         " " +
-                        _vm._s(_vm.note.potential_member_id["surname"])
+                        _vm._s(_vm.note.potential_member["surname"])
                     )
                   ])
                 ]),
@@ -29638,18 +29638,16 @@ var render = function() {
                   _vm._v("Contact informatie"),
                   _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
                     _vm._v(
-                      "\n\t\t\t\t" +
-                        _vm._s(_vm.note.potential_member_id["number"])
+                      "\n\t\t\t\t" + _vm._s(_vm.note.potential_member["number"])
                     ),
                     _c("br"),
                     _c("br"),
-                    _vm._v(_vm._s(_vm.note.potential_member_id["address"])),
+                    _vm._v(_vm._s(_vm.note.potential_member["address"])),
                     _c("br"),
-                    _vm._v(_vm._s(_vm.note.potential_member_id["zipcode"])),
+                    _vm._v(_vm._s(_vm.note.potential_member["zipcode"])),
                     _c("br"),
                     _vm._v(
-                      _vm._s(_vm.note.potential_member_id["city"]) +
-                        "\n\t\t\t\t"
+                      _vm._s(_vm.note.potential_member["city"]) + "\n\t\t\t\t"
                     )
                   ])
                 ]),
@@ -29657,7 +29655,7 @@ var render = function() {
                 _c("label", { staticClass: "label mb-2" }, [
                   _vm._v("Beroep"),
                   _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
-                    _vm._v(_vm._s(_vm.note.potential_member_id["profession"]))
+                    _vm._v(_vm._s(_vm.note.potential_member["profession"]))
                   ])
                 ])
               ])
@@ -29741,9 +29739,7 @@ var render = function() {
                   _c("label", { staticClass: "label mb-4" }, [
                     _vm._v("Geïntereseerd op:"),
                     _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
-                      _vm._v(
-                        _vm._s(_vm.note.potential_member_id["interestdate"])
-                      )
+                      _vm._v(_vm._s(_vm.note.potential_member["interestdate"]))
                     ])
                   ])
                 ])
@@ -29859,7 +29855,7 @@ var render = function() {
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "tr" }, [
-                      _vm._v(_vm._s(note.potential_member_id["first_name"]))
+                      _vm._v(_vm._s(note.potential_member["first_name"]))
                     ]),
                     _vm._v(" "),
                     _c("td", { staticClass: "tr" }, [
@@ -30538,8 +30534,8 @@ var render = function() {
                   {
                     name: "model",
                     rawName: "v-model",
-                    value: _vm.form.potential_member_id_id,
-                    expression: "form.potential_member_id_id"
+                    value: _vm.form.potential_member,
+                    expression: "form.potential_member"
                   }
                 ],
                 staticClass:
@@ -30557,7 +30553,7 @@ var render = function() {
                       })
                     _vm.$set(
                       _vm.form,
-                      "potential_member_id_id",
+                      "potential_member",
                       $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                     )
                   }
@@ -30566,14 +30562,14 @@ var render = function() {
               _vm._l(_vm.users, function(user) {
                 return _c(
                   "option",
-                  { staticClass: "w-full", domProps: { value: user.id } },
+                  { staticClass: "w-full", domProps: { value: user } },
                   [
                     _vm._v(
-                      "\n                   " +
+                      "\n                    " +
                         _vm._s(user.first_name) +
                         " " +
                         _vm._s(user.surname) +
-                        "\n               "
+                        "\n                "
                     )
                   ]
                 )
@@ -30931,8 +30927,8 @@ var render = function() {
                 {
                   name: "model",
                   rawName: "v-model",
-                  value: _vm.note.potential_member_id,
-                  expression: "note.potential_member_id"
+                  value: _vm.note.potential_member,
+                  expression: "note.potential_member"
                 }
               ],
               staticClass:
@@ -30950,7 +30946,7 @@ var render = function() {
                     })
                   _vm.$set(
                     _vm.note,
-                    "potential_member_id",
+                    "potential_member",
                     $event.target.multiple ? $$selectedVal : $$selectedVal[0]
                   )
                 }
@@ -30959,7 +30955,7 @@ var render = function() {
             _vm._l(_vm.users, function(user) {
               return _c(
                 "option",
-                { staticClass: "w-full", domProps: { value: user.id } },
+                { staticClass: "w-full", domProps: { value: user } },
                 [
                   _vm._v(
                     "\n                    " +

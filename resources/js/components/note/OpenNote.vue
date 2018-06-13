@@ -3,8 +3,8 @@
         <div class="p-8">
             <div class="mb-8">
                 <label class="label mb-6">Potentieel lid</label>
-                <select required class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow" v-model="note.potential_member_id" required>
-                    <option class="w-full" v-for="user in users" v-bind:value="user.id">
+                <select required class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow" v-model="note.potential_member" required>
+                    <option class="w-full" v-for="user in users" v-bind:value="user">
                         {{ user.first_name }} {{ user.surname }}
                     </option>
                 </select>

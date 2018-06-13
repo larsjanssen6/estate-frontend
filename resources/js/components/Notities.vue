@@ -16,7 +16,7 @@
             <tbody v-if="notes.length > 0">
             <tr class="hover:bg-blue-lightest" v-for="note in notes">
                 <td class="tr"><p class="summary">{{ note.content }}</p></td>
-                <td class="tr">{{ note.potential_member_id['first_name'] }}</td>
+                <td class="tr">{{ note.potential_member['first_name'] }}</td>
                 <td class="tr">{{ note.start }}</td>
                 <td class="tr" v-if="note.end">{{ note.end }}</td>
                 <td class="tr" v-else>nvt</td>
