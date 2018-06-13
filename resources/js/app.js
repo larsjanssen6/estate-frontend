@@ -23,6 +23,7 @@ const routes = [
     { path: '/', component: Login, name: 'login', meta: { guest: true }},
     { path: '/home', component: Home, name: 'home', meta: { requiresAuth: true }},
     { path: '/notities', component: Notities, name: 'notities', meta: { requiresAuth: true }},
+    { path: '/potential', component: Potential, name: 'potential', meta: { requiresAuth: true }},
 ];
 
 const router = new VueRouter({
