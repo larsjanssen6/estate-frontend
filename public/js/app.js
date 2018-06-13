@@ -2509,6 +2509,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -29967,7 +29968,8 @@ var render = function() {
                     cols: "50",
                     id: "content",
                     name: "content",
-                    required: ""
+                    required: "",
+                    readonly: ""
                   },
                   domProps: { value: _vm.note.content },
                   on: {

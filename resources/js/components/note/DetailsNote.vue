@@ -13,6 +13,7 @@
                         name="content"
                         v-model="note.content"
                         required
+						readonly
                         ></textarea>
 			</div>
 			<div class="w-1/2">
