@@ -10,11 +10,11 @@
                     <th class="th">Gedaan op</th>
                     <th class="th">Gedaan</th>
                     <th class="th">Aanmaak datum</th>
-                    <th class="th">Opties</th>
+                    <!-- <th class="th">Opties</th> -->
                 </tr>
                 </thead>
                 <tbody v-if="notes.length > 0">
-                    <tr class="hover:bg-blue-lightest" v-for="note, ndx in notes">
+                    <tr class="clickable-row hover:bg-blue-lightest" v-for="note, ndx in notes" @click="openDetails(note)">
                         <td class="tr"><p class="summary">{{ note.content }}</p></td>
                         <td class="tr" v-if="users.length > 0">
                             {{ users[ndx].first_name }} {{ users[ndx].surname }}
@@ -29,11 +29,11 @@
                             <span class="rounded p-2 bg-green text-white" v-else>Ja</span>
                         </td>
                         <td class="tr">{{ note.date_created }}</td>
-                        <td class="tr">
+                        <!-- <td class="tr">
                             <button class="btn-normal" type="button" @click="openDetails(note)">
                                 Details
                             </button>
-                        </td>
+                        </td> -->
                     </tr>
                 </tbody>
 
