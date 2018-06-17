@@ -29986,194 +29986,226 @@ var render = function() {
                 })
               ]),
               _vm._v(" "),
-              _vm._v('"note" class="w-1/2 px-2">\n                    '),
-              _c("label", { staticClass: "label mb-4" }, [
-                _vm._v(
-                  "\n                        Naam\n                        "
-                ),
-                _c("p", { staticClass: "text-black rounded noteproperty" }, [
-                  _vm._v(
-                    _vm._s(_vm.note.potential_member["first_name"]) +
-                      " " +
-                      _vm._s(_vm.note.potential_member["surname"])
+              _vm.note
+                ? _c("div", { staticClass: "w-1/2 px-2" }, [
+                    _c("label", { staticClass: "label mb-4" }, [
+                      _vm._v(
+                        "\n                        Naam\n                        "
+                      ),
+                      _c(
+                        "p",
+                        { staticClass: "text-black rounded noteproperty" },
+                        [
+                          _vm._v(
+                            _vm._s(_vm.note.potential_member["first_name"]) +
+                              " " +
+                              _vm._s(_vm.note.potential_member["surname"])
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "label mb-4" }, [
+                      _vm._v(
+                        "\n                        Contact informatie\n                        "
+                      ),
+                      _c(
+                        "p",
+                        { staticClass: "text-black rounded noteproperty" },
+                        [
+                          _vm._v(
+                            "\n\t\t\t\t\t\t\t" +
+                              _vm._s(_vm.note.potential_member["number"])
+                          ),
+                          _c("br"),
+                          _c("br"),
+                          _vm._v(_vm._s(_vm.note.potential_member["address"])),
+                          _c("br"),
+                          _vm._v(_vm._s(_vm.note.potential_member["zipcode"])),
+                          _c("br"),
+                          _vm._v(
+                            _vm._s(_vm.note.potential_member["city"]) +
+                              "\n                        "
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "label mb-4" }, [
+                      _vm._v(
+                        "\n                        Beroep\n                        "
+                      ),
+                      _c(
+                        "p",
+                        { staticClass: "text-black rounded noteproperty" },
+                        [
+                          _vm._v(
+                            _vm._s(_vm.note.potential_member["profession"])
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _vm.note
+              ? _c("div", { staticClass: "flex mb-4" }, [
+                  _c("div", { staticClass: "w-1/4 px-2" }, [
+                    _c(
+                      "div",
+                      { staticClass: "mb-6" },
+                      [
+                        _c("label", { staticClass: "label mb-2" }, [
+                          _vm._v("Deadline")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "datetime",
+                          {
+                            attrs: {
+                              placeholder: "Selecteer datum",
+                              required: ""
+                            },
+                            model: {
+                              value: _vm.note.start,
+                              callback: function($$v) {
+                                _vm.$set(_vm.note, "start", $$v)
+                              },
+                              expression: "note.start"
+                            }
+                          },
+                          [_vm._v("Selecteer start.")]
+                        )
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "w-1/4 px-2" }, [
+                    _c(
+                      "div",
+                      { staticClass: "mb-6" },
+                      [
+                        _c("label", { staticClass: "label mb-2" }, [
+                          _vm._v("Gedaan op")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "datetime",
+                          {
+                            attrs: { placeholder: "nvt.", required: "" },
+                            model: {
+                              value: _vm.note.end,
+                              callback: function($$v) {
+                                _vm.$set(_vm.note, "end", $$v)
+                              },
+                              expression: "note.end"
+                            }
+                          },
+                          [_vm._v("Selecteer einde.")]
+                        )
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "w-1/4 px-2" }, [
+                    _c("div", { staticClass: "mb-6" }, [
+                      _c("label", { staticClass: "label mb-6" }, [
+                        _vm._v("Gedaan")
+                      ]),
+                      _vm._v(" "),
+                      _vm.note.done === "false"
+                        ? _c(
+                            "p",
+                            { staticClass: "p-2 rounded text-black rounded" },
+                            [_vm._v("Nee")]
+                          )
+                        : _c(
+                            "p",
+                            { staticClass: "p-2 rounded text-black rounded" },
+                            [_vm._v("Ja")]
+                          )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "w-1/4 px-2" }, [
+                    _c("div", { staticClass: "mb-6" }, [
+                      _c("label", { staticClass: "label mb-4" }, [
+                        _vm._v("Geïntereseerd op:")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        { staticClass: "p-2 rounded text-black rounded" },
+                        [
+                          _vm._v(
+                            _vm._s(_vm.note.potential_member["interestdate"])
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex mb-4" }, [
+              _c("div", { staticClass: "w-1/2 px-2" }, [
+                _c("div", { staticClass: "mb-6" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn-normal w-full",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.openNote(_vm.note)
+                        }
+                      }
+                    },
+                    [_vm._v("Bewerken")]
                   )
                 ])
               ]),
               _vm._v(" "),
-              _c("label", { staticClass: "label mb-4" }, [
-                _vm._v(
-                  "\n                        Contact informatie\n                        "
-                ),
-                _c("p", { staticClass: "text-black rounded noteproperty" }, [
-                  _vm._v(
-                    "\n\t\t\t\t\t\t\t" +
-                      _vm._s(_vm.note.potential_member["number"])
-                  ),
-                  _c("br"),
-                  _c("br"),
-                  _vm._v(_vm._s(_vm.note.potential_member["address"])),
-                  _c("br"),
-                  _vm._v(_vm._s(_vm.note.potential_member["zipcode"])),
-                  _c("br"),
-                  _vm._v(
-                    _vm._s(_vm.note.potential_member["city"]) +
-                      "\n                        "
+              _c("div", { staticClass: "w-1/2 px-2" }, [
+                _c("div", { staticClass: "mb-6" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn-delete w-full",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.deleteNote(_vm.note)
+                        }
+                      }
+                    },
+                    [_vm._v("Verwijderen")]
                   )
                 ])
-              ]),
-              _vm._v(" "),
-              _c("label", { staticClass: "label mb-4" }, [
-                _vm._v(
-                  "\n                        Beroep\n                        "
-                ),
-                _c("p", { staticClass: "text-black rounded noteproperty" }, [
-                  _vm._v(_vm._s(_vm.note.potential_member["profession"]))
-                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex mb-4" }, [
+              _c("div", { staticClass: "w-full" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn-outlined w-full shadow",
+                    on: {
+                      click: function($event) {
+                        _vm.$modal.hide("noteOnlyDetails")
+                      }
+                    }
+                  },
+                  [_vm._v("Sluiten")]
+                )
               ])
             ])
           ])
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.note
-        ? _c("div", { staticClass: "flex mb-4" }, [
-            _c("div", { staticClass: "w-1/4 px-2" }, [
-              _c(
-                "div",
-                { staticClass: "mb-6" },
-                [
-                  _c("label", { staticClass: "label mb-2" }, [
-                    _vm._v("Deadline")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "datetime",
-                    {
-                      attrs: { placeholder: "Selecteer datum", required: "" },
-                      model: {
-                        value: _vm.note.start,
-                        callback: function($$v) {
-                          _vm.$set(_vm.note, "start", $$v)
-                        },
-                        expression: "note.start"
-                      }
-                    },
-                    [_vm._v("Selecteer start.")]
-                  )
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "w-1/4 px-2" }, [
-              _c(
-                "div",
-                { staticClass: "mb-6" },
-                [
-                  _c("label", { staticClass: "label mb-2" }, [
-                    _vm._v("Gedaan op")
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "datetime",
-                    {
-                      attrs: { placeholder: "nvt.", required: "" },
-                      model: {
-                        value: _vm.note.end,
-                        callback: function($$v) {
-                          _vm.$set(_vm.note, "end", $$v)
-                        },
-                        expression: "note.end"
-                      }
-                    },
-                    [_vm._v("Selecteer einde.")]
-                  )
-                ],
-                1
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "w-1/4 px-2" }, [
-              _c("div", { staticClass: "mb-6" }, [
-                _c("label", { staticClass: "label mb-6" }, [_vm._v("Gedaan")]),
-                _vm._v(" "),
-                _vm.note.done === "false"
-                  ? _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
-                      _vm._v("Nee")
-                    ])
-                  : _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
-                      _vm._v("Ja")
-                    ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "w-1/4 px-2" }, [
-              _c("div", { staticClass: "mb-6" }, [
-                _c("label", { staticClass: "label mb-4" }, [
-                  _vm._v("Geïntereseerd op:")
-                ]),
-                _vm._v(" "),
-                _c("p", { staticClass: "p-2 rounded text-black rounded" }, [
-                  _vm._v(_vm._s(_vm.note.potential_member["interestdate"]))
-                ])
-              ])
-            ])
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "flex mb-4" }, [
-        _c("div", { staticClass: "w-1/2 px-2" }, [
-          _c("div", { staticClass: "mb-6" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn-normal w-full",
-                attrs: { type: "button" },
-                on: {
-                  click: function($event) {
-                    _vm.openNote(_vm.note)
-                  }
-                }
-              },
-              [_vm._v("Bewerken")]
-            )
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "w-1/2 px-2" }, [
-          _c("div", { staticClass: "mb-6" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn-delete w-full",
-                attrs: { type: "button" },
-                on: {
-                  click: function($event) {
-                    _vm.deleteNote(_vm.note)
-                  }
-                }
-              },
-              [_vm._v("Verwijderen")]
-            )
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "flex mb-4" }, [
-        _c("div", { staticClass: "w-full" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn-outlined w-full shadow",
-              on: {
-                click: function($event) {
-                  _vm.$modal.hide("noteOnlyDetails")
-                }
-              }
-            },
-            [_vm._v("Sluiten")]
-          )
-        ])
-      ])
+        : _vm._e()
     ]
   )
 }

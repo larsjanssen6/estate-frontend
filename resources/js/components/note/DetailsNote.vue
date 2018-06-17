@@ -16,7 +16,7 @@
                         readonly
                         ></textarea>
                 </div>
-                <div v-if"note" class="w-1/2 px-2">
+                <div v-if="note" class="w-1/2 px-2">
                     <label class="label mb-4">
                         Naam
                         <p class="text-black rounded noteproperty">{{ note.potential_member['first_name'] }} {{ note.potential_member['surname'] }}</p>
