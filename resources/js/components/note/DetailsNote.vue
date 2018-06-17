@@ -16,7 +16,7 @@
                         readonly
                         ></textarea>
                 </div>
-                <div class="w-1/2 px-2">
+                <div v-if"note" class="w-1/2 px-2">
                     <label class="label mb-4">
                         Naam
                         <p class="text-black rounded noteproperty">{{ note.potential_member['first_name'] }} {{ note.potential_member['surname'] }}</p>
@@ -35,7 +35,7 @@
             </div>
 			
 			
-           <div class="flex mb-4">
+           <div class="flex mb-4" v-if="note">
 				<div class="w-1/4 px-2">
 					<div class="mb-6">
 						<label class="label mb-2">Deadline</label>
@@ -95,7 +95,7 @@
     
         data() {
             return {
-                note:{},
+                note: null,
                 users: [],
             }
         },
