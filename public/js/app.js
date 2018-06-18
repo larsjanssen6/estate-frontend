@@ -2144,12 +2144,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Ja, maak dit lid een admin!'
+                confirmButtonText: 'Ja, maak lid'
             }).then(function (result) {
                 if (result.value) {
                     __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('/users/promoteuser', user).then(function (response) {
                         location.reload();
-                        _this3.$swal('Admin rechten overgebracht!', 'Voltooid');
+                        _this3.$swal('Gepromoveerd tot vol lid', 'Voltooid');
                     }).catch(function (error) {
                         _this3.wrong = true;
                         _this3.$swal({
@@ -29877,7 +29877,7 @@ var render = function() {
                           },
                           [
                             _vm._v(
-                              "\n                        Admin\n                    "
+                              "\n                        Maak Lid\n                    "
                             )
                           ]
                         )

@@ -36,7 +36,7 @@
                         </button>
 
                         <button class="btn-normal" type="button" @click="promoteUser(user)" v-if="isAdmin">
-                            Admin
+                            Maak Lid
                         </button>
                     </td>
                 </tr>
@@ -112,13 +112,13 @@
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Ja, maak dit lid een admin!'
+                    confirmButtonText: 'Ja, maak lid'
                 }).then((result) => {
                     if (result.value) {
                     axios.post('/users/promoteuser', user).then((response) => {
                         location.reload();
                     this.$swal(
-                        'Admin rechten overgebracht!',
+                        'Gepromoveerd tot vol lid',
                         'Voltooid'
                     )
                 }).catch((error) => {
