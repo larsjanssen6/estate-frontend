@@ -30369,7 +30369,7 @@ var render = function() {
             }
           }
         },
-        [_vm._v("Maak notitie aan")]
+        [_vm._v("Nieuwe taak aanmaken")]
       ),
       _vm._v(" "),
       _c(

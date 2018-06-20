@@ -1,6 +1,6 @@
 <template>
     <div class="container mx-auto">
-        <button class="btn-normal mt-4 mb-4" type="button"  @click="$modal.show('createNote')">Maak notitie aan</button>
+        <button class="btn-normal mt-4 mb-4" type="button"  @click="$modal.show('createNote')">Nieuwe taak aanmaken</button>
             <table class="text-left w-full bg-white" style="border-collapse:collapse">
                 <thead>
                 <tr>
