@@ -1692,6 +1692,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 
 
@@ -1729,8 +1732,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         openDetails: function openDetails(note) {
             Bus.$emit('show-details-note', note);
         },
-        deleteNote: function deleteNote(note) {
+        reopen: function reopen(note) {
             var _this2 = this;
+
+            __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].post('/note/reopen', note).then(function () {
+                _this2.$swal({
+                    title: 'Taak is heropend',
+                    type: 'success'
+                });
+
+                _this2.notes = _this2.notes.filter(function (n) {
+                    return n.id !== note.id;
+                });
+            });
+        },
+        deleteNote: function deleteNote(note) {
+            var _this3 = this;
 
             this.$swal({
                 title: 'Weet je dit zeker?',
@@ -1747,10 +1764,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
                         location.reload();
                     }).catch(function (error) {
-                        _this2.wrong = true;
+                        _this3.wrong = true;
                     });
 
-                    _this2.$swal('Notitie verwijderd!', 'Voltooid');
+                    _this3.$swal('Notitie verwijderd!', 'Voltooid');
                 }
             });
         }
@@ -2684,14 +2701,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             note: null,
-            users: []
+            users: [],
+            format: { format: 'DD-MM-YYYY' }
         };
     },
     mounted: function mounted() {
         var _this = this;
 
         Bus.$on('show-details-note', function (note) {
-            _this.note = note;
+            _this.note = Object.assign({}, note);
 
             __WEBPACK_IMPORTED_MODULE_0__axios__["a" /* default */].get('users').then(function (_ref) {
                 var data = _ref.data;
@@ -2804,7 +2822,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             note: {},
-            users: []
+            users: [],
+            format: { format: 'DD-MM-YYYY' }
         };
     },
     created: function created() {
@@ -2830,7 +2849,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         var _this2 = this;
 
         Bus.$on('show-note', function (note) {
-            _this2.note = note;
+            _this2.note = Object.assign({}, note);
             _this2.$modal.show('noteDetails');
         });
     }
@@ -29507,7 +29526,11 @@ var render = function() {
             _c(
               "datetime",
               {
-                attrs: { placeholder: "Selecteer datum", required: "" },
+                attrs: {
+                  placeholder: "Selecteer datum",
+                  format: _vm.format,
+                  required: ""
+                },
                 model: {
                   value: _vm.note.start,
                   callback: function($$v) {
@@ -29531,7 +29554,11 @@ var render = function() {
             _c(
               "datetime",
               {
-                attrs: { placeholder: "Selecteer datum", required: "" },
+                attrs: {
+                  placeholder: "Selecteer datum",
+                  format: _vm.format,
+                  required: ""
+                },
                 model: {
                   value: _vm.note.end,
                   callback: function($$v) {
@@ -30302,6 +30329,7 @@ var render = function() {
                           {
                             attrs: {
                               placeholder: "Selecteer datum",
+                              format: _vm.format,
                               required: ""
                             },
                             model: {
@@ -30331,7 +30359,11 @@ var render = function() {
                         _c(
                           "datetime",
                           {
-                            attrs: { placeholder: "nvt.", required: "" },
+                            attrs: {
+                              placeholder: "nvt.",
+                              format: _vm.format,
+                              required: ""
+                            },
                             model: {
                               value: _vm.note.end,
                               callback: function($$v) {
@@ -30852,7 +30884,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "container mx-auto" },
+    { staticClass: "container mx-auto mt-4" },
     [
       _c(
         "table",
@@ -30873,6 +30905,7 @@ var render = function() {
                       staticClass: "clickable-row hover:bg-blue-lightest",
                       on: {
                         click: function($event) {
+                          $event.preventDefault()
                           _vm.openDetails(note)
                         }
                       }
@@ -30918,6 +30951,22 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", { staticClass: "tr" }, [
                         _vm._v(_vm._s(note.date_created))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "tr" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn-normal",
+                            on: {
+                              click: function($event) {
+                                $event.stopPropagation()
+                                _vm.reopen(note)
+                              }
+                            }
+                          },
+                          [_vm._v("Heropen")]
+                        )
                       ])
                     ]
                   )
