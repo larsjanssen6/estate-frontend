@@ -12,7 +12,7 @@
                 </tr>
                 </thead>
                 <tbody v-if="notes.length > 0">
-                <tr class="hover:bg-blue-lightest" v-for="note in notes">
+                <tr class="hover:bg-blue-lightest cursor-pointer" v-for="note in notes" @click.prevent="openDetails(note)">
                     <td class="tr"><p class="summary">{{ note.content }}</p></td>
                     <td class="tr">{{ note.start }}</td>
                     <td class="tr" v-if="note.end">{{ note.end }}</td>
@@ -23,19 +23,15 @@
                     </td>
                     <td class="tr">{{ note.date_created }}</td>
                     <td class="tr">
-                        <button class="btn-normal" type="button" @click="closeNote(note)">
+                        <button class="btn-normal" type="button" @click.stop="closeNote(note)">
                             Sluit taak
                         </button>
 
-                        <button class="btn-normal" type="button" @click="openNote(note)">
+                        <button class="btn-normal" type="button" @click.stop="openNote(note)">
                             Open
                         </button>
 
-                        <button class="btn-normal" type="button" @click="openDetails(note)">
-                            Details
-                        </button>
-
-                        <button class="btn-delete" type="button" @click="deleteNote(note)">
+                        <button class="btn-delete" type="button" @click.stop="deleteNote(note)">
                             Verwijderen
                         </button>
                     </td>
