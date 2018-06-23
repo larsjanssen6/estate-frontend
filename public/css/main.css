@@ -4903,6 +4903,18 @@ body input {
   max-width: 200px;
 }
 
+.clickable-row {
+  cursor: pointer;
+}
+
+.noteproperty {
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: normal;
+  font-size: medium;
+  font-weight: normal;
+}
+
 @media (min-width: 576px) {
   .sm\:list-reset {
     list-style: none;

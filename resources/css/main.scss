@@ -83,3 +83,16 @@ body {
   text-overflow: ellipsis;
   max-width: 200px;
 }
+
+.clickable-row {
+	cursor: pointer;
+}
+
+.noteproperty {
+	text-transform: none;
+	font-weight: normal;
+	
+    letter-spacing: normal;
+    font-size: medium;
+    font-weight: normal;
+}
