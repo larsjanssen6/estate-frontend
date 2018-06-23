@@ -20,12 +20,12 @@
 
             <div class="mb-6">
                 <label class="label mb-2">Moet klaar zijn op</label>
-                <datetime placeholder="Selecteer datum" v-model="note.start" required>Selecteer start.</datetime>
+                <datetime placeholder="Selecteer datum" v-model="note.start" :format="format" required>Selecteer start.</datetime>
             </div>
 
             <div class="mb-6">
                 <label class="label mb-2">Gedaan op</label>
-                <datetime placeholder="Selecteer datum" v-model="note.end" required>Selecteer einde.</datetime>
+                <datetime placeholder="Selecteer datum" v-model="note.end" :format="format" required>Selecteer einde.</datetime>
             </div>
 
             <div class="mb-6">
@@ -58,6 +58,7 @@
             return {
                 note:{},
                 users: [],
+                format: { format: 'DD-MM-YYYY' }
             }
         },
 
@@ -77,7 +78,7 @@
 
         mounted() {
             Bus.$on('show-note', (note) => {
-                this.note = note;
+                this.note = Object.assign({}, note);
                 this.$modal.show('noteDetails');
             });
         },

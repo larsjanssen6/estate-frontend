@@ -39,13 +39,13 @@
 				<div class="w-1/4 px-2">
 					<div class="mb-6">
 						<label class="label mb-2">Deadline</label>
-						<datetime placeholder="Selecteer datum" v-model="note.start" required>Selecteer start.</datetime>
+						<datetime placeholder="Selecteer datum" v-model="note.start" :format="format" required>Selecteer start.</datetime>
 					</div>
 				</div>
 				<div class="w-1/4 px-2">
 					<div class="mb-6">
 						<label class="label mb-2">Gedaan op</label>
-						<datetime placeholder="nvt." v-model="note.end" required>Selecteer einde.</datetime>
+						<datetime placeholder="nvt." v-model="note.end" :format="format" required>Selecteer einde.</datetime>
 					</div>
 				</div>
 				<div class="w-1/4 px-2">
@@ -97,12 +97,13 @@
             return {
                 note: null,
                 users: [],
+                format: { format: 'DD-MM-YYYY' }
             }
         },
     
         mounted() {
             Bus.$on('show-details-note', (note) => {
-                this.note = note;
+                this.note = Object.assign({}, note);
     
                 axios.get('users').then(({data}) => {
                     this.users = data;
@@ -111,12 +112,12 @@
                 });
             });
         },
-    methods:{
+		methods:{
               openNote(note) {
                 Bus.$emit('show-note', note);
-    this.$modal.hide('noteOnlyDetails');
-            },
-    deleteNote(note){
+    			this.$modal.hide('noteOnlyDetails');
+			},
+    	deleteNote(note){
                 this.$swal({
                     title: 'Weet je dit zeker?',
                     text: "Deze actie is definitief!",
