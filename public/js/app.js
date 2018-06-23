@@ -2072,14 +2072,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -29401,1625 +29393,7 @@ module.exports = function normalizeComponent (
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-1777b23e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/note/OpenNote.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "modal",
-    { attrs: { name: "noteDetails", height: "auto", scrollable: true } },
-    [
-      _c("div", { staticClass: "p-8" }, [
-        _c("div", { staticClass: "mb-8" }, [
-          _c("label", { staticClass: "label mb-6" }, [
-            _vm._v("Potentieel lid")
-          ]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.note.potential_member,
-                  expression: "note.potential_member"
-                }
-              ],
-              staticClass:
-                "block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow",
-              attrs: { required: "", required: "" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.note,
-                    "potential_member",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
-              }
-            },
-            _vm._l(_vm.users, function(user) {
-              return _c(
-                "option",
-                { staticClass: "w-full", domProps: { value: user } },
-                [
-                  _vm._v(
-                    "\n                    " +
-                      _vm._s(user.first_name) +
-                      " " +
-                      _vm._s(user.surname) +
-                      "\n                "
-                  )
-                ]
-              )
-            })
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "mb-6" }, [
-          _c("label", { staticClass: "label mb-6" }, [_vm._v("Gedaan")]),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.note.done,
-                  expression: "note.done"
-                }
-              ],
-              staticClass:
-                "block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow",
-              attrs: { required: "", required: "" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.$set(
-                    _vm.note,
-                    "done",
-                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                  )
-                }
-              }
-            },
-            [
-              _c("option", { attrs: { value: "false" } }, [_vm._v("Nee")]),
-              _vm._v(" "),
-              _c("option", { attrs: { value: "true" } }, [_vm._v("Ja")])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "mb-6" },
-          [
-            _c("label", { staticClass: "label mb-2" }, [
-              _vm._v("Moet klaar zijn op")
-            ]),
-            _vm._v(" "),
-            _c(
-              "datetime",
-              {
-                attrs: {
-                  placeholder: "Selecteer datum",
-                  format: _vm.format,
-                  required: ""
-                },
-                model: {
-                  value: _vm.note.start,
-                  callback: function($$v) {
-                    _vm.$set(_vm.note, "start", $$v)
-                  },
-                  expression: "note.start"
-                }
-              },
-              [_vm._v("Selecteer start.")]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "mb-6" },
-          [
-            _c("label", { staticClass: "label mb-2" }, [_vm._v("Gedaan op")]),
-            _vm._v(" "),
-            _c(
-              "datetime",
-              {
-                attrs: {
-                  placeholder: "Selecteer datum",
-                  format: _vm.format,
-                  required: ""
-                },
-                model: {
-                  value: _vm.note.end,
-                  callback: function($$v) {
-                    _vm.$set(_vm.note, "end", $$v)
-                  },
-                  expression: "note.end"
-                }
-              },
-              [_vm._v("Selecteer einde.")]
-            )
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "mb-6" }, [
-          _c(
-            "label",
-            { staticClass: "label mb-2", attrs: { for: "Content" } },
-            [_vm._v("Notitie")]
-          ),
-          _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.note.content,
-                expression: "note.content"
-              }
-            ],
-            staticClass: "input w-full",
-            attrs: {
-              rows: "5",
-              cols: "50",
-              id: "content",
-              name: "content",
-              required: ""
-            },
-            domProps: { value: _vm.note.content },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.note, "content", $event.target.value)
-              }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "flex -mx-4" }, [
-          _c(
-            "button",
-            {
-              staticClass: "btn-normal w-full mx-4 shadow",
-              on: {
-                click: function($event) {
-                  _vm.updateNote()
-                }
-              }
-            },
-            [_vm._v("Update")]
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn-outlined w-full mx-4 shadow",
-              on: {
-                click: function($event) {
-                  _vm.$modal.hide("noteDetails")
-                }
-              }
-            },
-            [_vm._v("Sluiten")]
-          )
-        ])
-      ])
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1777b23e", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-1f59d078\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Notities.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container mx-auto" },
-    [
-      _c(
-        "button",
-        {
-          staticClass: "btn-normal mt-4 mb-4",
-          attrs: { type: "button" },
-          on: {
-            click: function($event) {
-              _vm.$modal.show("createNote")
-            }
-          }
-        },
-        [_vm._v("Nieuwe taak aanmaken")]
-      ),
-      _vm._v(" "),
-      _c(
-        "table",
-        {
-          staticClass: "text-left w-full bg-white",
-          staticStyle: { "border-collapse": "collapse" }
-        },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _vm.notes.length > 0
-            ? _c(
-                "tbody",
-                _vm._l(_vm.notes, function(note) {
-                  return _c(
-                    "tr",
-                    {
-                      staticClass: "hover:bg-blue-lightest cursor-pointer",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.openDetails(note)
-                        }
-                      }
-                    },
-                    [
-                      _c("td", { staticClass: "tr" }, [
-                        _c("p", { staticClass: "summary" }, [
-                          _vm._v(_vm._s(note.content))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "tr" }, [
-                        _vm._v(_vm._s(note.start))
-                      ]),
-                      _vm._v(" "),
-                      note.end
-                        ? _c("td", { staticClass: "tr" }, [
-                            _vm._v(_vm._s(note.end))
-                          ])
-                        : _c("td", { staticClass: "tr" }, [_vm._v("nvt")]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "tr" }, [
-                        note.done === "false"
-                          ? _c(
-                              "span",
-                              {
-                                staticClass: "rounded p-2 bg-orange text-white"
-                              },
-                              [_vm._v("Nee")]
-                            )
-                          : _c(
-                              "span",
-                              {
-                                staticClass: "rounded p-2 bg-green text-white"
-                              },
-                              [_vm._v("Ja")]
-                            )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "tr" }, [
-                        _vm._v(_vm._s(note.date_created))
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "tr" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn-normal",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                $event.stopPropagation()
-                                _vm.closeNote(note)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                        Sluit taak\n                    "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn-normal",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                $event.stopPropagation()
-                                _vm.openNote(note)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                        Open\n                    "
-                            )
-                          ]
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn-delete",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                $event.stopPropagation()
-                                _vm.deleteNote(note)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                        Verwijderen\n                    "
-                            )
-                          ]
-                        )
-                      ])
-                    ]
-                  )
-                })
-              )
-            : _c("tbody", [
-                _c("td", { staticClass: "p-2" }, [
-                  _vm._v("Er zijn nog geen notities.")
-                ])
-              ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("createNote"),
-      _vm._v(" "),
-      _c("noteDetails"),
-      _vm._v(" "),
-      _c("noteOnlyDetails")
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { staticClass: "th" }, [_vm._v("Content")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Moet klaar zijn op")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Gedaan op")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Gedaan")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Aanmaak datum")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1f59d078", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-28427674\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/user/User.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c(
-        "modal",
-        { attrs: { name: "userdetails", height: "auto", scrollable: true } },
-        [
-          _c("div", { staticClass: "p-8" }, [
-            _c("h1", [
-              _vm._v(
-                _vm._s(_vm.user.first_name) +
-                  " " +
-                  _vm._s(_vm.user.surname) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-6 flex flex-col" }, [
-              _c("div", [
-                _c("label", { staticClass: "label mb-2" }, [_vm._v("Rol")])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "flex" }, [
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3"
-                  },
-                  [_vm._v(_vm._s(_vm.user.role))]
-                )
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-6" }, [
-              _c("label", { staticClass: "label mb-2" }, [_vm._v("Vakgebied")]),
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.user.profession) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-6" }, [
-              _c("label", { staticClass: "label mb-2" }, [_vm._v("Nummer")]),
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.user.number) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-6" }, [
-              _c("label", { staticClass: "label mb-2" }, [
-                _vm._v("Geboortedatum")
-              ]),
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.user.birthdate) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-6" }, [
-              _c("label", { staticClass: "label mb-2" }, [
-                _vm._v("Registreerdatum")
-              ]),
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.user.date_joined) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-6" }, [
-              _c("label", { staticClass: "label mb-2" }, [
-                _vm._v("Interesse vanaf:")
-              ]),
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.user.interestdate) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-6" }, [
-              _c("label", { staticClass: "label mb-2" }, [_vm._v("Adres")]),
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.user.address) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-6" }, [
-              _c("label", { staticClass: "label mb-2" }, [_vm._v("Postcode")]),
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.user.zipcode) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mb-6" }, [
-              _c("label", { staticClass: "label mb-2" }, [
-                _vm._v("Woonplaats")
-              ]),
-              _vm._v(
-                "\n                    " +
-                  _vm._s(_vm.user.city) +
-                  "\n                "
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex -mx-4" }, [
-              _c(
-                "button",
-                {
-                  staticClass: "btn-normal w-full mx-4 shadow",
-                  on: {
-                    click: function($event) {
-                      _vm.editUser(_vm.user)
-                    }
-                  }
-                },
-                [_vm._v("Bewerken")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn-normal w-full mx-4 shadow",
-                  on: {
-                    click: function($event) {
-                      _vm.$modal.hide("userdetails")
-                    }
-                  }
-                },
-                [_vm._v("Sluiten")]
-              )
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("edit-user")
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-28427674", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-49a5a97a\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Potential.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container mx-auto" },
-    [
-      _c("div", { staticClass: "mt-4 mb-4" }, [
-        _vm.isAdmin
-          ? _c(
-              "button",
-              {
-                staticClass:
-                  "bg-teal font-semibold text-white py-2 px-4 border border-teal hover:border-transparent rounded",
-                on: {
-                  click: function($event) {
-                    _vm.$modal.show("registration")
-                  }
-                }
-              },
-              [_vm._v("Registreer lid")]
-            )
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c(
-        "table",
-        {
-          staticClass: "text-left w-full bg-white",
-          staticStyle: { "border-collapse": "collapse" }
-        },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.users, function(user) {
-              return _c(
-                "tr",
-                { staticClass: "hover:bg-blue-lightest cursor-pointer" },
-                [
-                  _c("td", { staticClass: "tr" }, [
-                    _vm._v(_vm._s(user.first_name) + " " + _vm._s(user.surname))
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "tr" }, [
-                    _vm._v(_vm._s(user.number))
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "tr" }, [_vm._v(_vm._s(user.city))]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "tr" }, [
-                    _vm._v(_vm._s(user.date_joined))
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "tr" }, [
-                    _c(
-                      "span",
-                      { staticClass: "rounded p-2 bg-green text-white" },
-                      [
-                        _vm._v(
-                          "\n                        " +
-                            _vm._s(user.role) +
-                            "\n                    "
-                        )
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("td", { staticClass: "tr" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn-normal",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            _vm.showUser(user)
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                        Bekijken\n                    "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _vm.isAdmin
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "btn-delete",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                _vm.deleteUser(user)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                        Verwijderen\n                    "
-                            )
-                          ]
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.isAdmin
-                      ? _c(
-                          "button",
-                          {
-                            staticClass: "btn-normal",
-                            attrs: { type: "button" },
-                            on: {
-                              click: function($event) {
-                                _vm.promoteUser(user)
-                              }
-                            }
-                          },
-                          [
-                            _vm._v(
-                              "\n                        Maak Lid\n                    "
-                            )
-                          ]
-                        )
-                      : _vm._e()
-                  ])
-                ]
-              )
-            })
-          )
-        ]
-      ),
-      _vm._v(" "),
-      _c("userdetails"),
-      _vm._v(" "),
-      _c("register")
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { staticClass: "th" }, [_vm._v("Naam")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Nummer")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Woonplaats")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Registreerdatum")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Role")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Opties")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-49a5a97a", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-4eb7b962\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/note/DetailsNote.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "modal",
-    { attrs: { name: "noteOnlyDetails", height: "auto", scrollable: true } },
-    [
-      _vm.note
-        ? _c("div", { staticClass: "p-8" }, [
-            _c("label", { staticClass: "label mb-6" }, [_vm._v("Details")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex mb-4" }, [
-              _c("div", { staticClass: "w-1/2 px-2" }, [
-                _c(
-                  "label",
-                  { staticClass: "label mb-2", attrs: { for: "Content" } },
-                  [_vm._v("Taak")]
-                ),
-                _vm._v(" "),
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.note.content,
-                      expression: "note.content"
-                    }
-                  ],
-                  staticClass: "input w-full",
-                  attrs: {
-                    rows: "8",
-                    cols: "50",
-                    id: "content",
-                    name: "content",
-                    required: "",
-                    readonly: ""
-                  },
-                  domProps: { value: _vm.note.content },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.note, "content", $event.target.value)
-                    }
-                  }
-                })
-              ]),
-              _vm._v(" "),
-              _vm.note
-                ? _c("div", { staticClass: "w-1/2 px-2" }, [
-                    _c("label", { staticClass: "label mb-4" }, [
-                      _vm._v(
-                        "\n                        Naam\n                        "
-                      ),
-                      _c(
-                        "p",
-                        { staticClass: "text-black rounded noteproperty" },
-                        [
-                          _vm._v(
-                            _vm._s(_vm.note.potential_member["first_name"]) +
-                              " " +
-                              _vm._s(_vm.note.potential_member["surname"])
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "label mb-4" }, [
-                      _vm._v(
-                        "\n                        Contact informatie\n                        "
-                      ),
-                      _c(
-                        "p",
-                        { staticClass: "text-black rounded noteproperty" },
-                        [
-                          _vm._v(
-                            "\n\t\t\t\t\t\t\t" +
-                              _vm._s(_vm.note.potential_member["number"])
-                          ),
-                          _c("br"),
-                          _c("br"),
-                          _vm._v(_vm._s(_vm.note.potential_member["address"])),
-                          _c("br"),
-                          _vm._v(_vm._s(_vm.note.potential_member["zipcode"])),
-                          _c("br"),
-                          _vm._v(
-                            _vm._s(_vm.note.potential_member["city"]) +
-                              "\n                        "
-                          )
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("label", { staticClass: "label mb-4" }, [
-                      _vm._v(
-                        "\n                        Beroep\n                        "
-                      ),
-                      _c(
-                        "p",
-                        { staticClass: "text-black rounded noteproperty" },
-                        [
-                          _vm._v(
-                            _vm._s(_vm.note.potential_member["profession"])
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                : _vm._e()
-            ]),
-            _vm._v(" "),
-            _vm.note
-              ? _c("div", { staticClass: "flex mb-4" }, [
-                  _c("div", { staticClass: "w-1/4 px-2" }, [
-                    _c(
-                      "div",
-                      { staticClass: "mb-6" },
-                      [
-                        _c("label", { staticClass: "label mb-2" }, [
-                          _vm._v("Deadline")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "datetime",
-                          {
-                            attrs: {
-                              placeholder: "Selecteer datum",
-                              format: _vm.format,
-                              required: ""
-                            },
-                            model: {
-                              value: _vm.note.start,
-                              callback: function($$v) {
-                                _vm.$set(_vm.note, "start", $$v)
-                              },
-                              expression: "note.start"
-                            }
-                          },
-                          [_vm._v("Selecteer start.")]
-                        )
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "w-1/4 px-2" }, [
-                    _c(
-                      "div",
-                      { staticClass: "mb-6" },
-                      [
-                        _c("label", { staticClass: "label mb-2" }, [
-                          _vm._v("Gedaan op")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "datetime",
-                          {
-                            attrs: {
-                              placeholder: "nvt.",
-                              format: _vm.format,
-                              required: ""
-                            },
-                            model: {
-                              value: _vm.note.end,
-                              callback: function($$v) {
-                                _vm.$set(_vm.note, "end", $$v)
-                              },
-                              expression: "note.end"
-                            }
-                          },
-                          [_vm._v("Selecteer einde.")]
-                        )
-                      ],
-                      1
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "w-1/4 px-2" }, [
-                    _c("div", { staticClass: "mb-6" }, [
-                      _c("label", { staticClass: "label mb-6" }, [
-                        _vm._v("Gedaan")
-                      ]),
-                      _vm._v(" "),
-                      _vm.note.done === "false"
-                        ? _c(
-                            "p",
-                            { staticClass: "p-2 rounded text-black rounded" },
-                            [_vm._v("Nee")]
-                          )
-                        : _c(
-                            "p",
-                            { staticClass: "p-2 rounded text-black rounded" },
-                            [_vm._v("Ja")]
-                          )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "w-1/4 px-2" }, [
-                    _c("div", { staticClass: "mb-6" }, [
-                      _c("label", { staticClass: "label mb-4" }, [
-                        _vm._v("Geïntereseerd op:")
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "p",
-                        { staticClass: "p-2 rounded text-black rounded" },
-                        [
-                          _vm._v(
-                            _vm._s(_vm.note.potential_member["interestdate"])
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex mb-4" }, [
-              _c("div", { staticClass: "w-1/2 px-2" }, [
-                _c("div", { staticClass: "mb-6" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn-normal w-full",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          _vm.openNote(_vm.note)
-                        }
-                      }
-                    },
-                    [_vm._v("Bewerken")]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "w-1/2 px-2" }, [
-                _c("div", { staticClass: "mb-6" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn-delete w-full",
-                      attrs: { type: "button" },
-                      on: {
-                        click: function($event) {
-                          _vm.deleteNote(_vm.note)
-                        }
-                      }
-                    },
-                    [_vm._v("Verwijderen")]
-                  )
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "flex mb-4" }, [
-              _c("div", { staticClass: "w-full" }, [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn-outlined w-full shadow",
-                    on: {
-                      click: function($event) {
-                        _vm.$modal.hide("noteOnlyDetails")
-                      }
-                    }
-                  },
-                  [_vm._v("Sluiten")]
-                )
-              ])
-            ])
-          ])
-        : _vm._e()
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4eb7b962", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-63877070\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/note/CreateNote.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "modal",
-    { attrs: { name: "createNote", height: "auto", scrollable: true } },
-    [
-      _c(
-        "form",
-        {
-          staticClass: "p-8",
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              _vm.createNote()
-            }
-          }
-        },
-        [
-          _c("div", { staticClass: "mb-6" }, [
-            _c("label", { staticClass: "label mb-6" }, [
-              _vm._v("Potentieel lid")
-            ]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.potential_member,
-                    expression: "form.potential_member"
-                  }
-                ],
-                staticClass:
-                  "block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow",
-                attrs: { required: "", required: "" },
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.form,
-                      "potential_member",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              _vm._l(_vm.users, function(user) {
-                return _c(
-                  "option",
-                  { staticClass: "w-full", domProps: { value: user } },
-                  [
-                    _vm._v(
-                      "\n                   " +
-                        _vm._s(user.first_name) +
-                        " " +
-                        _vm._s(user.surname) +
-                        "\n               "
-                    )
-                  ]
-                )
-              })
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-6" }, [
-            _c("label", { staticClass: "label mb-6" }, [_vm._v("Gedaan")]),
-            _vm._v(" "),
-            _c(
-              "select",
-              {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.form.done,
-                    expression: "form.done"
-                  }
-                ],
-                staticClass:
-                  "block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow",
-                attrs: { required: "", required: "" },
-                on: {
-                  change: function($event) {
-                    var $$selectedVal = Array.prototype.filter
-                      .call($event.target.options, function(o) {
-                        return o.selected
-                      })
-                      .map(function(o) {
-                        var val = "_value" in o ? o._value : o.value
-                        return val
-                      })
-                    _vm.$set(
-                      _vm.form,
-                      "done",
-                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-                    )
-                  }
-                }
-              },
-              [
-                _c("option", { attrs: { value: "false" } }, [_vm._v("Nee")]),
-                _vm._v(" "),
-                _c("option", { attrs: { value: "true" } }, [_vm._v("Ja")])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "mb-6" },
-            [
-              _c("label", { staticClass: "label mb-2" }, [
-                _vm._v("Moet klaar zijn op")
-              ]),
-              _vm._v(" "),
-              _c(
-                "datetime",
-                {
-                  attrs: { placeholder: "Selecteer datum", required: "" },
-                  model: {
-                    value: _vm.form.start,
-                    callback: function($$v) {
-                      _vm.$set(_vm.form, "start", $$v)
-                    },
-                    expression: "form.start"
-                  }
-                },
-                [_vm._v("Selecteer start.")]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-6" }, [
-            _c(
-              "label",
-              { staticClass: "label mb-2", attrs: { for: "Content" } },
-              [_vm._v("Notitie")]
-            ),
-            _vm._v(" "),
-            _c("textarea", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.content,
-                  expression: "form.content"
-                }
-              ],
-              staticClass: "input w-full",
-              attrs: {
-                rows: "5",
-                cols: "50",
-                id: "content",
-                name: "content",
-                required: "",
-                autofocus: ""
-              },
-              domProps: { value: _vm.form.content },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.form, "content", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex -mx-4" }, [
-            _c(
-              "button",
-              {
-                staticClass: "btn-normal w-full mx-4 shadow",
-                class: { loader: _vm.isLoading },
-                attrs: { type: "submit" }
-              },
-              [_vm._v("Aanmaken")]
-            ),
-            _vm._v(" "),
-            _c(
-              "button",
-              {
-                staticClass: "btn-outlined w-full mx-4 shadow",
-                on: {
-                  click: function($event) {
-                    _vm.$modal.hide("createNote")
-                  }
-                }
-              },
-              [_vm._v("Annuleren")]
-            )
-          ])
-        ]
-      )
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-63877070", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-6bdc8b8e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Login.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "flex justify-center mt-16" }, [
-    _c("div", { staticClass: "w-full max-w-xs" }, [
-      _c(
-        "form",
-        {
-          staticClass: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4",
-          on: {
-            submit: function($event) {
-              $event.preventDefault()
-              return _vm.login($event)
-            },
-            keydown: function($event) {
-              if (
-                !("button" in $event) &&
-                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
-              ) {
-                return null
-              }
-              $event.preventDefault()
-              return _vm.login($event)
-            }
-          }
-        },
-        [
-          _c("div", { staticClass: "mb-4" }, [
-            _c(
-              "label",
-              {
-                staticClass: "block text-grey-darker text-sm font-bold mb-2",
-                attrs: { for: "username" }
-              },
-              [_vm._v("\n                    Gebruikersnaam\n                ")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.creds.username,
-                  expression: "creds.username"
-                }
-              ],
-              staticClass:
-                "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
-              class: { "border-red": _vm.wrong },
-              attrs: { id: "username", type: "text", placeholder: "Username" },
-              domProps: { value: _vm.creds.username },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.creds, "username", $event.target.value)
-                }
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mb-6" }, [
-            _c(
-              "label",
-              {
-                staticClass: "block text-grey-darker text-sm font-bold mb-2",
-                attrs: { for: "password" }
-              },
-              [_vm._v("\n                    Wachtwoord\n                ")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.creds.password,
-                  expression: "creds.password"
-                }
-              ],
-              staticClass:
-                "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3",
-              class: { "border-red": _vm.wrong },
-              attrs: {
-                id: "password",
-                type: "password",
-                placeholder: "******************"
-              },
-              domProps: { value: _vm.creds.password },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.creds, "password", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
-            _vm.wrong
-              ? _c("p", { staticClass: "text-red text-xs italic" }, [
-                  _vm._v("Login gegevens zijn onjuist.")
-                ])
-              : _vm._e()
-          ]),
-          _vm._v(" "),
-          _vm._m(0)
-        ]
-      ),
-      _vm._v(" "),
-      _c("p", { staticClass: "text-center text-grey text-xs" }, [
-        _vm._v("\n            ©2018 Estate. All rights reserved.\n        ")
-      ])
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex items-center justify-between" }, [
-      _c(
-        "button",
-        {
-          staticClass:
-            "bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded",
-          attrs: { type: "submit" }
-        },
-        [_vm._v("\n                    Login\n                ")]
-      ),
-      _vm._v(" "),
-      _c(
-        "a",
-        {
-          staticClass:
-            "inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker",
-          attrs: { href: "#" }
-        },
-        [_vm._v("\n                    Wachtwoord vergeten?\n                ")]
-      )
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6bdc8b8e", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-80f53d02\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/AllNotities.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container mx-auto mt-4" },
-    [
-      _c(
-        "table",
-        {
-          staticClass: "text-left w-full bg-white",
-          staticStyle: { "border-collapse": "collapse" }
-        },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _vm.notes.length > 0
-            ? _c(
-                "tbody",
-                _vm._l(_vm.notes, function(note) {
-                  return _c(
-                    "tr",
-                    {
-                      staticClass: "clickable-row hover:bg-blue-lightest",
-                      on: {
-                        click: function($event) {
-                          $event.preventDefault()
-                          _vm.openDetails(note)
-                        }
-                      }
-                    },
-                    [
-                      _c("td", { staticClass: "tr" }, [
-                        _c("p", { staticClass: "summary" }, [
-                          _vm._v(_vm._s(note.content))
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "tr" }, [
-                        _vm._v(_vm._s(note.potential_member["first_name"]))
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "tr" }, [
-                        _vm._v(_vm._s(note.start))
-                      ]),
-                      _vm._v(" "),
-                      note.end
-                        ? _c("td", { staticClass: "tr" }, [
-                            _vm._v(_vm._s(note.end))
-                          ])
-                        : _c("td", { staticClass: "tr" }, [_vm._v("nvt")]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "tr" }, [
-                        note.done === "false"
-                          ? _c(
-                              "span",
-                              {
-                                staticClass: "rounded p-2 bg-orange text-white"
-                              },
-                              [_vm._v("Nee")]
-                            )
-                          : _c(
-                              "span",
-                              {
-                                staticClass: "rounded p-2 bg-green text-white"
-                              },
-                              [_vm._v("Ja")]
-                            )
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "tr" }, [
-                        _vm._v(_vm._s(note.date_created))
-                      ]),
-                      _vm._v(" "),
-                      _c("td", { staticClass: "tr" }, [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn-normal",
-                            on: {
-                              click: function($event) {
-                                $event.stopPropagation()
-                                _vm.reopen(note)
-                              }
-                            }
-                          },
-                          [_vm._v("Heropen")]
-                        )
-                      ])
-                    ]
-                  )
-                })
-              )
-            : _c("tbody", [
-                _c("td", { staticClass: "p-2" }, [
-                  _vm._v("Er zijn nog geen notities.")
-                ])
-              ])
-        ]
-      ),
-      _vm._v(" "),
-      _c("createNote"),
-      _vm._v(" "),
-      _c("noteDetails"),
-      _vm._v(" "),
-      _c("noteOnlyDetails")
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", { staticClass: "th" }, [_vm._v("Content")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Contact gegevens")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Moet klaar zijn op")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Gedaan op")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Gedaan")]),
-        _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Aanmaak datum")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-80f53d02", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-97358ae4\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Register.vue":
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-00f36e5b\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Register.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -31530,13 +29904,807 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-97358ae4", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-00f36e5b", module.exports)
   }
 }
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-c87923c4\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/user/EditUser.vue":
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-20657116\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Potential.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container mx-auto" },
+    [
+      _c("div", { staticClass: "mt-4 mb-4" }, [
+        _vm.isAdmin
+          ? _c(
+              "button",
+              {
+                staticClass:
+                  "bg-teal font-semibold text-white py-2 px-4 border border-teal hover:border-transparent rounded",
+                on: {
+                  click: function($event) {
+                    _vm.$modal.show("registration")
+                  }
+                }
+              },
+              [_vm._v("Registreer lid")]
+            )
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c(
+        "table",
+        {
+          staticClass: "text-left w-full bg-white",
+          staticStyle: { "border-collapse": "collapse" }
+        },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.users, function(user) {
+              return _c(
+                "tr",
+                { staticClass: "hover:bg-blue-lightest cursor-pointer" },
+                [
+                  _c("td", { staticClass: "tr" }, [
+                    _vm._v(_vm._s(user.first_name) + " " + _vm._s(user.surname))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "tr" }, [
+                    _vm._v(_vm._s(user.number))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "tr" }, [_vm._v(_vm._s(user.city))]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "tr" }, [
+                    _vm._v(_vm._s(user.date_joined))
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "tr" }, [
+                    _c(
+                      "span",
+                      { staticClass: "rounded p-2 bg-green text-white" },
+                      [
+                        _vm._v(
+                          "\n                        " +
+                            _vm._s(user.role) +
+                            "\n                    "
+                        )
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "tr" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn-normal",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function($event) {
+                            _vm.showUser(user)
+                          }
+                        }
+                      },
+                      [
+                        _vm._v(
+                          "\n                        Bekijken\n                    "
+                        )
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _vm.isAdmin
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "btn-delete",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                _vm.deleteUser(user)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        Verwijderen\n                    "
+                            )
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.isAdmin
+                      ? _c(
+                          "button",
+                          {
+                            staticClass: "btn-normal",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                _vm.promoteUser(user)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        Maak Lid\n                    "
+                            )
+                          ]
+                        )
+                      : _vm._e()
+                  ])
+                ]
+              )
+            })
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c("userdetails"),
+      _vm._v(" "),
+      _c("register")
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { staticClass: "th" }, [_vm._v("Naam")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Nummer")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Woonplaats")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Registreerdatum")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Role")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Opties")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-20657116", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-30d3d062\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/note/DetailsNote.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "modal",
+    { attrs: { name: "noteOnlyDetails", height: "auto", scrollable: true } },
+    [
+      _vm.note
+        ? _c("div", { staticClass: "p-8" }, [
+            _c("label", { staticClass: "label mb-6" }, [_vm._v("Details")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex mb-4" }, [
+              _c("div", { staticClass: "w-1/2 px-2" }, [
+                _c(
+                  "label",
+                  { staticClass: "label mb-2", attrs: { for: "Content" } },
+                  [_vm._v("Taak")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.note.content,
+                      expression: "note.content"
+                    }
+                  ],
+                  staticClass: "input w-full",
+                  attrs: {
+                    rows: "8",
+                    cols: "50",
+                    id: "content",
+                    name: "content",
+                    required: "",
+                    readonly: ""
+                  },
+                  domProps: { value: _vm.note.content },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.note, "content", $event.target.value)
+                    }
+                  }
+                })
+              ]),
+              _vm._v(" "),
+              _vm.note
+                ? _c("div", { staticClass: "w-1/2 px-2" }, [
+                    _c("label", { staticClass: "label mb-4" }, [
+                      _vm._v(
+                        "\n                        Naam\n                        "
+                      ),
+                      _c(
+                        "p",
+                        { staticClass: "text-black rounded noteproperty" },
+                        [
+                          _vm._v(
+                            _vm._s(_vm.note.potential_member["first_name"]) +
+                              " " +
+                              _vm._s(_vm.note.potential_member["surname"])
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "label mb-4" }, [
+                      _vm._v(
+                        "\n                        Contact informatie\n                        "
+                      ),
+                      _c(
+                        "p",
+                        { staticClass: "text-black rounded noteproperty" },
+                        [
+                          _vm._v(
+                            "\n\t\t\t\t\t\t\t" +
+                              _vm._s(_vm.note.potential_member["number"])
+                          ),
+                          _c("br"),
+                          _c("br"),
+                          _vm._v(_vm._s(_vm.note.potential_member["address"])),
+                          _c("br"),
+                          _vm._v(_vm._s(_vm.note.potential_member["zipcode"])),
+                          _c("br"),
+                          _vm._v(
+                            _vm._s(_vm.note.potential_member["city"]) +
+                              "\n                        "
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("label", { staticClass: "label mb-4" }, [
+                      _vm._v(
+                        "\n                        Beroep\n                        "
+                      ),
+                      _c(
+                        "p",
+                        { staticClass: "text-black rounded noteproperty" },
+                        [
+                          _vm._v(
+                            _vm._s(_vm.note.potential_member["profession"])
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _vm.note
+              ? _c("div", { staticClass: "flex mb-4" }, [
+                  _c("div", { staticClass: "w-1/4 px-2" }, [
+                    _c(
+                      "div",
+                      { staticClass: "mb-6" },
+                      [
+                        _c("label", { staticClass: "label mb-2" }, [
+                          _vm._v("Deadline")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "datetime",
+                          {
+                            attrs: {
+                              placeholder: "Selecteer datum",
+                              format: _vm.format,
+                              required: ""
+                            },
+                            model: {
+                              value: _vm.note.start,
+                              callback: function($$v) {
+                                _vm.$set(_vm.note, "start", $$v)
+                              },
+                              expression: "note.start"
+                            }
+                          },
+                          [_vm._v("Selecteer start.")]
+                        )
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "w-1/4 px-2" }, [
+                    _c(
+                      "div",
+                      { staticClass: "mb-6" },
+                      [
+                        _c("label", { staticClass: "label mb-2" }, [
+                          _vm._v("Gedaan op")
+                        ]),
+                        _vm._v(" "),
+                        _c(
+                          "datetime",
+                          {
+                            attrs: {
+                              placeholder: "nvt.",
+                              format: _vm.format,
+                              required: ""
+                            },
+                            model: {
+                              value: _vm.note.end,
+                              callback: function($$v) {
+                                _vm.$set(_vm.note, "end", $$v)
+                              },
+                              expression: "note.end"
+                            }
+                          },
+                          [_vm._v("Selecteer einde.")]
+                        )
+                      ],
+                      1
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "w-1/4 px-2" }, [
+                    _c("div", { staticClass: "mb-6" }, [
+                      _c("label", { staticClass: "label mb-6" }, [
+                        _vm._v("Gedaan")
+                      ]),
+                      _vm._v(" "),
+                      _vm.note.done === "false"
+                        ? _c(
+                            "p",
+                            { staticClass: "p-2 rounded text-black rounded" },
+                            [_vm._v("Nee")]
+                          )
+                        : _c(
+                            "p",
+                            { staticClass: "p-2 rounded text-black rounded" },
+                            [_vm._v("Ja")]
+                          )
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "w-1/4 px-2" }, [
+                    _c("div", { staticClass: "mb-6" }, [
+                      _c("label", { staticClass: "label mb-4" }, [
+                        _vm._v("Geïntereseerd op:")
+                      ]),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        { staticClass: "p-2 rounded text-black rounded" },
+                        [
+                          _vm._v(
+                            _vm._s(_vm.note.potential_member["interestdate"])
+                          )
+                        ]
+                      )
+                    ])
+                  ])
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex mb-4" }, [
+              _c("div", { staticClass: "w-1/2 px-2" }, [
+                _c("div", { staticClass: "mb-6" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn-normal w-full",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.openNote(_vm.note)
+                        }
+                      }
+                    },
+                    [_vm._v("Bewerken")]
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "w-1/2 px-2" }, [
+                _c("div", { staticClass: "mb-6" }, [
+                  _c(
+                    "button",
+                    {
+                      staticClass: "btn-delete w-full",
+                      attrs: { type: "button" },
+                      on: {
+                        click: function($event) {
+                          _vm.deleteNote(_vm.note)
+                        }
+                      }
+                    },
+                    [_vm._v("Verwijderen")]
+                  )
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex mb-4" }, [
+              _c("div", { staticClass: "w-full" }, [
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn-outlined w-full shadow",
+                    on: {
+                      click: function($event) {
+                        _vm.$modal.hide("noteOnlyDetails")
+                      }
+                    }
+                  },
+                  [_vm._v("Sluiten")]
+                )
+              ])
+            ])
+          ])
+        : _vm._e()
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-30d3d062", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-3ce14b91\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Notities.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container mx-auto" },
+    [
+      _c(
+        "button",
+        {
+          staticClass: "btn-normal mt-4 mb-4",
+          attrs: { type: "button" },
+          on: {
+            click: function($event) {
+              _vm.$modal.show("createNote")
+            }
+          }
+        },
+        [_vm._v("Nieuwe taak aanmaken")]
+      ),
+      _vm._v(" "),
+      _c(
+        "table",
+        {
+          staticClass: "text-left w-full bg-white",
+          staticStyle: { "border-collapse": "collapse" }
+        },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm.notes.length > 0
+            ? _c(
+                "tbody",
+                _vm._l(_vm.notes, function(note) {
+                  return _c(
+                    "tr",
+                    {
+                      staticClass: "hover:bg-blue-lightest cursor-pointer",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.openDetails(note)
+                        }
+                      }
+                    },
+                    [
+                      _c("td", { staticClass: "tr" }, [
+                        _c("p", { staticClass: "summary" }, [
+                          _vm._v(_vm._s(note.content))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "tr" }, [
+                        _vm._v(_vm._s(note.potential_member["first_name"])),
+                        _c("br"),
+                        _vm._v(_vm._s(note.potential_member["number"]))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "tr" }, [
+                        _vm._v(_vm._s(note.start))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "tr" }, [
+                        note.done === "false"
+                          ? _c(
+                              "span",
+                              {
+                                staticClass: "rounded p-2 bg-orange text-white"
+                              },
+                              [_vm._v("Nee")]
+                            )
+                          : _c(
+                              "span",
+                              {
+                                staticClass: "rounded p-2 bg-green text-white"
+                              },
+                              [_vm._v("Ja")]
+                            )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "tr" }, [
+                        _vm._v(_vm._s(note.date_created))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "tr" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn-normal",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                $event.stopPropagation()
+                                _vm.closeNote(note)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                            Sluit taak\n                        "
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  )
+                })
+              )
+            : _c("tbody", [
+                _c("td", { staticClass: "p-2" }, [
+                  _vm._v("Er zijn nog geen notities.")
+                ])
+              ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("createNote"),
+      _vm._v(" "),
+      _c("noteDetails"),
+      _vm._v(" "),
+      _c("noteOnlyDetails")
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { staticClass: "th" }, [_vm._v("Content")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Contact gegevens")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Moet klaar zijn op")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Gedaan")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Aanmaak datum")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Opties")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3ce14b91", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-40229a3e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Login.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "flex justify-center mt-16" }, [
+    _c("div", { staticClass: "w-full max-w-xs" }, [
+      _c(
+        "form",
+        {
+          staticClass: "bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4",
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              return _vm.login($event)
+            },
+            keydown: function($event) {
+              if (
+                !("button" in $event) &&
+                _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")
+              ) {
+                return null
+              }
+              $event.preventDefault()
+              return _vm.login($event)
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "mb-4" }, [
+            _c(
+              "label",
+              {
+                staticClass: "block text-grey-darker text-sm font-bold mb-2",
+                attrs: { for: "username" }
+              },
+              [_vm._v("\n                    Gebruikersnaam\n                ")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.creds.username,
+                  expression: "creds.username"
+                }
+              ],
+              staticClass:
+                "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
+              class: { "border-red": _vm.wrong },
+              attrs: { id: "username", type: "text", placeholder: "Username" },
+              domProps: { value: _vm.creds.username },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.creds, "username", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-6" }, [
+            _c(
+              "label",
+              {
+                staticClass: "block text-grey-darker text-sm font-bold mb-2",
+                attrs: { for: "password" }
+              },
+              [_vm._v("\n                    Wachtwoord\n                ")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.creds.password,
+                  expression: "creds.password"
+                }
+              ],
+              staticClass:
+                "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3",
+              class: { "border-red": _vm.wrong },
+              attrs: {
+                id: "password",
+                type: "password",
+                placeholder: "******************"
+              },
+              domProps: { value: _vm.creds.password },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.creds, "password", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _vm.wrong
+              ? _c("p", { staticClass: "text-red text-xs italic" }, [
+                  _vm._v("Login gegevens zijn onjuist.")
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
+          _vm._m(0)
+        ]
+      ),
+      _vm._v(" "),
+      _c("p", { staticClass: "text-center text-grey text-xs" }, [
+        _vm._v("\n            ©2018 Estate. All rights reserved.\n        ")
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex items-center justify-between" }, [
+      _c(
+        "button",
+        {
+          staticClass:
+            "bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded",
+          attrs: { type: "submit" }
+        },
+        [_vm._v("\n                    Login\n                ")]
+      ),
+      _vm._v(" "),
+      _c(
+        "a",
+        {
+          staticClass:
+            "inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker",
+          attrs: { href: "#" }
+        },
+        [_vm._v("\n                    Wachtwoord vergeten?\n                ")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-40229a3e", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-49f6b71e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/user/EditUser.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -31909,13 +31077,238 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-c87923c4", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-49f6b71e", module.exports)
   }
 }
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-f2b6376c\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Home.vue":
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-520c7970\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/note/CreateNote.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "modal",
+    { attrs: { name: "createNote", height: "auto", scrollable: true } },
+    [
+      _c(
+        "form",
+        {
+          staticClass: "p-8",
+          on: {
+            submit: function($event) {
+              $event.preventDefault()
+              _vm.createNote()
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "mb-6" }, [
+            _c("label", { staticClass: "label mb-6" }, [
+              _vm._v("Potentieel lid")
+            ]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.potential_member,
+                    expression: "form.potential_member"
+                  }
+                ],
+                staticClass:
+                  "block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow",
+                attrs: { required: "", required: "" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.form,
+                      "potential_member",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              _vm._l(_vm.users, function(user) {
+                return _c(
+                  "option",
+                  { staticClass: "w-full", domProps: { value: user } },
+                  [
+                    _vm._v(
+                      "\n                   " +
+                        _vm._s(user.first_name) +
+                        " " +
+                        _vm._s(user.surname) +
+                        "\n               "
+                    )
+                  ]
+                )
+              })
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-6" }, [
+            _c("label", { staticClass: "label mb-6" }, [_vm._v("Gedaan")]),
+            _vm._v(" "),
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.done,
+                    expression: "form.done"
+                  }
+                ],
+                staticClass:
+                  "block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow",
+                attrs: { required: "", required: "" },
+                on: {
+                  change: function($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function(o) {
+                        return o.selected
+                      })
+                      .map(function(o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.form,
+                      "done",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  }
+                }
+              },
+              [
+                _c("option", { attrs: { value: "false" } }, [_vm._v("Nee")]),
+                _vm._v(" "),
+                _c("option", { attrs: { value: "true" } }, [_vm._v("Ja")])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "mb-6" },
+            [
+              _c("label", { staticClass: "label mb-2" }, [
+                _vm._v("Moet klaar zijn op")
+              ]),
+              _vm._v(" "),
+              _c(
+                "datetime",
+                {
+                  attrs: { placeholder: "Selecteer datum", required: "" },
+                  model: {
+                    value: _vm.form.start,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "start", $$v)
+                    },
+                    expression: "form.start"
+                  }
+                },
+                [_vm._v("Selecteer start.")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "mb-6" }, [
+            _c(
+              "label",
+              { staticClass: "label mb-2", attrs: { for: "Content" } },
+              [_vm._v("Notitie")]
+            ),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.form.content,
+                  expression: "form.content"
+                }
+              ],
+              staticClass: "input w-full",
+              attrs: {
+                rows: "5",
+                cols: "50",
+                id: "content",
+                name: "content",
+                required: "",
+                autofocus: ""
+              },
+              domProps: { value: _vm.form.content },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.form, "content", $event.target.value)
+                }
+              }
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex -mx-4" }, [
+            _c(
+              "button",
+              {
+                staticClass: "btn-normal w-full mx-4 shadow",
+                class: { loader: _vm.isLoading },
+                attrs: { type: "submit" }
+              },
+              [_vm._v("Aanmaken")]
+            ),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn-outlined w-full mx-4 shadow",
+                on: {
+                  click: function($event) {
+                    _vm.$modal.hide("createNote")
+                  }
+                }
+              },
+              [_vm._v("Annuleren")]
+            )
+          ])
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-520c7970", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-58d70697\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Home.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -32088,7 +31481,570 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-f2b6376c", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-58d70697", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-74aa0984\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/note/OpenNote.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "modal",
+    { attrs: { name: "noteDetails", height: "auto", scrollable: true } },
+    [
+      _c("div", { staticClass: "p-8" }, [
+        _c("div", { staticClass: "mb-8" }, [
+          _c("label", { staticClass: "label mb-6" }, [
+            _vm._v("Potentieel lid")
+          ]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.note.potential_member,
+                  expression: "note.potential_member"
+                }
+              ],
+              staticClass:
+                "block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow",
+              attrs: { required: "", required: "" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.note,
+                    "potential_member",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            _vm._l(_vm.users, function(user) {
+              return _c(
+                "option",
+                { staticClass: "w-full", domProps: { value: user } },
+                [
+                  _vm._v(
+                    "\n                    " +
+                      _vm._s(user.first_name) +
+                      " " +
+                      _vm._s(user.surname) +
+                      "\n                "
+                  )
+                ]
+              )
+            })
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-6" }, [
+          _c("label", { staticClass: "label mb-6" }, [_vm._v("Gedaan")]),
+          _vm._v(" "),
+          _c(
+            "select",
+            {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.note.done,
+                  expression: "note.done"
+                }
+              ],
+              staticClass:
+                "block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow",
+              attrs: { required: "", required: "" },
+              on: {
+                change: function($event) {
+                  var $$selectedVal = Array.prototype.filter
+                    .call($event.target.options, function(o) {
+                      return o.selected
+                    })
+                    .map(function(o) {
+                      var val = "_value" in o ? o._value : o.value
+                      return val
+                    })
+                  _vm.$set(
+                    _vm.note,
+                    "done",
+                    $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                  )
+                }
+              }
+            },
+            [
+              _c("option", { attrs: { value: "false" } }, [_vm._v("Nee")]),
+              _vm._v(" "),
+              _c("option", { attrs: { value: "true" } }, [_vm._v("Ja")])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "mb-6" },
+          [
+            _c("label", { staticClass: "label mb-2" }, [
+              _vm._v("Moet klaar zijn op")
+            ]),
+            _vm._v(" "),
+            _c(
+              "datetime",
+              {
+                attrs: {
+                  placeholder: "Selecteer datum",
+                  format: _vm.format,
+                  required: ""
+                },
+                model: {
+                  value: _vm.note.start,
+                  callback: function($$v) {
+                    _vm.$set(_vm.note, "start", $$v)
+                  },
+                  expression: "note.start"
+                }
+              },
+              [_vm._v("Selecteer start.")]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "mb-6" },
+          [
+            _c("label", { staticClass: "label mb-2" }, [_vm._v("Gedaan op")]),
+            _vm._v(" "),
+            _c(
+              "datetime",
+              {
+                attrs: {
+                  placeholder: "Selecteer datum",
+                  format: _vm.format,
+                  required: ""
+                },
+                model: {
+                  value: _vm.note.end,
+                  callback: function($$v) {
+                    _vm.$set(_vm.note, "end", $$v)
+                  },
+                  expression: "note.end"
+                }
+              },
+              [_vm._v("Selecteer einde.")]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "mb-6" }, [
+          _c(
+            "label",
+            { staticClass: "label mb-2", attrs: { for: "Content" } },
+            [_vm._v("Notitie")]
+          ),
+          _vm._v(" "),
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.note.content,
+                expression: "note.content"
+              }
+            ],
+            staticClass: "input w-full",
+            attrs: {
+              rows: "5",
+              cols: "50",
+              id: "content",
+              name: "content",
+              required: ""
+            },
+            domProps: { value: _vm.note.content },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.$set(_vm.note, "content", $event.target.value)
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex -mx-4" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn-normal w-full mx-4 shadow",
+              on: {
+                click: function($event) {
+                  _vm.updateNote()
+                }
+              }
+            },
+            [_vm._v("Update")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn-outlined w-full mx-4 shadow",
+              on: {
+                click: function($event) {
+                  _vm.$modal.hide("noteDetails")
+                }
+              }
+            },
+            [_vm._v("Sluiten")]
+          )
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-74aa0984", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-7d823f74\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/user/User.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "modal",
+        { attrs: { name: "userdetails", height: "auto", scrollable: true } },
+        [
+          _c("div", { staticClass: "p-8" }, [
+            _c("h1", [
+              _vm._v(
+                _vm._s(_vm.user.first_name) +
+                  " " +
+                  _vm._s(_vm.user.surname) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-6 flex flex-col" }, [
+              _c("div", [
+                _c("label", { staticClass: "label mb-2" }, [_vm._v("Rol")])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "flex" }, [
+                _c(
+                  "span",
+                  {
+                    staticClass:
+                      "flex rounded-full bg-indigo uppercase px-2 py-1 text-xs font-bold mr-3"
+                  },
+                  [_vm._v(_vm._s(_vm.user.role))]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-6" }, [
+              _c("label", { staticClass: "label mb-2" }, [_vm._v("Vakgebied")]),
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.user.profession) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-6" }, [
+              _c("label", { staticClass: "label mb-2" }, [_vm._v("Nummer")]),
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.user.number) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-6" }, [
+              _c("label", { staticClass: "label mb-2" }, [
+                _vm._v("Geboortedatum")
+              ]),
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.user.birthdate) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-6" }, [
+              _c("label", { staticClass: "label mb-2" }, [
+                _vm._v("Registreerdatum")
+              ]),
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.user.date_joined) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-6" }, [
+              _c("label", { staticClass: "label mb-2" }, [
+                _vm._v("Interesse vanaf:")
+              ]),
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.user.interestdate) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-6" }, [
+              _c("label", { staticClass: "label mb-2" }, [_vm._v("Adres")]),
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.user.address) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-6" }, [
+              _c("label", { staticClass: "label mb-2" }, [_vm._v("Postcode")]),
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.user.zipcode) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mb-6" }, [
+              _c("label", { staticClass: "label mb-2" }, [
+                _vm._v("Woonplaats")
+              ]),
+              _vm._v(
+                "\n                    " +
+                  _vm._s(_vm.user.city) +
+                  "\n                "
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex -mx-4" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn-normal w-full mx-4 shadow",
+                  on: {
+                    click: function($event) {
+                      _vm.editUser(_vm.user)
+                    }
+                  }
+                },
+                [_vm._v("Bewerken")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn-normal w-full mx-4 shadow",
+                  on: {
+                    click: function($event) {
+                      _vm.$modal.hide("userdetails")
+                    }
+                  }
+                },
+                [_vm._v("Sluiten")]
+              )
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("edit-user")
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-7d823f74", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-d07902dc\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/AllNotities.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "container mx-auto mt-4" },
+    [
+      _c(
+        "table",
+        {
+          staticClass: "text-left w-full bg-white",
+          staticStyle: { "border-collapse": "collapse" }
+        },
+        [
+          _vm._m(0),
+          _vm._v(" "),
+          _vm.notes.length > 0
+            ? _c(
+                "tbody",
+                _vm._l(_vm.notes, function(note) {
+                  return _c(
+                    "tr",
+                    {
+                      staticClass: "clickable-row hover:bg-blue-lightest",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.openDetails(note)
+                        }
+                      }
+                    },
+                    [
+                      _c("td", { staticClass: "tr" }, [
+                        _c("p", { staticClass: "summary" }, [
+                          _vm._v(_vm._s(note.content))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "tr" }, [
+                        _vm._v(_vm._s(note.potential_member["first_name"]))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "tr" }, [
+                        _vm._v(_vm._s(note.start))
+                      ]),
+                      _vm._v(" "),
+                      note.end
+                        ? _c("td", { staticClass: "tr" }, [
+                            _vm._v(_vm._s(note.end))
+                          ])
+                        : _c("td", { staticClass: "tr" }, [_vm._v("nvt")]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "tr" }, [
+                        note.done === "false"
+                          ? _c(
+                              "span",
+                              {
+                                staticClass: "rounded p-2 bg-orange text-white"
+                              },
+                              [_vm._v("Nee")]
+                            )
+                          : _c(
+                              "span",
+                              {
+                                staticClass: "rounded p-2 bg-green text-white"
+                              },
+                              [_vm._v("Ja")]
+                            )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "tr" }, [
+                        _vm._v(_vm._s(note.date_created))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "tr" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn-normal",
+                            on: {
+                              click: function($event) {
+                                $event.stopPropagation()
+                                _vm.reopen(note)
+                              }
+                            }
+                          },
+                          [_vm._v("Heropen")]
+                        )
+                      ])
+                    ]
+                  )
+                })
+              )
+            : _c("tbody", [
+                _c("td", { staticClass: "p-2" }, [
+                  _vm._v("Er zijn nog geen notities.")
+                ])
+              ])
+        ]
+      ),
+      _vm._v(" "),
+      _c("createNote"),
+      _vm._v(" "),
+      _c("noteDetails"),
+      _vm._v(" "),
+      _c("noteOnlyDetails")
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { staticClass: "th" }, [_vm._v("Content")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Contact gegevens")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Moet klaar zijn op")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Gedaan op")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Gedaan")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Aanmaak datum")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-d07902dc", module.exports)
   }
 }
 
@@ -48262,7 +48218,7 @@ var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/comp
 /* script */
 var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/AllNotities.vue")
 /* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-80f53d02\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/AllNotities.vue")
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-d07902dc\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/AllNotities.vue")
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48279,7 +48235,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/AllNotities.vue"
+Component.options.__file = "resources\\js\\components\\AllNotities.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -48288,9 +48244,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-80f53d02", Component.options)
+    hotAPI.createRecord("data-v-d07902dc", Component.options)
   } else {
-    hotAPI.reload("data-v-80f53d02", Component.options)
+    hotAPI.reload("data-v-d07902dc", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -48310,7 +48266,7 @@ var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/comp
 /* script */
 var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/Home.vue")
 /* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-f2b6376c\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Home.vue")
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-58d70697\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Home.vue")
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48327,7 +48283,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/Home.vue"
+Component.options.__file = "resources\\js\\components\\Home.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -48336,9 +48292,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-f2b6376c", Component.options)
+    hotAPI.createRecord("data-v-58d70697", Component.options)
   } else {
-    hotAPI.reload("data-v-f2b6376c", Component.options)
+    hotAPI.reload("data-v-58d70697", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -48358,7 +48314,7 @@ var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/comp
 /* script */
 var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/Login.vue")
 /* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-6bdc8b8e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Login.vue")
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-40229a3e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Login.vue")
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48375,7 +48331,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/Login.vue"
+Component.options.__file = "resources\\js\\components\\Login.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -48384,9 +48340,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6bdc8b8e", Component.options)
+    hotAPI.createRecord("data-v-40229a3e", Component.options)
   } else {
-    hotAPI.reload("data-v-6bdc8b8e", Component.options)
+    hotAPI.reload("data-v-40229a3e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -48406,7 +48362,7 @@ var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/comp
 /* script */
 var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/Notities.vue")
 /* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-1f59d078\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Notities.vue")
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-3ce14b91\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Notities.vue")
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48423,7 +48379,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/Notities.vue"
+Component.options.__file = "resources\\js\\components\\Notities.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -48432,9 +48388,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1f59d078", Component.options)
+    hotAPI.createRecord("data-v-3ce14b91", Component.options)
   } else {
-    hotAPI.reload("data-v-1f59d078", Component.options)
+    hotAPI.reload("data-v-3ce14b91", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -48454,7 +48410,7 @@ var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/comp
 /* script */
 var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/Potential.vue")
 /* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-49a5a97a\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Potential.vue")
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-20657116\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Potential.vue")
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48471,7 +48427,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/Potential.vue"
+Component.options.__file = "resources\\js\\components\\Potential.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -48480,9 +48436,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-49a5a97a", Component.options)
+    hotAPI.createRecord("data-v-20657116", Component.options)
   } else {
-    hotAPI.reload("data-v-49a5a97a", Component.options)
+    hotAPI.reload("data-v-20657116", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -48502,7 +48458,7 @@ var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/comp
 /* script */
 var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/Register.vue")
 /* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-97358ae4\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Register.vue")
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-00f36e5b\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/Register.vue")
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48519,7 +48475,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/Register.vue"
+Component.options.__file = "resources\\js\\components\\Register.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -48528,9 +48484,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-97358ae4", Component.options)
+    hotAPI.createRecord("data-v-00f36e5b", Component.options)
   } else {
-    hotAPI.reload("data-v-97358ae4", Component.options)
+    hotAPI.reload("data-v-00f36e5b", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -48550,7 +48506,7 @@ var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/comp
 /* script */
 var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/note/CreateNote.vue")
 /* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-63877070\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/note/CreateNote.vue")
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-520c7970\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/note/CreateNote.vue")
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48567,7 +48523,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/note/CreateNote.vue"
+Component.options.__file = "resources\\js\\components\\note\\CreateNote.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -48576,9 +48532,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-63877070", Component.options)
+    hotAPI.createRecord("data-v-520c7970", Component.options)
   } else {
-    hotAPI.reload("data-v-63877070", Component.options)
+    hotAPI.reload("data-v-520c7970", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -48598,7 +48554,7 @@ var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/comp
 /* script */
 var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/note/DetailsNote.vue")
 /* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-4eb7b962\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/note/DetailsNote.vue")
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-30d3d062\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/note/DetailsNote.vue")
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48615,7 +48571,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/note/DetailsNote.vue"
+Component.options.__file = "resources\\js\\components\\note\\DetailsNote.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -48624,9 +48580,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4eb7b962", Component.options)
+    hotAPI.createRecord("data-v-30d3d062", Component.options)
   } else {
-    hotAPI.reload("data-v-4eb7b962", Component.options)
+    hotAPI.reload("data-v-30d3d062", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -48646,7 +48602,7 @@ var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/comp
 /* script */
 var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/note/OpenNote.vue")
 /* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-1777b23e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/note/OpenNote.vue")
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-74aa0984\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/note/OpenNote.vue")
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48663,7 +48619,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/note/OpenNote.vue"
+Component.options.__file = "resources\\js\\components\\note\\OpenNote.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -48672,9 +48628,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1777b23e", Component.options)
+    hotAPI.createRecord("data-v-74aa0984", Component.options)
   } else {
-    hotAPI.reload("data-v-1777b23e", Component.options)
+    hotAPI.reload("data-v-74aa0984", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -48694,7 +48650,7 @@ var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/comp
 /* script */
 var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/user/EditUser.vue")
 /* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-c87923c4\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/user/EditUser.vue")
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-49f6b71e\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/user/EditUser.vue")
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48711,7 +48667,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/user/EditUser.vue"
+Component.options.__file = "resources\\js\\components\\user\\EditUser.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -48720,9 +48676,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-c87923c4", Component.options)
+    hotAPI.createRecord("data-v-49f6b71e", Component.options)
   } else {
-    hotAPI.reload("data-v-c87923c4", Component.options)
+    hotAPI.reload("data-v-49f6b71e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -48742,7 +48698,7 @@ var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/comp
 /* script */
 var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/js/components/user/User.vue")
 /* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-28427674\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/user/User.vue")
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-7d823f74\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/js/components/user/User.vue")
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48759,7 +48715,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/components/user/User.vue"
+Component.options.__file = "resources\\js\\components\\user\\User.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -48768,9 +48724,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-28427674", Component.options)
+    hotAPI.createRecord("data-v-7d823f74", Component.options)
   } else {
-    hotAPI.reload("data-v-28427674", Component.options)
+    hotAPI.reload("data-v-7d823f74", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true

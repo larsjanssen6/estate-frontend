@@ -5,18 +5,18 @@
                 <thead>
                 <tr>
                     <th class="th">Content</th>
+					<th class="th">Contact gegevens</th>
                     <th class="th">Moet klaar zijn op</th>
-                    <th class="th">Gedaan op</th>
                     <th class="th">Gedaan</th>
                     <th class="th">Aanmaak datum</th>
+					<th class="th">Opties</th>
                 </tr>
                 </thead>
                 <tbody v-if="notes.length > 0">
                 <tr class="hover:bg-blue-lightest cursor-pointer" v-for="note in notes" @click.prevent="openDetails(note)">
                     <td class="tr"><p class="summary">{{ note.content }}</p></td>
+					<td class="tr">{{ note.potential_member['first_name']}}<br>{{note.potential_member['number']}}</td>
                     <td class="tr">{{ note.start }}</td>
-                    <td class="tr" v-if="note.end">{{ note.end }}</td>
-                    <td class="tr" v-else>nvt</td>
                     <td class="tr">
                         <span class="rounded p-2 bg-orange text-white" v-if="note.done === 'false'">Nee</span>
                         <span class="rounded p-2 bg-green text-white" v-else>Ja</span>
@@ -25,14 +25,6 @@
                     <td class="tr">
                         <button class="btn-normal" type="button" @click.stop="closeNote(note)">
                             Sluit taak
-                        </button>
-
-                        <button class="btn-normal" type="button" @click.stop="openNote(note)">
-                            Open
-                        </button>
-
-                        <button class="btn-delete" type="button" @click.stop="deleteNote(note)">
-                            Verwijderen
                         </button>
                     </td>
                 </tr>
