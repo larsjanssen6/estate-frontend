@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto">
+    <div class="container mx-auto mt-4">
             <table class="text-left w-full bg-white" style="border-collapse:collapse">
                 <thead>
                 <tr>
@@ -13,7 +13,7 @@
                 </tr>
                 </thead>
                 <tbody v-if="notes.length > 0">
-                    <tr class="clickable-row hover:bg-blue-lightest" v-for="note in notes" @click="openDetails(note)">
+                    <tr class="clickable-row hover:bg-blue-lightest" v-for="note in notes" @click.prevent="openDetails(note)">
                         <td class="tr"><p class="summary">{{ note.content }}</p></td>
                         <td class="tr">{{ note.potential_member['first_name'] }}</td>
                         <td class="tr">{{ note.start }}</td>
@@ -24,6 +24,9 @@
                             <span class="rounded p-2 bg-green text-white" v-else>Ja</span>
                         </td>
                         <td class="tr">{{ note.date_created }}</td>
+                        <td class="tr">
+                            <button class="btn-normal" @click.stop="reopen(note)">Heropen</button>
+                        </td>
                         <!-- <td class="tr">
                             <button class="btn-normal" type="button" @click="openDetails(note)">
                                 Details
@@ -74,6 +77,18 @@
             },
             openDetails(note) {
                 Bus.$emit('show-details-note', note);
+            },
+            reopen(note) {
+                axios.post('/note/reopen', note).then(() => {
+                    this.$swal({
+                        title: 'Taak is heropend',
+                        type: 'success',
+                    });
+
+                    this.notes = this.notes.filter((n) => {
+                        return n.id !== note.id;
+                    });
+                });
             },
             deleteNote(note){
                 this.$swal({
