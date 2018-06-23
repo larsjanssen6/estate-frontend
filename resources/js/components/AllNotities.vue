@@ -9,7 +9,7 @@
                     <th class="th">Gedaan op</th>
                     <th class="th">Gedaan</th>
                     <th class="th">Aanmaak datum</th>
-                    <!-- <th class="th">Opties</th> -->
+                    <th class="th">Opties</th>
                 </tr>
                 </thead>
                 <tbody v-if="notes.length > 0">
@@ -27,11 +27,6 @@
                         <td class="tr">
                             <button class="btn-normal" @click.stop="reopen(note)">Heropen</button>
                         </td>
-                        <!-- <td class="tr">
-                            <button class="btn-normal" type="button" @click="openDetails(note)">
-                                Details
-                            </button>
-                        </td> -->
                     </tr>
                 </tbody>
 

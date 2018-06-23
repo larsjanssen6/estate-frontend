@@ -1690,11 +1690,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -32034,7 +32029,9 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", { staticClass: "th" }, [_vm._v("Gedaan")]),
         _vm._v(" "),
-        _c("th", { staticClass: "th" }, [_vm._v("Aanmaak datum")])
+        _c("th", { staticClass: "th" }, [_vm._v("Aanmaak datum")]),
+        _vm._v(" "),
+        _c("th", { staticClass: "th" }, [_vm._v("Opties")])
       ])
     ])
   }
