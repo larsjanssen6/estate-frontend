@@ -2080,10 +2080,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 
 
@@ -29690,115 +29686,116 @@ var render = function() {
             ? _c(
                 "tbody",
                 _vm._l(_vm.notes, function(note) {
-                  return _c("tr", { staticClass: "hover:bg-blue-lightest" }, [
-                    _c("td", { staticClass: "tr" }, [
-                      _c("p", { staticClass: "summary" }, [
-                        _vm._v(_vm._s(note.content))
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "tr" }, [
-                      _vm._v(_vm._s(note.start))
-                    ]),
-                    _vm._v(" "),
-                    note.end
-                      ? _c("td", { staticClass: "tr" }, [
-                          _vm._v(_vm._s(note.end))
+                  return _c(
+                    "tr",
+                    {
+                      staticClass: "hover:bg-blue-lightest cursor-pointer",
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.openDetails(note)
+                        }
+                      }
+                    },
+                    [
+                      _c("td", { staticClass: "tr" }, [
+                        _c("p", { staticClass: "summary" }, [
+                          _vm._v(_vm._s(note.content))
                         ])
-                      : _c("td", { staticClass: "tr" }, [_vm._v("nvt")]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "tr" }, [
-                      note.done === "false"
-                        ? _c(
-                            "span",
-                            { staticClass: "rounded p-2 bg-orange text-white" },
-                            [_vm._v("Nee")]
-                          )
-                        : _c(
-                            "span",
-                            { staticClass: "rounded p-2 bg-green text-white" },
-                            [_vm._v("Ja")]
-                          )
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "tr" }, [
-                      _vm._v(_vm._s(note.date_created))
-                    ]),
-                    _vm._v(" "),
-                    _c("td", { staticClass: "tr" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn-normal",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              _vm.closeNote(note)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        Sluit taak\n                    "
-                          )
-                        ]
-                      ),
+                      ]),
                       _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn-normal",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              _vm.openNote(note)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        Open\n                    "
-                          )
-                        ]
-                      ),
+                      _c("td", { staticClass: "tr" }, [
+                        _vm._v(_vm._s(note.start))
+                      ]),
                       _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn-normal",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              _vm.openDetails(note)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        Details\n                    "
-                          )
-                        ]
-                      ),
+                      note.end
+                        ? _c("td", { staticClass: "tr" }, [
+                            _vm._v(_vm._s(note.end))
+                          ])
+                        : _c("td", { staticClass: "tr" }, [_vm._v("nvt")]),
                       _vm._v(" "),
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn-delete",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              _vm.deleteNote(note)
+                      _c("td", { staticClass: "tr" }, [
+                        note.done === "false"
+                          ? _c(
+                              "span",
+                              {
+                                staticClass: "rounded p-2 bg-orange text-white"
+                              },
+                              [_vm._v("Nee")]
+                            )
+                          : _c(
+                              "span",
+                              {
+                                staticClass: "rounded p-2 bg-green text-white"
+                              },
+                              [_vm._v("Ja")]
+                            )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "tr" }, [
+                        _vm._v(_vm._s(note.date_created))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "tr" }, [
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn-normal",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                $event.stopPropagation()
+                                _vm.closeNote(note)
+                              }
                             }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                        Verwijderen\n                    "
-                          )
-                        ]
-                      )
-                    ])
-                  ])
+                          },
+                          [
+                            _vm._v(
+                              "\n                        Sluit taak\n                    "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn-normal",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                $event.stopPropagation()
+                                _vm.openNote(note)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        Open\n                    "
+                            )
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "button",
+                          {
+                            staticClass: "btn-delete",
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                $event.stopPropagation()
+                                _vm.deleteNote(note)
+                              }
+                            }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        Verwijderen\n                    "
+                            )
+                          ]
+                        )
+                      ])
+                    ]
+                  )
                 })
               )
             : _c("tbody", [
