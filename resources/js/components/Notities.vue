@@ -9,7 +9,6 @@
                     <th class="th">Gedaan op</th>
                     <th class="th">Gedaan</th>
                     <th class="th">Aanmaak datum</th>
-<<<<<<< HEAD
                 </tr>
                 </thead>
                 <tbody v-if="notes.length > 0">
@@ -24,6 +23,10 @@
                     </td>
                     <td class="tr">{{ note.date_created }}</td>
                     <td class="tr">
+                        <button class="btn-normal" type="button" @click="closeNote(note)">
+                            Sluit taak
+                        </button>
+
                         <button class="btn-normal" type="button" @click="openNote(note)">
                             Open
                         </button>
@@ -37,29 +40,6 @@
                         </button>
                     </td>
                 </tr>
-=======
-                    <!-- <th class="th">Opties</th> -->
-                </tr>
-                </thead>
-                <tbody v-if="notes.length > 0">
-                    <tr class="clickable-row hover:bg-blue-lightest" v-for="note in notes" @click="openDetails(note)">
-                        <td class="tr"><p class="summary">{{ note.content }}</p></td>
-                        <td class="tr">{{ note.potential_member['first_name'] }}</td>
-                        <td class="tr">{{ note.start }}</td>
-                        <td class="tr" v-if="note.end">{{ note.end }}</td>
-                        <td class="tr" v-else>nvt</td>
-                        <td class="tr">
-                            <span class="rounded p-2 bg-orange text-white" v-if="note.done === 'false'">Nee</span>
-                            <span class="rounded p-2 bg-green text-white" v-else>Ja</span>
-                        </td>
-                        <td class="tr">{{ note.date_created }}</td>
-                        <!-- <td class="tr">
-                            <button class="btn-normal" type="button" @click="openDetails(note)">
-                                Details
-                            </button>
-                        </td> -->
-                    </tr>
->>>>>>> b992962ea0d6506d59970e4715c55b7d02d346b0
                 </tbody>
 
                 <tbody v-else>
@@ -104,6 +84,18 @@
             },
             openDetails(note) {
                 Bus.$emit('show-details-note', note);
+            },
+            closeNote(note) {
+                axios.post('/note/done', note).then(() => {
+                    this.$swal({
+                        title: 'Taak is gesloten',
+                        type: 'success',
+                    });
+
+                    this.notes = this.notes.filter((n) => {
+                        return n.id !== note.id;
+                    });
+                });
             },
             deleteNote(note){
                 this.$swal({
